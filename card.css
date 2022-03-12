@@ -1,3 +1,6 @@
 body, html {
     background-image: url("../velvetGreen.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
 }
