@@ -1,18 +1,22 @@
+//Timer functions below
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
-var milisecondsLabel = document.getElementById("miliseconds");
+//var milisecondsLabel = document.getElementById("miliseconds");
 var hoursLabel = document.getElementById("hours");
 var isPaused = false;
 var time = 0;
 
+//Pause function for timer.
 function functionPause() {
     isPaused = true;
 }
 
+//Resume function for timer
 function functionResume() {
     isPaused = false;
 }
 
+//Padding for innerHTML text.
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
@@ -22,6 +26,7 @@ function pad(val) {
   }
 }
 
+//New game function for timer. Start timer when user press newGame button.
 var t;
 function newGame(num) {
     document.getElementById("gameEnd").style.cursor = "pointer";
@@ -29,7 +34,7 @@ function newGame(num) {
         if(!isPaused && num === 0) {
             time++;
             if(num === 0) {
-                milisecondsLabel.innerHTML = pad(time % 60);
+                //milisecondsLabel.innerHTML = pad(time % 60);
                 secondsLabel.innerHTML = pad(parseInt((time / 60) % 60));
                 minutesLabel.innerHTML = pad(parseInt((time / 60 / 60) % 60));
                 hoursLabel.innerHTML = pad(parseInt((time / 60 / 60 / 60) % 60));
@@ -45,12 +50,14 @@ function newGame(num) {
         }
     }, 10);
 } 
+
+//New game function for timer. End timer when user press endGame button.
 function endGame(num) {
     document.getElementById("gameNew").style.cursor = "pointer";
     if(num === 1) {
         clearInterval(t);
         time = 0;
-        milisecondsLabel.innerHTML = "00";
+        //milisecondsLabel.innerHTML = "00";
         secondsLabel.innerHTML = "00";
         minutesLabel.innerHTML = "00";
         hoursLabel.innerHTML = "00";
@@ -65,10 +72,7 @@ function endGame(num) {
     }
 }
 
-
-
 // Below is the help button modal
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
