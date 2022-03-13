@@ -1,4 +1,4 @@
-//Timer functions below
+// Timer functions below
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 //var milisecondsLabel = document.getElementById("miliseconds");
@@ -6,17 +6,17 @@ var hoursLabel = document.getElementById("hours");
 var isPaused = false;
 var time = 0;
 
-//Pause function for timer.
+// Pause function for timer.
 function functionPause() {
     isPaused = true;
 }
 
-//Resume function for timer
+// Resume function for timer
 function functionResume() {
     isPaused = false;
 }
 
-//Padding for innerHTML text.
+// Padding for innerHTML text.
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
@@ -26,7 +26,7 @@ function pad(val) {
   }
 }
 
-//New game function for timer. Start timer when user press newGame button.
+// New game function for timer. Start timer when user press newGame button.
 var t;
 function newGame(num) {
     document.getElementById("gameEnd").style.cursor = "pointer";
@@ -52,27 +52,33 @@ function newGame(num) {
     }, 10);
 } 
 
-//New game function for timer. End timer when user press endGame button.
+// New game function for timer. End timer when user press endGame button.
 function endGame(num) {
-    document.getElementById("gameNew").style.cursor = "pointer";
-    if(num === 1) {
-        clearInterval(t);
-        time = 0;
-        //milisecondsLabel.innerHTML = "00";
-        secondsLabel.innerHTML = "00";
-        minutesLabel.innerHTML = "00";
-        hoursLabel.innerHTML = "00";
-        document.getElementById("gameNew").disabled = false;
+    if (confirm('Are you sure you want to end this game?')) {
         document.getElementById("gameNew").style.cursor = "pointer";
-        document.getElementById("gameEnd").disabled = true;
-        document.getElementById("gameEnd").style.cursor = "no-drop";
-        document.getElementById("pauseBtn").style.cursor = "no-drop";
-        document.getElementById("resumeBtn").style.cursor = "no-drop";
-        document.getElementById("pauseBtn").disabled = true;
-        document.getElementById("resumeBtn").disabled = true;
-        document.getElementById("table").style.display = "none";
+        if(num === 1) {
+            clearInterval(t);
+            time = 0;
+            //milisecondsLabel.innerHTML = "00";
+            secondsLabel.innerHTML = "00";
+            minutesLabel.innerHTML = "00";
+            hoursLabel.innerHTML = "00";
+            document.getElementById("gameNew").disabled = false;
+            document.getElementById("gameNew").style.cursor = "pointer";
+            document.getElementById("gameEnd").disabled = true;
+            document.getElementById("gameEnd").style.cursor = "no-drop";
+            document.getElementById("pauseBtn").style.cursor = "no-drop";
+            document.getElementById("resumeBtn").style.cursor = "no-drop";
+            document.getElementById("pauseBtn").disabled = true;
+            document.getElementById("resumeBtn").disabled = true;
+            document.getElementById("table").style.display = "none";
+        }
+    }
+    else {
+        console.log('Thing was not saved to the database.');
     }
 }
+// End of timer functions.
 
 // Below is the help button modal
 // Get the modal
@@ -869,7 +875,7 @@ UI.prototype.help = function() {
 
 UI.prototype.new_game = function() {
     var this_ui = this;
-    $('#newgame').click(function() {
+    $('#gameNew').click(function() {
         this_ui.game.reset();
         this_ui.remove_cards();
         this_ui.add_cards();
