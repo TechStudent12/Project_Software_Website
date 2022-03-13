@@ -91,3 +91,11 @@ body, html {
     background-color: crimson;
     outline: 1px solid red;
 }
+
+.column {
+    cursor: pointer;
+}
+
+#col4, #col5, #col6, #col7 {
+    float: right;
+}
