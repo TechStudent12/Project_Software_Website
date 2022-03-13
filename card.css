@@ -1,6 +1,22 @@
 body, html {
     background-image: url("../green_felt.jpg");
-    background-size: cover;
+    background-size: fit;
     background-repeat: no-repeat;
     color: white;
+}
+
+#gameNew, #helpBtn, #scoreBtn {
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+#gameNew, #helpBtn {
+    transition: all 0.2s ease-in-out;
+}
+
+#gameNew:hover, #helpBtn:hover {
+    color: yellow;
+    box-shadow: 0px 0px 5px rgba(220, 20, 60, 1);
+    cursor: pointer;
 }
