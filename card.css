@@ -3,20 +3,72 @@ body, html {
     background-size: fit;
     background-repeat: no-repeat;
     color: white;
+    cursor: no-drop;
 }
 
-#gameNew, #helpBtn, #scoreBtn, #timerBtn {
+#gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn, #resumeBtn {
     padding: 10px;
     background-color: transparent;
     color: white;
 }
 
-#gameNew, #helpBtn {
+#timerBtn {
+    padding: 10px;
+    width: 390px;
+}
+
+#scoreBtn, #timerBtn {
+    cursor: no-drop;
+}
+
+#gameNew {
+    cursor: pointer;
+}
+
+#gameEnd {
+    cursor: no-drop;
+}
+
+#gameNew, #gameEnd, #helpBtn, #pauseBtn, #resumeBtn {
     transition: all 0.2s ease-in-out;
 }
 
-#gameNew:hover, #helpBtn:hover {
+#gameNew:hover:enabled, #gameEnd:hover:enabled, #helpBtn:hover, #pauseBtn:hover, #resumeBtn:hover {
     color: yellow;
     box-shadow: 0px 0px 5px rgba(220, 20, 60, 1);
     cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    color: black;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    height: 50%;
+    overflow-y: scroll;
+}
+
+.modal-content h1 {
+    color: black;
+}
+
+.modal-content p {
+    color: black;
 }

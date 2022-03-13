@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="card.css">
-<title>Solitaire</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="card.css">
+   <title>Solitaire</title>
 </head>
-<script type="text/javascript" src="../card.js"></script>
 <body>
-   <button id="gameNew">New Game</button>
+
+   <center><button id="gameNew" onclick="newGame(0);">New Game</button>
+   <button id="gameEnd" onclick="endGame(1);" disabled>End Game</button>
    <button id="helpBtn">Help</button>
    <button id="scoreBtn" disabled>Score: 0</button>
-   <button id="timerBtn" disabled>Timer: 0:00</button>
+   <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds : <label id="miliseconds">00</label> milliseconds</button>
+   <button id="pauseBtn" onclick="functionPause();">Pause</button>
+   <button id="resumeBtn" onclick="functionResume();">Resume</button></center>
+
+   <!-- The help button modal--->
+   <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+         <h1 style="padding-top: 0px; margin-top: 0px;">How to play: Solitaire</h1>
+
+         <p><strong>THE PACK</strong></p>
+         <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>
+         <p><strong>OBJECT OF THE GAME</strong></p>
+         <p>The first objective is to release and play into position certain cards to build up each foundation, in sequence and in suit, from the ace through the king. 
+         <br/><br/>The ultimate objective is to build the whole pack onto the foundations, and if that can be done, the Solitaire game is won.</p>
+
+         <p><strong> RANK OF CARDS </strong> </p>
+         <p>The rank of cards in Solitaire games is: K (high), Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A (low).</p>
+
+         
+         <p><strong> THE DEAL </strong></p>
+         
+         <p>There are four different types of piles in Solitaire: </p>
+
+         <p><strong> THE TABLEAU: </strong></p> 
+         <p>Seven piles that make up the main table. </p>
+      
+         <p><strong> THE FOUNDATIONS: </strong></p>
+         <p>Four piles on which a whole suit or sequence must be built up.<br/><br/>In most Solitaire games, the four aces are the bottom card or base of the foundations. 
+         <br/><br/>The foundation piles are:
+            <ul>
+               <li><labeL style="color: red; font-size: 20px;">&#9829;</labeL><labeL style="color: black; font-size: 20px;">&#9829;</labeL> Hearts</li>
+               <li><labeL style="color: red; font-size: 24px;">&#9830;</labeL><labeL style="color: black; font-size: 24px;">&#9830;</labeL> Diamonds</li>
+               <li><labeL style="color: red; font-size: 24px;">&#9824;</labeL><labeL style="color: black; font-size: 24px;">&#9824;</labeL> Spades</li>
+               <li><labeL style="color: red; font-size: 20px;">&#9827;</labeL><labeL style="color: black; font-size: 20px;">&#9827;</labeL> Clubs</li>
+            </ul>
+         The Stock (or “Hand”) Pile: 
+         <ul><li>If the entire pack is not laid out in a tableau at the beginning of a game, the remaining cards form the stock pile from which additional cards are brought into play according to the rules.</li></ul>
+         The Talon (or “Waste”) Pile: 
+         <ul>
+            <li>Cards from the stock pile that have no place in the tableau or on foundations are laid face up in the waste pile.</li>
+         </ul>
+         To form the tableau, seven piles need to be created.
+         <ul>
+            <li>Starting from left to right, place the first card face up to make the first pile, deal one card face down for the next six piles.</li>
+            <li>Starting again from left to right, place one card face up on the second pile and deal one card face down on piles three through seven.</li>
+            <li>Starting again from left to right, place one card face up on the third pile and deal one card face down on piles four through seven.</li>
+         </ul>
+         Continue this pattern until pile seven has one card facing up on top of a pile of six cards facing down.
+         <br/><br/>The remaining cards form the stock (or “hand”) pile and are placed above the tableau.
+         <br/><br/>When starting out, the foundations and waste pile do not have any cards.</p>
+
+         
+         <p><strong> THE PLAY </strong><p>
+         
+         <p>The initial array may be changed by "building" - transferring cards among the face-up cards in the tableau.<br/><br/>Certain cards of the tableau can be played at once, while others may not be played until certain blocking cards are removed. 
+         <br/><br/>For example, of the seven cards facing up in the tableau, if one is a nine and another is a ten, you may transfer the nine to on top of the ten to begin building that pile in sequence. Since you have moved the nine from one of the seven piles, you have now unblocked a face down card; this card can be turned over and now is in play.
+         As you transfer cards in the tableau and begin building sequences, if you uncover an ace, the ace should be placed in one of the foundation piles. The foundations get built by suit and in sequence from ace to king.</p>
+         
+         <p>Continue to transfer cards on top of each other in the tableau in sequence. 
+         <ul>
+            <li>If you can’t move any more face up cards, you can utilize the stock pile by flipping over the first card. This card can be played in the foundations or tableau. </li>
+            <li>If you cannot play the card in the tableau or the foundations piles, move the card to the waste pile and turn over another card in the stock pile.</li>
+            <li>If a vacancy in the tableau is created by the removal of cards elsewhere it is called a “space”, and it is of major importance in manipulating the tableau. </li>
+            <li>If a space is created, it can only be filled in with a king. Filling a space with a king could potentially unblock one of the face down cards in another pile in the tableau.</li>
+         </ul>
+         </p>
+         <p>Continue to transfer cards in the tableau and bring cards into play from the stock pile until all the cards are built in suit sequences in the foundation piles to win!</p>
+      </div>
+    
+   </div>
+   <script type="text/javascript" src="../card.js"></script>
+    
 </body>
 </html> 
