@@ -25,17 +25,26 @@
    <!--Add if we have time. Needs implementation.-->
    <button id="scoreBtn" style="display: none;" disabled >Score: 0</button>
    <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds <!--: <label id="miliseconds">00</label> milliseconds--></button>
-   <button id="pauseBtn" onclick="functionPause();" disabled>Pause</button>
-   <button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>
+   <button id="pauseBtn" disabled>Pause</button>
+   <!--<button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>-->
+
+   <!-- The help button modal--->
+   <div id="myModal2" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content2">
+         <center><img src="../logos/card_logo.png" width="400" height="200" alt="Solitaire Logo" /></center>
+         <h1>Paused</h1>
+      </div>
+
+   </div>
 
    <!-- The help button modal--->
    <div id="myModal" class="modal">
 
       <!-- Modal content -->
       <div class="modal-content">
-         <h1 style="padding-top: 0px; margin-top: 0px; color:white; background-color: red; border: 4px solid red; border-bottom: 4px solid red; padding: 10px; border-left: 4px solid red; border-right: 4px solid red; border-top: 4px solid red; font-family: 'Kaushan Script', cursive;">How to play: Solitaire</h1>
-
-         <p style="margin-top: -40px; color:white; background-color: red; border: 4px solid yellow; padding: 10px; border-top: 4px solid red; border-left: 4px solid red; border-right: 4px solid red; padding-bottom: 20px;"><strong>Version:</strong> 2.0.0.2<br/><strong>Date:</strong> March 12, 2022</p>
+         <h1 style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive;">How to play: Solitaire</h1>
 
          <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>THE PACK</strong></p>
          <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>

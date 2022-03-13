@@ -43,10 +43,10 @@ function newGame(num) {
             document.getElementById("gameNew").style.cursor = "no-drop";
             document.getElementById("gameEnd").disabled = false;
             document.getElementById("pauseBtn").disabled = false;
-            document.getElementById("resumeBtn").disabled = false;
+            //document.getElementById("resumeBtn").disabled = false;
             document.getElementById("gameEnd").style.cursor = "pointer";
             document.getElementById("pauseBtn").style.cursor = "pointer";
-            document.getElementById("resumeBtn").style.cursor = "pointer";
+            //document.getElementById("resumeBtn").style.cursor = "pointer";
             document.getElementById("table").style.display = "block";
         }
     }, 10);
@@ -54,49 +54,39 @@ function newGame(num) {
 
 // New game function for timer. End timer when user press endGame button.
 function endGame(num) {
-    if (confirm('Are you sure you want to end this game?')) {
-        document.getElementById("gameNew").style.cursor = "pointer";
-        if(num === 1) {
-            clearInterval(t);
-            time = 0;
-            //milisecondsLabel.innerHTML = "00";
-            secondsLabel.innerHTML = "00";
-            minutesLabel.innerHTML = "00";
-            hoursLabel.innerHTML = "00";
-            document.getElementById("gameNew").disabled = false;
-            document.getElementById("gameNew").style.cursor = "pointer";
-            document.getElementById("gameEnd").disabled = true;
-            document.getElementById("gameEnd").style.cursor = "no-drop";
-            document.getElementById("pauseBtn").style.cursor = "no-drop";
-            document.getElementById("resumeBtn").style.cursor = "no-drop";
-            document.getElementById("pauseBtn").disabled = true;
-            document.getElementById("resumeBtn").disabled = true;
-            document.getElementById("table").style.display = "none";
-        }
-    }
-    else {
-        console.log('Thing was not saved to the database.');
-    }
+    functionDeleteSong(num);
 }
 // End of timer functions.
 
 // Below is the help button modal
 // Get the modal
 var modal = document.getElementById("myModal");
+var modal2 = document.getElementById("myModal2");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("helpBtn");
+var btn2 = document.getElementById("pauseBtn");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  modal.style.display = "block";
+    modal.style.display = "block";
+}
+
+btn2.onclick = function() {
+    modal2.style.display = "block";
+    functionPause();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+        isPaused = false;
+    }
 }
 // End of help button modal 
 
@@ -564,6 +554,7 @@ UI.prototype.create_draggables = function() {
             start: this_ui.create_droppables(),
             stop: this_ui.clear_drag()
         });
+
         card_div.draggable('enable');
 
         // add double-click event handling to all draggables
@@ -895,3 +886,49 @@ $(document).ready(function() {
     my_ui = new UI(g);
     my_ui.init();
 });
+
+function Confirm2(title, msg, $true, $false, num) { 
+    var $content =  "<div class='dialog-ovelay'>" +
+                "<div class='dialog'><header>" +
+                    " <center><h3><img src='../logos/logo.png' style='width: 100px; height: 100px;'><br>" + title + " </h3></center> " +
+                "</header>" +
+                "<div class='dialog-msg'>" +
+                    " <center><p> " + msg + " </p></center> " +
+                "</div>" +
+                "<footer>" +
+                    "<center><div class='controls'>" +
+                        " <button class='doAction' id='btnDoAction'>" + $true + "</button> " +
+                        " <button class='cancelAction' id='btnCancelAction'>" + $false + "</button> " +
+                    "</div></center>" +
+                "</footer>" +
+            "</div>" +
+        "</div>";
+    $('body').prepend($content);
+    $('.doAction').click(function () {
+        document.getElementById("gameNew").style.cursor = "pointer";
+        if(num === 1) {
+            clearInterval(t);
+            time = 0;
+            //milisecondsLabel.innerHTML = "00";
+            secondsLabel.innerHTML = "00";
+            minutesLabel.innerHTML = "00";
+            hoursLabel.innerHTML = "00";
+            document.getElementById("gameNew").disabled = false;
+            document.getElementById("gameNew").style.cursor = "pointer";
+            document.getElementById("gameEnd").disabled = true;
+            document.getElementById("gameEnd").style.cursor = "no-drop";
+            document.getElementById("pauseBtn").style.cursor = "no-drop";
+            //document.getElementById("resumeBtn").style.cursor = "no-drop";
+            document.getElementById("pauseBtn").disabled = true;
+            //document.getElementById("resumeBtn").disabled = true;
+            document.getElementById("table").style.display = "none";
+            $('.dialog-ovelay').remove();
+        }
+    });
+    $('.cancelAction').click(function () {
+        $('.dialog-ovelay').remove();
+    });
+}
+function functionDeleteSong(num) {
+    Confirm2("Confirm Game Ending Request", "Hold your cards! Do you want to end this game?", 'Yes', 'Cancel', num);
+}
