@@ -5,7 +5,7 @@ body, html {
     color: white;
 }
 
-#gameNew, #helpBtn, #scoreBtn {
+#gameNew, #helpBtn, #scoreBtn, #timerBtn {
     padding: 10px;
     background-color: transparent;
     color: white;
@@ -15,7 +15,7 @@ body, html {
     transition: all 0.2s ease-in-out;
 }
 
-#gameNew:hover, #helpBtn:hover {
+#gameNew:hover, #helpBtn:hover, #timerBtn {
     color: yellow;
     box-shadow: 0px 0px 5px rgba(220, 20, 60, 1);
     cursor: pointer;
