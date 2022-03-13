@@ -37,7 +37,11 @@ function newGame(num) {
             document.getElementById("gameNew").disabled = true;
             document.getElementById("gameNew").style.cursor = "no-drop";
             document.getElementById("gameEnd").disabled = false;
+            document.getElementById("pauseBtn").disabled = false;
+            document.getElementById("resumeBtn").disabled = false;
             document.getElementById("gameEnd").style.cursor = "pointer";
+            document.getElementById("pauseBtn").style.cursor = "pointer";
+            document.getElementById("resumeBtn").style.cursor = "pointer";
         }
     }, 10);
 } 
@@ -54,6 +58,10 @@ function endGame(num) {
         document.getElementById("gameNew").style.cursor = "pointer";
         document.getElementById("gameEnd").disabled = true;
         document.getElementById("gameEnd").style.cursor = "no-drop";
+        document.getElementById("pauseBtn").style.cursor = "no-drop";
+        document.getElementById("resumeBtn").style.cursor = "no-drop";
+        document.getElementById("pauseBtn").disabled = true;
+        document.getElementById("resumeBtn").disabled = true;
     }
 }
 

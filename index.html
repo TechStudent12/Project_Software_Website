@@ -4,42 +4,51 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
    <link rel="stylesheet" href="card.css">
    <title>Solitaire</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body>
+
+   <br/>
+   <center><img src="../logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
+   <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire</h1></center> 
 
    <center><button id="gameNew" onclick="newGame(0);">New Game</button>
    <button id="gameEnd" onclick="endGame(1);" disabled>End Game</button>
    <button id="helpBtn">Help</button>
    <button id="scoreBtn" disabled>Score: 0</button>
    <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds : <label id="miliseconds">00</label> milliseconds</button>
-   <button id="pauseBtn" onclick="functionPause();">Pause</button>
-   <button id="resumeBtn" onclick="functionResume();">Resume</button></center>
+   <button id="pauseBtn" onclick="functionPause();" disabled>Pause</button>
+   <button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>
 
    <!-- The help button modal--->
    <div id="myModal" class="modal">
 
       <!-- Modal content -->
       <div class="modal-content">
-         <h1 style="padding-top: 0px; margin-top: 0px;">How to play: Solitaire</h1>
+         <h1 style="padding-top: 0px; margin-top: 0px; color:white; background-color: red; border: 4px solid red; border-bottom: 4px solid red; padding: 10px; border-left: 4px solid red; border-right: 4px solid red; border-top: 4px solid red; font-family: 'Kaushan Script', cursive;">How to play: Solitaire</h1>
 
-         <p><strong>THE PACK</strong></p>
+         <p style="margin-top: -40px; color:white; background-color: red; border: 4px solid yellow; padding: 10px; border-top: 4px solid red; border-left: 4px solid red; border-right: 4px solid red;"><strong>Version:</strong> 2.0.0.2<br/><strong>Date:</strong> March 12, 2022</p>
+
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>THE PACK</strong></p>
          <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>
-         <p><strong>OBJECT OF THE GAME</strong></p>
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>OBJECT OF THE GAME</strong></p>
          <p>The first objective is to release and play into position certain cards to build up each foundation, in sequence and in suit, from the ace through the king. 
          <br/><br/>The ultimate objective is to build the whole pack onto the foundations, and if that can be done, the Solitaire game is won.</p>
 
-         <p><strong> RANK OF CARDS </strong> </p>
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> RANK OF CARDS </strong> </p>
          <p>The rank of cards in Solitaire games is: K (high), Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A (low).</p>
 
          
-         <p><strong> THE DEAL </strong></p>
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE DEAL </strong></p>
          
          <p>There are four different types of piles in Solitaire: </p>
 
-         <p><strong> THE TABLEAU: </strong></p> 
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE TABLEAU </strong></p> 
          <p>Seven piles that make up the main table. </p>
       
-         <p><strong> THE FOUNDATIONS: </strong></p>
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE FOUNDATIONS </strong></p>
          <p>Four piles on which a whole suit or sequence must be built up.<br/><br/>In most Solitaire games, the four aces are the bottom card or base of the foundations. 
          <br/><br/>The foundation piles are:
             <ul>
@@ -65,7 +74,7 @@
          <br/><br/>When starting out, the foundations and waste pile do not have any cards.</p>
 
          
-         <p><strong> THE PLAY </strong><p>
+         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE PLAY </strong><p>
          
          <p>The initial array may be changed by "building" - transferring cards among the face-up cards in the tableau.<br/><br/>Certain cards of the tableau can be played at once, while others may not be played until certain blocking cards are removed. 
          <br/><br/>For example, of the seven cards facing up in the tableau, if one is a nine and another is a ten, you may transfer the nine to on top of the ten to begin building that pile in sequence. Since you have moved the nine from one of the seven piles, you have now unblocked a face down card; this card can be turned over and now is in play.
