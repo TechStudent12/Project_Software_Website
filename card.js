@@ -930,5 +930,5 @@ function Confirm2(title, msg, $true, $false, num) {
     });
 }
 function functionDeleteSong(num) {
-    Confirm2("Confirm Game Ending Request", "Hold your cards! Do you want to end this game?", 'Yes', 'Cancel', num);
+    Confirm2("Confirm Your Request", "Hold your cards! Do you want to end this game?", 'Yes', 'Cancel', num);
 }
