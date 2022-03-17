@@ -197,3 +197,53 @@ body::-webkit-scrollbar-thumb {
 #imageHeader {
     font-size: 45px;
 }
+.meter { 
+    width: 50%;
+    height: 10px;
+    background: #f3efe6;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.meter span {
+    display: block;
+    height: 100%;
+}
+.progress {
+    background-color: crimson;
+    animation: progressBar 8s ease-in-out;
+    animation-fill-mode:both; 
+}
+@keyframes progressBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+#loadingtext {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+.loader .loader_text {
+    font-size: 50px;
+    font-weight: 600;
+    color: #26001B;
+    margin: 20px auto;
+    text-align: center;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top: -80px;
+}
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
