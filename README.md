@@ -1,2 +1,2 @@
-# Project_Software_Website
+# Solitaire Game
 Solitaire
