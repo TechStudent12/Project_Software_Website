@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+} 
 body, html {
     background-image: url("../logos/green_felt.jpg");
-    background-size: fit;
     background-repeat: no-repeat;
     color: white;
     cursor: no-drop;
+    background-size: cover;
+    min-height: 100%;
 }
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
@@ -170,11 +175,13 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(248, 248, 248);
     border: 1px solid green;
     color: green;
+    padding: 5px;
 }
 #btnDoAction {
     background-color: white;
     border: 1px solid #d32f2f;
     color: #d32f2f;
+    padding: 5px;
 }
 .link {
     padding: 5px 10px;
@@ -187,6 +194,7 @@ body::-webkit-scrollbar-thumb {
     transform: scale(1);
     text-decoration: none;
     box-shadow: none;
+    padding: 5px;
 }
 #btnCancelAction:hover {
     background-color: green;
@@ -195,6 +203,7 @@ body::-webkit-scrollbar-thumb {
     transform: scale(1);
     text-decoration: none;
     box-shadow: none;
+    padding: 5px;
 }
 #imageHeader {
     font-size: 45px;

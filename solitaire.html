@@ -13,132 +13,137 @@
    <link rel="icon" type="image/png" href="../logos/logo.png">
 </head>
 <body>
+   <div>
+      <center><img src="../logos/logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
+      <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire</h1></center> 
 
-   <br/>
-   <center><img src="../logos/logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
-   <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire</h1></center> 
+      <br/>
+      <br/>
+      <center><label class="switch">
+         <input type="checkbox" aria-label="Toggle Day/Night" />
+         <span class="slider round"></span>
+         </label>
+      </center>
+      <br/>
+      <br/>
 
-   <center><label class="switch">
-      <input type="checkbox" aria-label="Toggle Day/Night" />
-      <span class="slider round"></span>
-    </label></center>
+      <center><button id="gameNew" onclick="newGame(0);">New Game</button>
+      <button id="gameEnd" onclick="endGame(1);" disabled>End Game</button>
+      <button id="helpBtn">Help</button>
+      <!--Nice to have features below:-->
+      <!--Add if we have time. Needs implementation.-->
+      <button id="scoreBtn" style="display: none;" disabled >Score: 0</button>
+      <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds <!--: <label id="miliseconds">00</label> milliseconds--></button>
+      <button id="pauseBtn" disabled>Pause</button>
+      <!--<button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>-->
 
-   <center><button id="gameNew" onclick="newGame(0);">New Game</button>
-   <button id="gameEnd" onclick="endGame(1);" disabled>End Game</button>
-   <button id="helpBtn">Help</button>
-   <!--Nice to have features below:-->
-   <!--Add if we have time. Needs implementation.-->
-   <button id="scoreBtn" style="display: none;" disabled >Score: 0</button>
-   <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds <!--: <label id="miliseconds">00</label> milliseconds--></button>
-   <button id="pauseBtn" disabled>Pause</button>
-   <!--<button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>-->
+      <!-- The help button modal--->
+      <div id="myModal2" class="modal">
 
-   <!-- The help button modal--->
-   <div id="myModal2" class="modal">
+         <!-- Modal content -->
+         <div class="modal-content2">
+            <center><img src="../logos/card_logo.png" width="400" height="200" alt="Solitaire Logo" /></center>
+            <h1>Paused</h1>
+         </div>
 
-      <!-- Modal content -->
-      <div class="modal-content2">
-         <center><img src="../logos/card_logo.png" width="400" height="200" alt="Solitaire Logo" /></center>
-         <h1>Paused</h1>
       </div>
 
-   </div>
+      <!-- The help button modal--->
+      <div id="myModal" class="modal">
 
-   <!-- The help button modal--->
-   <div id="myModal" class="modal">
+         <!-- Modal content -->
+         <div class="modal-content">
+            <h1 style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive;">How to play: Solitaire</h1>
 
-      <!-- Modal content -->
-      <div class="modal-content">
-         <h1 style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive;">How to play: Solitaire</h1>
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>THE PACK</strong></p>
+            <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>OBJECT OF THE GAME</strong></p>
+            <p>The first objective is to release and play into position certain cards to build up each foundation, in sequence and in suit, from the ace through the king. 
+            <br/><br/>The ultimate objective is to build the whole pack onto the foundations, and if that can be done, the Solitaire game is won.</p>
 
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>THE PACK</strong></p>
-         <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>OBJECT OF THE GAME</strong></p>
-         <p>The first objective is to release and play into position certain cards to build up each foundation, in sequence and in suit, from the ace through the king. 
-         <br/><br/>The ultimate objective is to build the whole pack onto the foundations, and if that can be done, the Solitaire game is won.</p>
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> RANK OF CARDS </strong> </p>
+            <p>The rank of cards in Solitaire games is: K (high), Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A (low).</p>
 
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> RANK OF CARDS </strong> </p>
-         <p>The rank of cards in Solitaire games is: K (high), Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A (low).</p>
-
-         
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE DEAL </strong></p>
-         
-         <p>There are four different types of piles in Solitaire: </p>
-         <ul>
-            <li>The Foundations</li>
-            <li>The Tableau</li>
-            <li>The Stock</li>
-            <li>The Waste</li>
-         </ul>
-
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE TABLEAU </strong></p> 
-         <p>Seven piles that make up the main table. </p>
-      
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE FOUNDATIONS </strong></p>
-         <p>Four piles on which a whole suit or sequence must be built up.<br/><br/>In most Solitaire games, the four aces are the bottom card or base of the foundations. 
-         <br/><br/>The foundation piles are:
+            
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE DEAL </strong></p>
+            
+            <p>There are four different types of piles in Solitaire: </p>
             <ul>
-               <li><labeL style="color: red; font-size: 20px;">&#9829;</labeL><labeL style="color: black; font-size: 20px;">&#9829;</labeL> Hearts</li>
-               <li><labeL style="color: red; font-size: 24px;">&#9830;</labeL><labeL style="color: black; font-size: 24px;">&#9830;</labeL> Diamonds</li>
-               <li><labeL style="color: red; font-size: 24px;">&#9824;</labeL><labeL style="color: black; font-size: 24px;">&#9824;</labeL> Spades</li>
-               <li><labeL style="color: red; font-size: 20px;">&#9827;</labeL><labeL style="color: black; font-size: 20px;">&#9827;</labeL> Clubs</li>
+               <li>The Foundations</li>
+               <li>The Tableau</li>
+               <li>The Stock</li>
+               <li>The Waste</li>
             </ul>
-         The Stock (or “Hand”) Pile: 
-         <ul><li>If the entire pack is not laid out in a tableau at the beginning of a game, the remaining cards form the stock pile from which additional cards are brought into play according to the rules.</li></ul>
-         The Talon (or “Waste”) Pile: 
-         <ul>
-            <li>Cards from the stock pile that have no place in the tableau or on foundations are laid face up in the waste pile.</li>
-         </ul>
-         To form the tableau, seven piles need to be created.
-         <ul>
-            <li>Starting from left to right, place the first card face up to make the first pile, deal one card face down for the next six piles.</li>
-            <li>Starting again from left to right, place one card face up on the second pile and deal one card face down on piles three through seven.</li>
-            <li>Starting again from left to right, place one card face up on the third pile and deal one card face down on piles four through seven.</li>
-         </ul>
-         Continue this pattern until pile seven has one card facing up on top of a pile of six cards facing down.
-         <br/><br/>The remaining cards form the stock (or “hand”) pile and are placed above the tableau.
-         <br/><br/>When starting out, the foundations and waste pile do not have any cards.</p>
 
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE TABLEAU </strong></p> 
+            <p>Seven piles that make up the main table. </p>
          
-         <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE PLAY </strong><p>
-         
-         <p>The initial array may be changed by "building" - transferring cards among the face-up cards in the tableau.<br/><br/>Certain cards of the tableau can be played at once, while others may not be played until certain blocking cards are removed. 
-         <br/><br/>For example, of the seven cards facing up in the tableau, if one is a nine and another is a ten, you may transfer the nine to on top of the ten to begin building that pile in sequence. Since you have moved the nine from one of the seven piles, you have now unblocked a face down card; this card can be turned over and now is in play.
-         As you transfer cards in the tableau and begin building sequences, if you uncover an ace, the ace should be placed in one of the foundation piles. The foundations get built by suit and in sequence from ace to king.</p>
-         
-         <p>Continue to transfer cards on top of each other in the tableau in sequence. 
-         <ul>
-            <li>If you can’t move any more face up cards, you can utilize the stock pile by flipping over the first card. This card can be played in the foundations or tableau. </li>
-            <li>If you cannot play the card in the tableau or the foundations piles, move the card to the waste pile and turn over another card in the stock pile.</li>
-            <li>If a vacancy in the tableau is created by the removal of cards elsewhere it is called a “space”, and it is of major importance in manipulating the tableau. </li>
-            <li>If a space is created, it can only be filled in with a king. Filling a space with a king could potentially unblock one of the face down cards in another pile in the tableau.</li>
-         </ul>
-         </p>
-         <p>Continue to transfer cards in the tableau and bring cards into play from the stock pile until all the cards are built in suit sequences in the foundation piles to win!</p>
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE FOUNDATIONS </strong></p>
+            <p>Four piles on which a whole suit or sequence must be built up.<br/><br/>In most Solitaire games, the four aces are the bottom card or base of the foundations. 
+            <br/><br/>The foundation piles are:
+               <ul>
+                  <li><labeL style="color: red; font-size: 20px;">&#9829;</labeL><labeL style="color: black; font-size: 20px;">&#9829;</labeL> Hearts</li>
+                  <li><labeL style="color: red; font-size: 24px;">&#9830;</labeL><labeL style="color: black; font-size: 24px;">&#9830;</labeL> Diamonds</li>
+                  <li><labeL style="color: red; font-size: 24px;">&#9824;</labeL><labeL style="color: black; font-size: 24px;">&#9824;</labeL> Spades</li>
+                  <li><labeL style="color: red; font-size: 20px;">&#9827;</labeL><labeL style="color: black; font-size: 20px;">&#9827;</labeL> Clubs</li>
+               </ul>
+            The Stock (or “Hand”) Pile: 
+            <ul><li>If the entire pack is not laid out in a tableau at the beginning of a game, the remaining cards form the stock pile from which additional cards are brought into play according to the rules.</li></ul>
+            The Talon (or “Waste”) Pile: 
+            <ul>
+               <li>Cards from the stock pile that have no place in the tableau or on foundations are laid face up in the waste pile.</li>
+            </ul>
+            To form the tableau, seven piles need to be created.
+            <ul>
+               <li>Starting from left to right, place the first card face up to make the first pile, deal one card face down for the next six piles.</li>
+               <li>Starting again from left to right, place one card face up on the second pile and deal one card face down on piles three through seven.</li>
+               <li>Starting again from left to right, place one card face up on the third pile and deal one card face down on piles four through seven.</li>
+            </ul>
+            Continue this pattern until pile seven has one card facing up on top of a pile of six cards facing down.
+            <br/><br/>The remaining cards form the stock (or “hand”) pile and are placed above the tableau.
+            <br/><br/>When starting out, the foundations and waste pile do not have any cards.</p>
+
+            
+            <p style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong> THE PLAY </strong><p>
+            
+            <p>The initial array may be changed by "building" - transferring cards among the face-up cards in the tableau.<br/><br/>Certain cards of the tableau can be played at once, while others may not be played until certain blocking cards are removed. 
+            <br/><br/>For example, of the seven cards facing up in the tableau, if one is a nine and another is a ten, you may transfer the nine to on top of the ten to begin building that pile in sequence. Since you have moved the nine from one of the seven piles, you have now unblocked a face down card; this card can be turned over and now is in play.
+            As you transfer cards in the tableau and begin building sequences, if you uncover an ace, the ace should be placed in one of the foundation piles. The foundations get built by suit and in sequence from ace to king.</p>
+            
+            <p>Continue to transfer cards on top of each other in the tableau in sequence. 
+            <ul>
+               <li>If you can’t move any more face up cards, you can utilize the stock pile by flipping over the first card. This card can be played in the foundations or tableau. </li>
+               <li>If you cannot play the card in the tableau or the foundations piles, move the card to the waste pile and turn over another card in the stock pile.</li>
+               <li>If a vacancy in the tableau is created by the removal of cards elsewhere it is called a “space”, and it is of major importance in manipulating the tableau. </li>
+               <li>If a space is created, it can only be filled in with a king. Filling a space with a king could potentially unblock one of the face down cards in another pile in the tableau.</li>
+            </ul>
+            </p>
+            <p>Continue to transfer cards in the tableau and bring cards into play from the stock pile until all the cards are built in suit sequences in the foundation piles to win!</p>
+         </div>
+      
       </div>
-    
-   </div>
 
-   <div id="table" style="margin-top: 50px;" style="display: none;">
-      <div id="free0" class="free"></div>
-      <div id="free1" class="free"></div>
-      <div id="free2" class="free"></div>
-      <div id="free3" class="free"></div>
-  
-      <div id="suit0" class="suit"></div>
-      <div id="suit1" class="suit"></div>
-      <div id="suit2" class="suit"></div>
-      <div id="suit3" class="suit"></div>
-  
-      <div id="col0" class="column"></div>
-      <div id="col1" class="column"></div>
-      <div id="col2" class="column"></div>
-      <div id="col3" class="column"></div>
-      <div id="col4" class="column"></div>
-      <div id="col5" class="column"></div>
-      <div id="col6" class="column"></div>
-      <div id="col7" class="column"></div>
-  </div>
+      <div id="table" style="margin-top: 50px;" style="display: none;">
+         <div id="free0" class="free"></div>
+         <div id="free1" class="free"></div>
+         <div id="free2" class="free"></div>
+         <div id="free3" class="free"></div>
+   
+         <div id="suit0" class="suit"></div>
+         <div id="suit1" class="suit"></div>
+         <div id="suit2" class="suit"></div>
+         <div id="suit3" class="suit"></div>
+   
+         <div id="col0" class="column"></div>
+         <div id="col1" class="column"></div>
+         <div id="col2" class="column"></div>
+         <div id="col3" class="column"></div>
+         <div id="col4" class="column"></div>
+         <div id="col5" class="column"></div>
+         <div id="col6" class="column"></div>
+         <div id="col7" class="column"></div>
+      </div>
+   </div>
   
    <script type="text/javascript" src="../card.js"></script>
     
