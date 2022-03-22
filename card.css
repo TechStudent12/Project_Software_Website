@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 } 
 body, html {
     background-image: url("../logos/green_felt.jpg");
@@ -9,6 +9,14 @@ body, html {
     cursor: no-drop;
     background-size: cover;
     min-height: 100%;
+}
+p {
+    padding: 5px;
+    margin: 5px;
+}
+ul, li {
+    padding: 5px;
+    margin: 10px;
 }
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
