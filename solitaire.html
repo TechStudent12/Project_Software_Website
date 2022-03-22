@@ -12,7 +12,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
    <link rel="icon" type="image/png" href="../logos/logo.png">
 </head>
-<body>
+<body id="bodyTag">
    <div>
       <center><img src="../logos/logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
       <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire</h1></center> 
@@ -22,7 +22,7 @@
       <!-- Checkbox (day or night) -->
       <center>
          <label class="switch">
-            <input type="checkbox" aria-label="Toggle Day/Night" />
+            <input type="checkbox" id="myButton" aria-label="Toggle Day/Night" value="1" onclick="toggle();" />
             <span class="slider round"></span>
          </label>
       </center>

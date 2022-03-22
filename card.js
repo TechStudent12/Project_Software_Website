@@ -929,6 +929,113 @@ function Confirm2(title, msg, $true, $false, num) {
         $('.dialog-ovelay').remove();
     });
 }
+
 function functionDeleteSong(num) {
     Confirm2("Confirm Your Request", "Hold your cards! Do you want to end this game?", 'Yes', 'Cancel', num);
 }
+
+function toggle() {
+    var t = document.getElementById("myButton");
+    if(t.value == "1") {
+        t.value="0";
+        console.log(t.value); 
+        document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/day.jpg")';
+    }
+    else if(t.value=="0") {
+        t.value="1";
+        console.log(t.value); 
+        document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/night.jpg")';
+    }
+}
+
+window.onload = function(event) {
+    toggle();
+}
+
+// suleman start point 22-03-22
+
+
+// build deck
+var deck = [];
+
+// build suits
+var suits = [];
+suits['spades'] = [
+   // spades
+   ['A','spade'],
+   ['2','spade'],
+   ['3','spade'],
+   ['4','spade'],
+   ['5','spade'],
+   ['6','spade'],
+   ['7','spade'],
+   ['8','spade'],
+   ['9','spade'],
+   ['10','spade'],
+   ['J','spade'],
+   ['Q','spade'],
+   ['K','spade']
+];
+suits['hearts'] = [
+   // hearts
+   ['A','heart'],
+   ['2','heart'],
+   ['3','heart'],
+   ['4','heart'],
+   ['5','heart'],
+   ['6','heart'],
+   ['7','heart'],
+   ['8','heart'],
+   ['9','heart'],
+   ['10','heart'],
+   ['J','heart'],
+   ['Q','heart'],
+   ['K','heart']
+];
+suits['diamonds'] = [
+   // diamonds
+   ['A','diamond'],
+   ['2','diamond'],
+   ['3','diamond'],
+   ['4','diamond'],
+   ['5','diamond'],
+   ['6','diamond'],
+   ['7','diamond'],
+   ['8','diamond'],
+   ['9','diamond'],
+   ['10','diamond'],
+   ['J','diamond'],
+   ['Q','diamond'],
+   ['K','diamond']
+];
+suits['clubs'] = [
+   // clubs
+   ['A','club'],
+   ['2','club'],
+   ['3','club'],
+   ['4','club'],
+   ['5','club'],
+   ['6','club'],
+   ['7','club'],
+   ['8','club'],
+   ['9','club'],
+   ['10','club'],
+   ['J','club'],
+   ['Q','club'],
+   ['K','club']
+];
+
+// build stock pile
+var s = [];
+
+// build waste pile
+var w = [];
+
+// build foundations
+var spades = [];
+var hearts = [];
+var diamonds = [];
+var clubs = [];
+
+
+// suleman endpoint 22-03-22

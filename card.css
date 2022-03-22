@@ -3,10 +3,10 @@
     padding: 0;
 } 
 body, html {
-    background-image: url("../logos/green_felt.jpg");
-    background-repeat: no-repeat;
     color: white;
     cursor: no-drop;
+    min-height: 100%;
+    background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;
 }
@@ -20,8 +20,12 @@ ul, li {
 }
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
-    background-color: transparent;
     color: white;
+    outline-color: red;
+    border-color: crimson;
+}
+#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled {
+    background: repeating-linear-gradient(45deg, black,  black 10px, darkred 10px, darkred 20px);
 }
 #timerBtn {
     padding: 10px;
