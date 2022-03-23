@@ -30,7 +30,9 @@ function pad(val) {
 var t;
 function newGame(num) {
     render(table, playedCards);
+    play(table);
     document.getElementById("gameEnd").style.cursor = "pointer";
+    document.getElementById("table").style.cursor = "pointer";
     t = window.setInterval(function() {
         if(!isPaused && num === 0) {
             time++;

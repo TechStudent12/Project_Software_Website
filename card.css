@@ -11,6 +11,8 @@ body, html {
 p {
     padding: 5px;
     margin: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
@@ -266,6 +268,8 @@ body::-webkit-scrollbar-thumb {
 }
 /* The switch - the box around the slider */
 .switch {
+    margin-top: -50px;
+    margin-bottom: 30px;
     position: relative;
     display: inline-block;
     width: 40px;
