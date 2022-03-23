@@ -1,327 +1,24 @@
-body, html {
-    color: white;
-    cursor: no-drop;
-    background-repeat: no-repeat;
-    height: 100%;
-    max-width: 100%;
-}
-#gamePlay {
-    position: relative;
-}
-p {
-    padding: 5px;
-    margin: 5px;
-}
-#gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
-    padding: 10px;
-    color: white;
-    outline-color: red;
-    border-color: crimson;
-}
-#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled {
-    background: repeating-linear-gradient(45deg, black,  black 10px, darkred 10px, darkred 20px);
-}
-#timerBtn {
-    padding: 10px;
-    /*width: 390px;*/
-    width: 275px;
-}
-#scoreBtn, #timerBtn {
-    cursor: no-drop;
-}
-#gameNew {
-    cursor: pointer;
-}
-#gameEnd, #pauseBtn  {
-    cursor: no-drop;
-}
-#gameNew:enabled, #gameEnd:enabled, #helpBtn:enabled, #pauseBtn:enabled, :enabled {
-    border-color: red;
-    background-color: red;
-}
-#gameNew, #gameEnd, #helpBtn, #pauseBtn  {
-    transition: all 0.2s ease-in-out;
-}
-#gameNew:hover:enabled, #gameEnd:hover:enabled, #helpBtn:hover, #pauseBtn:hover:enabled {
-    color: yellow;
-    box-shadow: 0px 0px 5px yellow;
-    cursor: pointer;
-}
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: none; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    z-index: 99999;
-} 
-/* Modal Content/Box */
-.modal-content {
-    color: black;
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 85%; /* Could be more or less, depending on screen size */
-    height: 50%;
-    overflow-y: scroll;
-    z-index: 99999;
-    text-align: left;
-}
-.modal-content2 {
-    height: 300px;
-    width: 40%;
-    overflow: hidden;
-    margin: 22% auto;
-    padding: 20px;
-    background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+/* Thanks to
+   @donpark on GitHub Scalable CSS Playing Cards
+   https://donpark.github.io/scalable-css-playing-cards/ */
 
-    color: black;
-}
-.modal-content h1 {
-    color: black;
-}
-.modal-content2 h1 {
-    font-size: 50px;
-    font-family: 'Kaushan Script', cursive;
-    margin-top: 0px;
-    color: white;
-}
-.modal-content p, .modal-content2 p {
-    color: black;
-}
-.modal-content::-webkit-scrollbar {
-    width: 1em;
-}
-.modal-content::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-.modal-content::-webkit-scrollbar-thumb {
-    background-color: crimson;
-    outline: 1px solid red;
-}
-body::-webkit-scrollbar {
-    width: 1em;
-}
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-body::-webkit-scrollbar-thumb {
-    background-color: crimson;
-    outline: 1px solid red;
-}
-.column {
-    cursor: pointer;
-}
-#col4, #col5, #col6, #col7 {
-    float: right;
-}
-.dialog-ovelay {
-    position: fixed;
-    overflow-y: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.50);
-    z-index: 999999;
-}
-.dialog-ovelay .dialog {
-    width: 405px;
-    margin: 0 auto 0;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,.2);
-    border-radius: 0px;
-    overflow: hidden;
-}
-.dialog-ovelay .dialog header {
-    padding: 10px 8px;
-    background-color: #f6f7f9;
-    border-bottom: 1px solid #e5e5e5;
-}
-.dialog-ovelay .dialog header h3 {
-    font-size: 20px;
-    margin: 0;
-    color: #555;
-    display: inline-block;
-}
-.dialog-ovelay .dialog .dialog-msg {
-    padding: 12px 10px;
-}
-.dialog-ovelay .dialog .dialog-msg p{
-    margin: 0;
-    font-size: 15px;
-    color: #333;
-}
-.dialog-ovelay .dialog footer {
-    border-top: 1px solid #e5e5e5;
-    padding: 8px 10px;
-}
-.dialog-ovelay .dialog footer .controls {
-    direction: rtl;
-    float: center;
-}
-.dialog-ovelay .dialog footer .controls .button {
-    padding: 5px 15px;
-    border-radius: 3px;
-}
-#btnCancelAction, #btnDoAction{
-    cursor: pointer;
-}
-#btnCancelAction {
-    background-color: rgb(248, 248, 248);
-    border: 1px solid green;
-    color: green;
-    padding: 5px;
-}
-#btnDoAction {
-    background-color: white;
-    border: 1px solid #d32f2f;
-    color: #d32f2f;
-    padding: 5px;
-}
-.link {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-#btnDoAction:hover {
-    background-color: red;
-    color: white;  
-    outline: none;
-    transform: scale(1);
-    text-decoration: none;
-    box-shadow: none;
-    padding: 5px;
-}
-#btnCancelAction:hover {
-    background-color: green;
-    color: white; 
-    outline: none;
-    transform: scale(1);
-    text-decoration: none;
-    box-shadow: none;
-    padding: 5px;
-}
-#imageHeader {
-    font-size: 45px;
-}
-.meter { 
-    width: 50%;
-    height: 10px;
-    background: #f3efe6;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-.meter span {
-    display: block;
-    height: 100%;
-}
-.progress {
-    background-color: crimson;
-    animation: progressBar 8s ease-in-out;
-    animation-fill-mode:both; 
-}
-@keyframes progressBar {
-    0% { width: 0; }
-    100% { width: 100%; }
-}
-#loadingtext {
-    color: white;
-    font-size: 16px;
-    text-align: center;
-}
-.loader .loader_text {
-    font-size: 50px;
-    font-weight: 600;
-    color: #26001B;
-    margin: 20px auto;
-    text-align: center;
-    color: white;
-    text-align: center;
-    font-size: 50px;
-    margin-top: -80px;
-}
-.container {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-}
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 26px;
-}
-  /* Hide default HTML checkbox */
-.switch input[type="checkbox"] {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-/* The slider */
-.checkbox-label {
-    background-color: #111;
-    width: 40px;
-    height: 16px;
-    border-radius: 50px;
-    position: relative;
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .fa-moon-o {color: white;}
-  
-  .fa-sun-o {color: white;}
-  
-  .checkbox-label .ball {
-    background-color: #fff;
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-  }
-  
-  .checkbox:checked + .checkbox-label .ball {
-    transform: translateX(24px);
-  }
-
-  #container {
-      visibility: hidden;
-  }
-  
-  /* Suleman addition start  22-03-22 */ 
-
-  @font-face {
+   @font-face {
     font-family: 'Suit-Regular';
     src: url("https://bfa.github.io/solitaire-js/fonts/suit-regular.eot");
     src: url("https://bfa.github.io/solitaire-js/fonts/suit-regular.eot?#iefix") format('embedded-opentype'), url("https://bfa.github.io/solitaire-js/fonts/suit-regular.woff") format('woff'), url("https://bfa.github.io/solitaire-js/fonts/suit-regular.ttf") format('truetype'), url("https://bfa.github.io/solitaire-js/fonts/suit-regular.svg#suit-regular") format('svg');
     font-weight: normal;
     font-style: normal;
+  }
+  html, body {
+     width: 100%;
+     height: 100%;
+  }
+  body {
+     position: relative;
+     color: #f3f5f7;
+     background: #0e8b44 url('https://bfa.github.io/solitaire-js/img/green_felt.jpg');
+     background-size: cover;
+     background-position: center;
   }
   .navbar {
      background: rgba(8,8,8,.75);
@@ -457,7 +154,7 @@ body::-webkit-scrollbar-thumb {
      display: block;
      position: relative;
      float: left;
-     width: 11%;
+     width: 13%;
      margin-right: 1.5%;
      margin-bottom: 10px;
      padding: 5px;
@@ -472,7 +169,7 @@ body::-webkit-scrollbar-thumb {
      left: 0;
      width: 100%;
      height: 100%;
-     border: 2px dotted rgba(255, 255, 255, 1);
+     border: 2px dotted rgba(0,0,0,.25);
      border-radius: 5px;
   }
   .card {
@@ -865,18 +562,18 @@ body::-webkit-scrollbar-thumb {
         left: 43.5%;
      }
      .fnd .pile::before {
-        content: '';
+        content '';
         position: absolute;
         top: 50%;
         left: 0;
         width: 100%;
-        color: white;
+        color: #000;
         font-family: 'Suit-Regular', sans-serif;
         font-size: 10vw;
         margin-top: -0.6em;
         line-height: 1;
         text-align: center;
-        opacity: 1;
+        opacity: 0.25;
      }
      @media screen and (min-width: 768px) {
         .fnd .pile::before {
@@ -1061,8 +758,3 @@ body::-webkit-scrollbar-thumb {
      grammarly-card {
          display: none;
      }
-
-     /* Suleman addition end 22-03-22*/
-
-  
-  
