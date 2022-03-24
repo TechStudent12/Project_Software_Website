@@ -431,7 +431,7 @@ body::-webkit-scrollbar-thumb {
   #table {
      opacity: 0;
      width: 100%;
-     padding: 15px 0;
+     padding: 25px 0;
   }
   #table > div {
      position: relative;
@@ -865,7 +865,6 @@ body::-webkit-scrollbar-thumb {
   
      #fnd {
       margin-top: 0px;
-      margin-left: 0px;
       margin-right: 0px;
      }
 
