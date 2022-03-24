@@ -10,9 +10,9 @@ The following individuals are this project's authors:
 
 ## Summary
 
-The final project took 4 iterations to complete.<br/>
-The code that was used to build this project has gone through a lot of changes and edits.<br/>
-The following chart shows what is completed and what remains to be completed in this project:
+The final project will take 4 iterations to complete.<br/>
+The project is still under-development.<br/>
+The chart below shows what is completed and what remains to be completed:
 
 | Section       | Completed          |
 | ------------- | ------------------ |
