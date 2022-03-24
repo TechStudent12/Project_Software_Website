@@ -7,6 +7,7 @@ body, html {
 }
 #gamePlay {
     position: relative;
+    padding-bottom: 100px;
 }
 p {
     padding: 5px;
@@ -862,6 +863,12 @@ body::-webkit-scrollbar-thumb {
         z-index: 1;
      }
   
+     #fnd {
+      margin-top: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+     }
+
   /* foundation */
      .fnd .pile {
         left: 43.5%;
