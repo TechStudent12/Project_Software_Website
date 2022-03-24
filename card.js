@@ -4,6 +4,7 @@ var secondsLabel = document.getElementById("seconds");
 //var milisecondsLabel = document.getElementById("miliseconds");
 var hoursLabel = document.getElementById("hours");
 var isPaused = false;
+var isEnd = false;
 var time = 0;
 
 // Pause function for timer.
@@ -34,7 +35,7 @@ function newGame(num) {
     document.getElementById("gameEnd").style.cursor = "pointer";
     document.getElementById("table").style.cursor = "pointer";
     t = window.setInterval(function() {
-        if(!isPaused && num === 0) {
+        if(!isPaused && !isEnd && num === 0) {
             time++;
             if(num === 0) {
                 //milisecondsLabel.innerHTML = pad(time % 60);
@@ -57,7 +58,7 @@ function newGame(num) {
 
 // New game function for timer. End timer when user press endGame button.
 function endGame(num) {
-    document.getElementById("container").style.visibility = "hidden";
+    isEnd = true;
     functionDeleteSong(num);
 }
 // End of timer functions.
@@ -133,6 +134,7 @@ function Confirm2(title, msg, $true, $false, num) {
         }
     });
     $('.cancelAction').click(function () {
+        isEnd = false;
         $('.dialog-ovelay').remove();
     });
 }
@@ -151,6 +153,7 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("https://bfa.github.io/solitaire-js/img/card_back_bg.png")';
         document.getElementById("modal-content2").style.backgroundColor = '#63d471';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("headerMain").style.border = '2px dashed green';
         document.getElementById("headerMain").style.backgroundColor = '#63d471';
         document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("first").style.backgroundColor = '#63d471';
@@ -183,6 +186,7 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
         document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("headerMain").style.border = '2px dashed black';
         document.getElementById("headerMain").style.backgroundColor = '#7f5a83';
         document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("first").style.backgroundColor = '#7f5a83';
