@@ -148,12 +148,18 @@ function toggle() {
         console.log(t.value); 
         document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/day.jpg")';
         document.getElementById("checkbox-label").style.backgroundColor = '#3cb371';
+        //document.getElementsByClassName("card").style.backgroundImage = 'url("https://bfa.github.io/solitaire-js/img/card_back_bg.png")';
+        document.getElementById("modal-content2").style.backgroundColor = '#63d471';
+        document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
     }
     else if(t.value=="0") {
         t.value="1";
         console.log(t.value); 
         document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/night.jpg")';
         document.getElementById("checkbox-label").style.backgroundColor = 'black';
+        //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
+        document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
     }
 }
 

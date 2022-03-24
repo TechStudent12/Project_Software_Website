@@ -501,7 +501,7 @@ Optional Features:
       }
 
    // size cards
-      function sizeCards(selector = '.pile', ratio = 1.4) {
+      function sizeCards(selector = '.pile', ratio = 1.33) {
          var s = selector;
          var r = ratio;
          var e = d.querySelector(s); // query element

@@ -6,8 +6,8 @@ body, html {
     max-width: 100%;
 }
 #gamePlay {
-    position: relative;
-    padding-bottom: 100px;
+   position: relative;
+   padding-bottom: 8%;
 }
 p {
     padding: 5px;
@@ -83,8 +83,9 @@ p {
     overflow: hidden;
     margin: 22% auto;
     padding: 20px;
-    background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+
 
     color: black;
 }
@@ -430,8 +431,11 @@ body::-webkit-scrollbar-thumb {
   }
   #table {
      opacity: 0;
-     width: 100%;
      padding: 25px 0;
+     padding-left: 5%;
+     padding-top: 4%;
+     padding-bottom: 1%;
+     width: 90%;
   }
   #table > div {
      position: relative;
@@ -460,7 +464,7 @@ body::-webkit-scrollbar-thumb {
      display: block;
      position: relative;
      float: left;
-     width: 11%;
+     width: 12.1%;
      margin-right: 1.5%;
      margin-bottom: 10px;
      padding: 5px;
@@ -484,7 +488,7 @@ body::-webkit-scrollbar-thumb {
      top: 0;
      left: 0;
      background-color: #ddd;
-     background-image: url('https://bfa.github.io/solitaire-js/img/card_back_bg.png');
+     background-image: url('../Images_NotNumbers/BackDesign2.jpg');
      background-size: contain;
      background-repeat: no-repeat;
      width: 100%;
@@ -543,7 +547,7 @@ body::-webkit-scrollbar-thumb {
      }
   }
   .card .suit {
-     font-size: 5.8em;
+     font-size: 5.0em;
      font-weight: normal;
      width: 0.6896551724137931em;
      height: 0.786206896551724em;
