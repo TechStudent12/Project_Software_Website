@@ -5,6 +5,9 @@ body, html {
     height: 100%;
     max-width: 100%;
 }
+#bodyTag {
+   background-image: url("../Image_DayOrNight/day.jpg");
+}
 #gamePlay {
    position: relative;
    padding-bottom: 8%;
