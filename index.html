@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv = "refresh" content = "8.3; url = '/solitaire.html'" />
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="card.css">
     <title>Loading...</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +21,51 @@
         margin: 0;
         flex-direction: column;
         font-family: 'Londrina Solid', cursive;
+        cursor: no-drop;
+        background-color: #63d471;
+        background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+    }
+    .meter { 
+        width: 50%;
+        height: 10px;
+        background: #f3efe6;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .meter span {
+        display: block;
+        height: 100%;
+        text-align: center;
+    }
+    .progress {
+        background-color: crimson;
+        animation: progressBar 8s ease-in-out;
+        animation-fill-mode:both; 
+    }
+    @keyframes progressBar {
+        0% { width: 0; }
+        100% { width: 100%; }
+    }
+    #loadingtext {
+        color: white;
+        font-size: 16px;
+        text-align: center;
+    }
+    .loader .loader_text {
+        font-size: 50px;
+        font-weight: 600;
+        color: #26001B;
+        margin: 20px auto;
+        text-align: center;
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        margin-top: -80px;
     }
 </style>
 <body>
