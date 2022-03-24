@@ -100,24 +100,28 @@ p {
     color: black;
 }
 .modal-content::-webkit-scrollbar {
-    width: 1em;
+    width: 0em;
+    background-color: transparent;
 }
 .modal-content::-webkit-scrollbar-track {
     box-shadow: none;
+    background-color: transparent;
 }
 .modal-content::-webkit-scrollbar-thumb {
     background-color: red;
-    outline: 1px solid red;
+    outline: none;
 }
 body::-webkit-scrollbar {
-    width: 1em;
+    width: 0em;
+    background-color: transparent;
 }
 body::-webkit-scrollbar-track {
     box-shadow: none;
+    background-color: transparent;
 }
 body::-webkit-scrollbar-thumb {
     background-color: red;
-    outline: 1px solid red;
+    outline: none;
 }
 .column {
     cursor: pointer;
