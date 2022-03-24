@@ -96,7 +96,7 @@ window.onclick = function(event) {
 
 function Confirm2(title, msg, $true, $false, num) { 
     var $content =  "<div class='dialog-ovelay'>" +
-                "<div class='dialog'><header>" +
+                "<div class='dialog' id='dialog'><header>" +
                     " <center><h3><img src='../logos/logo.png' style='width: 100px; height: 100px;'><br>" + title + " </h3></center> " +
                 "</header>" +
                 "<div class='dialog-msg'>" +
@@ -151,6 +151,29 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("https://bfa.github.io/solitaire-js/img/card_back_bg.png")';
         document.getElementById("modal-content2").style.backgroundColor = '#63d471';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("headerMain").style.backgroundColor = '#63d471';
+        document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first").style.backgroundColor = '#63d471';
+        document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first").style.borderColor = 'green';
+        document.getElementById("second").style.backgroundColor = '#63d471';
+        document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("second").style.borderColor = 'green';
+        document.getElementById("third").style.backgroundColor = '#63d471';
+        document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("third").style.borderColor = 'green';
+        document.getElementById("fourth").style.backgroundColor = '#63d471';
+        document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("fourth").style.borderColor = 'green';
+        document.getElementById("fifth").style.backgroundColor = '#63d471';
+        document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("fifth").style.borderColor = 'green';
+        document.getElementById("sixth").style.backgroundColor = '#63d471';
+        document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("sixth").style.borderColor = 'green';
+        document.getElementById("seventh").style.backgroundColor = '#63d471';
+        document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("seventh").style.borderColor = 'green';
     }
     else if(t.value=="0") {
         t.value="1";
@@ -160,7 +183,30 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
         document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
-    }
+        document.getElementById("headerMain").style.backgroundColor = '#7f5a83';
+        document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first").style.backgroundColor = '#7f5a83';
+        document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first").style.borderColor = 'black';
+        document.getElementById("second").style.backgroundColor = '#7f5a83';
+        document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("second").style.borderColor = 'black';
+        document.getElementById("third").style.backgroundColor = '#7f5a83';
+        document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("third").style.borderColor = 'black';
+        document.getElementById("fourth").style.backgroundColor = '#7f5a83';
+        document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("fourth").style.borderColor = 'black';
+        document.getElementById("fifth").style.backgroundColor = '#7f5a83';
+        document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("fifth").style.borderColor = 'black';
+        document.getElementById("sixth").style.backgroundColor = '#7f5a83';
+        document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("sixth").style.borderColor = 'black';
+        document.getElementById("seventh").style.backgroundColor = '#7f5a83';
+        document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("seventh").style.borderColor = 'black';
+    }   
 }
 
 window.onload = function(event) {
