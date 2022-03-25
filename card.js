@@ -7,6 +7,8 @@ var isPaused = false;
 var isEnd = false;
 var time = 0;
 
+document.getElementById("myModal3").style.display = 'block';
+
 // Pause function for timer.
 function functionPause() {
     isPaused = true;
@@ -67,6 +69,7 @@ function endGame(num) {
 // Get the modal
 var modal = document.getElementById("myModal");
 var modal2 = document.getElementById("myModal2");
+var modal3 = document.getElementById("myModal3");
 
 
 // Get the button that opens the modal
@@ -91,6 +94,9 @@ window.onclick = function(event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
         isPaused = false;
+    }
+    if (event.target == modal3) {
+        modal3.style.display = "none";
     }
 }
 // End of help button modal 
@@ -153,6 +159,8 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("https://bfa.github.io/solitaire-js/img/card_back_bg.png")';
         document.getElementById("modal-content2").style.backgroundColor = '#63d471';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("modal-content3").style.backgroundColor = '#63d471';
+        document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("headerMain").style.border = '2px dashed green';
         document.getElementById("headerMain").style.backgroundColor = '#63d471';
         document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
@@ -186,6 +194,8 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
         document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("modal-content3").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("headerMain").style.border = '2px dashed black';
         document.getElementById("headerMain").style.backgroundColor = '#7f5a83';
         document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
