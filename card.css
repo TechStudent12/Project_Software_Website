@@ -100,7 +100,6 @@ p {
    background-color: #63d471;
    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
    color: black;
-   border: 4px dashed darkgreen;
 }
 .modal-content h1 {
     color: black;
