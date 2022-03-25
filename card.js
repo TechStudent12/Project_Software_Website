@@ -144,6 +144,7 @@ function Confirm2(title, msg, $true, $false, num) {
             //document.getElementById("resumeBtn").disabled = true;
             document.getElementById("container").style.visibility = "hidden";
             $('.dialog-ovelay').remove();
+            window.location.reload();
         }
     });
     $('.cancelAction').click(function () {
