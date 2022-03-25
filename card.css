@@ -101,6 +101,17 @@ p {
    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
    color: black;
 }
+.modal-content4 {
+   font-family: 'Antic Slab', serif; 
+   height: 300px;
+   width: 40%;
+   overflow: hidden;
+   margin: 22% auto;
+   padding: 20px;
+   background-color: #63d471;
+   background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+   color: black;
+}
 .modal-content h1 {
     color: black;
 }
@@ -112,11 +123,22 @@ p {
 }
 .modal-content3 h1 {
    font-size: 30px;
-   margin-top: 15px;
+   margin-top: 10px;
    margin-bottom: 0px;
    color: white;
 }
 .modal-content3 p {
+   font-size: 20px;
+   margin-top: 0px;
+   color: white;
+}
+.modal-content4 h1 {
+   font-size: 30px;
+   margin-top: 10px;
+   margin-bottom: 0px;
+   color: white;
+}
+.modal-content4 p {
    font-size: 20px;
    margin-top: 0px;
    color: white;

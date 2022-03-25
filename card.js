@@ -32,6 +32,7 @@ function pad(val) {
 // New game function for timer. Start timer when user press newGame button.
 var t;
 function newGame(num) {
+    reset(table);
     render(table, playedCards);
     play(table);
     document.getElementById("gameEnd").style.cursor = "pointer";
@@ -70,6 +71,7 @@ function endGame(num) {
 var modal = document.getElementById("myModal");
 var modal2 = document.getElementById("myModal2");
 var modal3 = document.getElementById("myModal3");
+var modal4 = document.getElementById("myModal4");
 
 
 // Get the button that opens the modal
@@ -97,6 +99,10 @@ window.onclick = function(event) {
     }
     if (event.target == modal3) {
         modal3.style.display = "none";
+        modal4.style.display = "block";
+    }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
     }
 }
 // End of help button modal 
@@ -121,6 +127,7 @@ function Confirm2(title, msg, $true, $false, num) {
     $('.doAction').click(function () {
         document.getElementById("gameNew").style.cursor = "pointer";
         if(num === 1) {
+            isEnd = false;
             clearInterval(t);
             time = 0;
             //milisecondsLabel.innerHTML = "00";
