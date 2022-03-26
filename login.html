@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../logos/logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<style>
+    html, body {
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        margin: 0;
+        flex-direction: column;
+        cursor: no-drop;
+        background-color: #63d471;
+        background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+        font-family: 'Antic Slab', serif; 
+        font-weight: normal;
+    }
+    .meter { 
+        width: 50%;
+        height: 10px;
+        background: #f3efe6;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .meter span {
+        display: block;
+        height: 100%;
+        text-align: center;
+    }
+    .progress {
+        background-color: green;
+        animation: progressBar 8s ease-in-out;
+        animation-fill-mode:both; 
+    }
+    @keyframes progressBar {
+        0% { width: 0; }
+        100% { width: 100%; }
+    }
+    #loadingtext {
+        color: white;
+        font-size: 16px;
+        text-align: center;
+    }
+    .loader .loader_text {
+        font-size: 50px;
+        font-weight: 600;
+        color: #26001B;
+        margin: 20px auto;
+        text-align: center;
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        margin-top: -80px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="meter">
+            <span style="width:100%;"><span class="progress"></span><br><span id="loadingtext">Retrieving your profile.</span><span class="loader_text" id="loader_text"><span class="loader_text_unit" data-count="100" style="height: 100%; width: 100%; color: white; margin-top: -110px; font-size: 50px;">0%</span></span></span>
+        </div>
+    </div>
+    <script>
+        var count = 0;
+        var count2 = 0;
+        var array = ["Retrieving game data.", "Validating game info.", "Checking app updates.", "Adding patches.", "Generating game.", "Checking data.", "Executing final check.", "Redirecting to game."];
+        setInterval(function(){
+            count++;
+            document.getElementById('loadingtext').innerHTML = array[count2] + new Array(count % 10).join('.');
+            if(count2 < array.length) {
+                count2++;
+            }
+            if(count2 == array.length || count2 >= array.length) {
+                count2 = 7;
+            }
+        }, 1000);
+        $(window).on('load', function() {
+            $('.loader_text_unit').each(function() {
+                var $this = $(this), countTo = $this.attr('data-count');
+                $({ countNum: $this.text()}).animate({
+                countNum: countTo
+                },
+                {
+                duration: 8000,
+                easing:'linear',
+                step: function() {
+                    $this.text(Math.floor(this.countNum)+'%');
+                },
+                complete: function() {
+                    $this.text(this.countNum+'%');
+                }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
