@@ -7,6 +7,8 @@
         background-color: #7f5a83;
         margin: 0;
         padding: 0;
+        font-family: 'Antic Slab', serif; 
+        font-weight: normal;
     }
     body::-webkit-scrollbar {
         width: 0em;
@@ -28,7 +30,7 @@
         -ms-transform: translate(-50%, -50%); /* for IE 9 */
         -webkit-transform: translate(-50%, -50%); /* for Safari */
         width: 500px;
-        height: 380px;
+        height: 430px;
         background-color: #fff;
         padding: 10px;
         border-radius: 3px;
@@ -89,10 +91,22 @@
         top: 2px;
     }
     .social-login a:first-child{
+        background-color: transparent;
+        border: 2px solid #49639F;
+        color: #49639F;
+    }
+    .social-login a:first-child:hover {
         background-color: #49639F;
+        color: white;
     }
     .social-login a:last-child{
+        background-color: transparent;
+        border: 2px solid #DF4A32;
+        color: #DF4A32;
+    }
+    .social-login a:last-child:hover {
         background-color: #DF4A32;
+        color: white;
     }
     .email-login,.email-signup{
         position:relative;
@@ -125,20 +139,48 @@
     }
     .u-form-group button{
         width: 50%;
-        background-color: #1CB94E;
-        border: none;
+        border: 2px solid green;
+        background-color: transparent;
         outline: none;
-        color: #fff;
+        color: green;
         font-size: 14px;
         font-weight: normal;
         padding: 14px 0;
         border-radius: 2px;
         text-transform: uppercase;
+        cursor: pointer
+    }
+    #goBack {
+        width: 50%;
+        border: 2px solid red;
+        background-color: transparent;
+        outline: none;
+        color: red;
+        font-size: 14px;
+        font-weight: normal;
+        padding: 14px 0;
+        border-radius: 2px;
+        text-transform: uppercase;
+        cursor: pointer
     }
     .forgot-password{
         width: 50%;
         text-align: left;
         text-decoration: underline;
         color: #888;
-        font-size: 0.75rem;
+        font-size: 0.90rem;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    .forgot-password:hover {
+        color: green;
+        text-decoration: none;
+    }
+    .u-form-group button:hover {
+        color: white;
+        background-color: green;
+    }
+    #goBack:hover {
+        color: white;
+        background-color: red;
     }

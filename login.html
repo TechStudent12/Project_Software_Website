@@ -13,14 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Kaushan+Script&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="login-box">
         <div class="lb-header">
           <a href="#" class="active" id="login-box-link">Login</a>
-          <a href="#" id="signup-box-link">Sign Up</a>
+          <a href="#" id="signup-box-link">Sign-up</a>
         </div>
         <div class="social-login">
           <a href="#">
@@ -43,7 +43,10 @@
             <button>Log in</button>
           </div>
           <div class="u-form-group">
-            <a href="#" class="forgot-password">Forgot password?</a>
+            <button id="goBack" onclick="redirect()">Go back</button>
+          </div>
+          <div class="u-form-group">
+            <a href="solitaire.html" class="forgot-password">Forgot password?</a>
           </div>
         </form>
         <form class="email-signup">
@@ -59,6 +62,9 @@
           <div class="u-form-group">
             <button>Sign Up</button>
           </div>
+          <div class="u-form-group">
+            <button id="goBack" onclick="redirect()">Go back</button>
+          </div>
         </form>
     </div>
     <script>
@@ -70,11 +76,20 @@
             $("#signup-box-link").addClass("active");
         });
         $("#login-box-link").click(function(){
-            $(".email-login").delay(100).fadeIn(100);;
+            $(".email-login").delay(100).fadeIn(100);
             $(".email-signup").fadeOut(100);
             $("#login-box-link").addClass("active");
             $("#signup-box-link").removeClass("active");
         });
+        $(".email-login").submit(function(e) {
+            e.preventDefault();
+        });
+        $(".email-signup").submit(function(e) {
+            e.preventDefault();
+        });
+        function redirect() {
+            window.location.assign('solitaire.html');
+        }
     </script>
 </body>
 </html> 
