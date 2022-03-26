@@ -18,6 +18,21 @@ p {
     margin-left: 0px;
     margin-right: 0px;
 }
+a {
+   text-decoration: none;
+   color: white;
+}
+a:hover {
+   background-color: red;
+}
+#loginNotice {
+   font-family: 'Antic Slab', serif; 
+   font-weight: 500;
+   width: 45%;
+   background-color: rgba(0, 0, 0, 0.50);
+   margin-top: 0px;
+   margin-bottom: 60px;
+}
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
     color: white;
