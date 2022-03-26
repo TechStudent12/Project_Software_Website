@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,100 +14,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Kaushan+Script&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<style>
-    html, body {
-        min-height: 100%;
-        min-width: 100%;
-        display: flex;
-        margin: 0;
-        flex-direction: column;
-        cursor: no-drop;
-        background-color: #63d471;
-        background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
-        font-family: 'Antic Slab', serif; 
-        font-weight: normal;
-    }
-    .meter { 
-        width: 50%;
-        height: 10px;
-        background: #f3efe6;
-        background-color: white;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
-    .meter span {
-        display: block;
-        height: 100%;
-        text-align: center;
-    }
-    .progress {
-        background-color: green;
-        animation: progressBar 8s ease-in-out;
-        animation-fill-mode:both; 
-    }
-    @keyframes progressBar {
-        0% { width: 0; }
-        100% { width: 100%; }
-    }
-    #loadingtext {
-        color: white;
-        font-size: 16px;
-        text-align: center;
-    }
-    .loader .loader_text {
-        font-size: 50px;
-        font-weight: 600;
-        color: #26001B;
-        margin: 20px auto;
-        text-align: center;
-        color: white;
-        text-align: center;
-        font-size: 50px;
-        margin-top: -80px;
-    }
-</style>
 <body>
-    <div class="container">
-        <div class="meter">
-            <span style="width:100%;"><span class="progress"></span><br><span id="loadingtext">Retrieving your profile.</span><span class="loader_text" id="loader_text"><span class="loader_text_unit" data-count="100" style="height: 100%; width: 100%; color: white; margin-top: -110px; font-size: 50px;">0%</span></span></span>
+    <div class="login-box">
+        <div class="lb-header">
+          <a href="#" class="active" id="login-box-link">Login</a>
+          <a href="#" id="signup-box-link">Sign Up</a>
         </div>
+        <div class="social-login">
+          <a href="#">
+            <i class="fa fa-facebook fa-lg"></i>
+            Login in with facebook
+          </a>
+          <a href="#">
+            <i class="fa fa-google-plus fa-lg"></i>
+            log in with Google
+          </a>
+        </div>
+        <form class="email-login">
+          <div class="u-form-group">
+            <input type="email" placeholder="Email" aria-label="email"/>
+          </div>
+          <div class="u-form-group">
+            <input type="password" placeholder="Password" aria-label="password"/>
+          </div>
+          <div class="u-form-group">
+            <button>Log in</button>
+          </div>
+          <div class="u-form-group">
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+        </form>
+        <form class="email-signup">
+          <div class="u-form-group">
+            <input type="email" placeholder="Email" aria-label="email"/>
+          </div>
+          <div class="u-form-group">
+            <input type="password" placeholder="Password" aria-label="password"/>
+          </div>
+          <div class="u-form-group">
+            <input type="password" placeholder="Confirm Password" aria-label="confirm password"/>
+          </div>
+          <div class="u-form-group">
+            <button>Sign Up</button>
+          </div>
+        </form>
     </div>
     <script>
-        var count = 0;
-        var count2 = 0;
-        var array = ["Retrieving game data.", "Validating game info.", "Checking app updates.", "Adding patches.", "Generating game.", "Checking data.", "Executing final check.", "Redirecting to game."];
-        setInterval(function(){
-            count++;
-            document.getElementById('loadingtext').innerHTML = array[count2] + new Array(count % 10).join('.');
-            if(count2 < array.length) {
-                count2++;
-            }
-            if(count2 == array.length || count2 >= array.length) {
-                count2 = 7;
-            }
-        }, 1000);
-        $(window).on('load', function() {
-            $('.loader_text_unit').each(function() {
-                var $this = $(this), countTo = $this.attr('data-count');
-                $({ countNum: $this.text()}).animate({
-                countNum: countTo
-                },
-                {
-                duration: 8000,
-                easing:'linear',
-                step: function() {
-                    $this.text(Math.floor(this.countNum)+'%');
-                },
-                complete: function() {
-                    $this.text(this.countNum+'%');
-                }
-                });
-            });
+        $(".email-signup").hide();
+        $("#signup-box-link").click(function(){
+            $(".email-login").fadeOut(100);
+            $(".email-signup").delay(100).fadeIn(100);
+            $("#login-box-link").removeClass("active");
+            $("#signup-box-link").addClass("active");
+        });
+        $("#login-box-link").click(function(){
+            $(".email-login").delay(100).fadeIn(100);;
+            $(".email-signup").fadeOut(100);
+            $("#login-box-link").addClass("active");
+            $("#signup-box-link").removeClass("active");
         });
     </script>
 </body>
