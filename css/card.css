@@ -23,7 +23,7 @@ a {
    color: white;
 }
 a:hover {
-   background-color: red;
+   color: yellow;
 }
 #loginNotice {
    font-family: 'Antic Slab', serif; 
@@ -31,7 +31,7 @@ a:hover {
    width: 45%;
    background-color: rgba(0, 0, 0, 0.50);
    margin-top: 0px;
-   margin-bottom: 60px;
+   margin-bottom: 55px;
 }
 #gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
