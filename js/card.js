@@ -72,11 +72,13 @@ var modal = document.getElementById("myModal");
 var modal2 = document.getElementById("myModal2");
 var modal3 = document.getElementById("myModal3");
 var modal4 = document.getElementById("myModal4");
+var modal5 = document.getElementById("myModal5");
 
 
 // Get the button that opens the modal
 var btn = document.getElementById("helpBtn");
 var btn2 = document.getElementById("pauseBtn");
+var btn3 = document.getElementById("guestAccount");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -85,6 +87,11 @@ btn.onclick = function() {
 
 btn2.onclick = function() {
     modal2.style.display = "block";
+    functionPause();
+}
+
+btn3.onclick = function() {
+    modal5.style.display = "block";
     functionPause();
 }
 
@@ -103,6 +110,9 @@ window.onclick = function(event) {
     }
     if (event.target == modal4) {
         modal4.style.display = "none";
+    }
+    if (event.target == modal5) {
+        modal5.style.display = "none";
     }
 }
 // End of help button modal 
@@ -178,6 +188,15 @@ function toggle() {
         document.getElementById("second").style.backgroundColor = '#63d471';
         document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("second").style.borderColor = 'green';
+        document.getElementById("headerMain2").style.border = '2px dashed green';
+        document.getElementById("headerMain2").style.backgroundColor = '#63d471';
+        document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first2").style.backgroundColor = '#63d471';
+        document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first2").style.borderColor = 'green';
+        document.getElementById("second2").style.backgroundColor = '#63d471';
+        document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("second2").style.borderColor = 'green';
         document.getElementById("third").style.backgroundColor = '#63d471';
         document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("third").style.borderColor = 'green';
@@ -213,6 +232,15 @@ function toggle() {
         document.getElementById("second").style.backgroundColor = '#7f5a83';
         document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("second").style.borderColor = 'black';
+        document.getElementById("headerMain2").style.border = '2px dashed black';
+        document.getElementById("headerMain2").style.backgroundColor = '#7f5a83';
+        document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first2").style.backgroundColor = '#7f5a83';
+        document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first2").style.borderColor = 'black';
+        document.getElementById("second2").style.backgroundColor = '#7f5a83';
+        document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("second2").style.borderColor = 'black';
         document.getElementById("third").style.backgroundColor = '#7f5a83';
         document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("third").style.borderColor = 'black';
