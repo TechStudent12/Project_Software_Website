@@ -234,3 +234,20 @@ function toggle() {
 window.onload = function(event) {
     toggle();
 }
+
+function redirect() {
+    window.location.href='/login.html'; 
+    return false;
+}
+
+var openOrClose = document.getElementById("tabsForNav");
+function functionOpenAndClose() {
+    if (openOrClose.style.display === "block") {
+        openOrClose.style.display = "none";
+        document.getElementById('valBarIcon').innerHTML = '<i class="fa fa-bars"></i>'; 
+    } 
+    else {
+        openOrClose.style.display = "block";
+        document.getElementById('valBarIcon').innerHTML = '<i class="fa fa-times"></i>';
+    }
+}

@@ -1146,6 +1146,103 @@ body::-webkit-scrollbar-thumb {
      }
 
      /* Suleman addition end 22-03-22*/
-
-  
+     .navbar-brand {
+         position: fixed;
+         float: left; 
+         margin-left: 20px;
+      }
+      .nav-item, #contributing {
+         margin-top: 10px;
+         float: left; 
+         margin-left: 25px;
+         margin-right: 10px;
+      }
+      .nav-ham {
+         margin-top: 10px;
+         margin-left: 25px;
+         margin-right: 10px;
+      }
+      #img44 {
+         top: 0;
+         left: 0; 
+         right: 0;
+         height: 320px;
+         width: 320px;
+         margin-top: -60px;
+         border: 4px solid ghostwhite; 
+         border-radius: 50%;  
+         cursor: pointer;
+      }
+      #img44:hover {
+         border: 4px solid red;
+      }
+      .navHamMovie {
+         overflow: hidden;
+         background-color: transparent;
+         position: fixed;
+         right: 10px;
+         width: 150px;
+         padding-top: 60px;
+         margin-top: -10px;
+         z-index: 9999;
+      }
+      .navHamMovie #tabsForNav {
+         display: none;
+      }
+      .navHamMovie a {
+         background-color:rgba(0, 0, 0, 0.50);
+         color: white;
+         padding: 16px 16px;
+         text-decoration: none;
+         font-family: 'Antic Slab', serif;
+         font-size: 20px;
+         display: block;
+      }
+      .navHamMovie a.valBar {
+         background-color:rgba(0, 0, 0, 0.50);
+         font-family: 'Antic Slab', serif;
+         display: block;
+         color: white;
+         position: fixed;
+         width: 18px;
+         padding: 10px;
+         right: 10px;
+         top: 15px;
+         outline: none;
+      }
+      .navHamMovie .nav-link:hover {
+         background-color: red;
+         color: white;
+         text-shadow: none; 
+      }
+      .navHamMovie a.valBar:hover {
+         background-color: red;
+         color: white;
+         border: none;
+         text-shadow: none;
+         outline: none;
+      }
+      .active {
+         background-color: darkred;
+         border-color: none;
+         color: darkred;
+         cursor: no-drop;
+      }
+      .active:hover {
+         color: white;
+         background-color: darkred;
+      }
+      #user {
+         margin-top: 15px;
+         color: white; 
+         font-size: 20px;
+         z-index: 30000;
+         margin-left: 80px;
+         background-color:rgba(0, 0, 0, 0.50);
+         padding: 5px;
+         font-family: 'Antic Slab', serif;
+      }
+      #bottle {
+         background-color:rgba(0, 0, 0, 0.50);
+      }
   

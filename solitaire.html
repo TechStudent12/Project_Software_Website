@@ -4,7 +4,6 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"></script>
    <link rel="stylesheet" href="../css/card.css">
-   <!--<link rel="stylesheet" type="text/css" href="css/freecell.css" />-->
    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
    <title>Solitaire</title>
    <link rel="icon" type="image/png" href="../logos/logo.png">
@@ -17,6 +16,21 @@
    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body id="bodyTag">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav1">
+      <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
+      <div class="navHamMovie" id="navTabs">
+          <div id="tabsForNav">
+            <ul id="nav2">
+               <a class="active" href="/solitaire.html" style="text-decoration: none;">Home<span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="/login.html" style="text-decoration: none;">Sign-In</a>
+               <a class="nav-link" href="/login.html" style="text-decoration: none;">Sign-Up</a>
+               <a class="nav-link" href="/forgotpassword.html" style="text-decoration: none;">Reset</a>
+          </div>
+          <a href="javascript:void(0);" id="valBarIcon" class="valBar" onclick="functionOpenAndClose()">
+            <i class="fa fa-bars"></i>
+          </a>
+      </div>
+  </nav>
    <div>
       <center><img src="../logos/logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
       <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire</h1></center> 
