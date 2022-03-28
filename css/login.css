@@ -22,7 +22,7 @@
         background-color: red;
         outline: none;
     }
-    .login-box{
+    .login-box {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -30,7 +30,7 @@
         -ms-transform: translate(-50%, -50%); /* for IE 9 */
         -webkit-transform: translate(-50%, -50%); /* for Safari */
         width: 500px;
-        height: 430px;
+        height: 470px;
         background-color: #fff;
         padding: 10px;
         border-radius: 3px;
@@ -38,7 +38,23 @@
         -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
         box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
     }
-    .lb-header{
+    .login-box2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%); /* for IE 9 */
+        -webkit-transform: translate(-50%, -50%); /* for Safari */
+        width: 500px;
+        height: 390px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+        -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+        box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    }
+    .lb-header {
         position: relative;
         color: #00415d;
         margin: 5px 5px 10px 5px;
