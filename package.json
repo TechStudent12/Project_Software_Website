@@ -2,6 +2,8 @@
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "mongoose": "^6.3.0",
-    "nodejs": "^0.0.0"
+    "nodejs": "^0.0.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }
