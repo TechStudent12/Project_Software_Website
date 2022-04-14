@@ -91,18 +91,43 @@ app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
 });
- 
+
+//Handling user google authentication
+app.get('/auth/google', 
+    passport.authenticate('google', { scope : ['profile', 'email'] })
+);
+app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/signin' }),
+    function(req, res) {
+        res.redirect('/logging');
+    }
+);
+
+//Handling user gihtub authentication
+app.get('/auth/github',
+    passport.authenticate('github')
+);
+app.get('/auth/github/callback', 
+    passport.authenticate('github', { failureRedirect: '/signin' }),
+    function(req, res) {
+        res.redirect('/logging');
+    }
+);
+
+//Check if user logged in.
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/login");
 }
  
+//Extra settings for security
 app.enable('trust proxy');
 
 app.use((req, res, next) => {
     req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 });
 
+//Port to open site on. The port for localhost is 3000.
 app.listen(app.get('port'), () => {
-    console.log('server on port', app.get('port'));
+    console.log('Server on port', app.get('port'));
 });
