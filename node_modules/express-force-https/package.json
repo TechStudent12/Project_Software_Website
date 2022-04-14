@@ -1,0 +1,31 @@
+{
+  "name": "express-force-https",
+  "version": "1.0.0",
+  "description": "Express middleware to redirect all http requests to https",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Nick Poisson",
+    "email": "nick@jam3.com",
+    "url": "https://github.com/njam3"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "express,",
+    "middleware,",
+    "https,",
+    "force"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/njam3/express-force-https.git"
+  },
+  "homepage": "https://github.com/njam3/express-force-https",
+  "bugs": {
+    "url": "https://github.com/njam3/express-force-https/issues"
+  }
+}
