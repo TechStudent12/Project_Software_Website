@@ -7,6 +7,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const User = require("./models/user");
 const path = require('path');
 const engine = require('ejs-mate');
+const flash = require('connect-flash');
 
 //Databse connection
 mongoose.connect("mongodb://localhost:27017/auth_demo_app", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -35,9 +36,19 @@ app.use(require("express-session")({
     saveUninitialized: false
 }));
  
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
- 
+
+app.use((req, res, next) => {
+    app.locals.signinMessage = req.flash('signinMessage');
+    app.locals.signupMessage = req.flash('signupMessage');
+    app.locals.resetMessage = req.flash('resetMessage');
+    app.locals.user = req.user;
+    console.log(app.locals)
+    next();
+});
+
 //=====================
 // ROUTES
 //=====================
