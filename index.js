@@ -1,17 +1,20 @@
-var express = require("express"),
-    mongoose = require("mongoose"),
-    passport = require("passport"),
-    bodyParser = require("body-parser"),
-    LocalStrategy = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose"),
-    User = require("./models/user");
+//Required libraries
+const express = require("express");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const bodyParser = require("body-parser");
+const passportLocalMongoose = require("passport-local-mongoose");
+const User = require("./models/user");
 const path = require('path');
 const engine = require('ejs-mate');
 
+//Databse connection
 mongoose.connect("mongodb://localhost:27017/auth_demo_app", { useNewUrlParser: true, useUnifiedTopology: true });
 
+//The ejs routes
 var secure = require('express-force-https');
 var app = express();
+require('./routes/local-authentication');
 app.use(secure);
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,22 +42,22 @@ app.use(passport.session());
 // ROUTES
 //=====================
  
-// Showing home page
+//Showing home page
 app.get("/", function (req, res) {
     res.render("index");
 });
  
-// Showing secret page
+//Showing secret page
 app.get("/index", isLoggedIn, function (req, res) {
     res.render("index");
 });
  
-// Showing register form
+//Showing register form
 app.get("/solitaire", function (req, res) {
     res.render("solitaire");
 });
  
-// Handling user signup
+//Handling user signup
 app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/login',
     failureRedirect: '/login',
@@ -98,7 +101,7 @@ app.get('/auth/google',
     passport.authenticate('google', { scope : ['profile', 'email'] })
 );
 app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/signin' }),
+    passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
         res.redirect('/logging');
     }
@@ -109,7 +112,7 @@ app.get('/auth/github',
     passport.authenticate('github')
 );
 app.get('/auth/github/callback', 
-    passport.authenticate('github', { failureRedirect: '/signin' }),
+    passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         res.redirect('/logging');
     }

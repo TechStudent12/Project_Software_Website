@@ -41,8 +41,8 @@ passport.use(new GoogleStrategy({
 ));
 
 var GitHubStrategy = require('passport-github').Strategy;
-const GITHUB_CLIENT_ID = '5647e423502ecbce7055';
-const GITHUB_CLIENT_SECRET = 'd6ddb5aa8bb4982608675b0bb9d6707683ea11bd';
+const GITHUB_CLIENT_ID = '26f681bb02ed15076a2c';
+const GITHUB_CLIENT_SECRET = '858296c0f925dc1c31b0d11e3c4c6de10c2c402a';
 
 passport.use(new GitHubStrategy({
         clientID: GITHUB_CLIENT_ID,
