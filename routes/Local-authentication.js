@@ -8,13 +8,13 @@ require('dotenv').config();
 console.log(process.env);
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const GOOGLE_CLIENT_ID = '1036715965318-i5mupqttdna08509ast9o9ihh0r17gk2.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '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';
+const GOOGLE_CLIENT_ID = '1036715965318-rt9n9knbbcgphg848rvj35eid64b8ak8.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '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';
 
 passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://moviesriders.com/auth/google/callback"
+        callbackURL: "http://localhost:3000/auth/google/callback"
     },
     async (request, accessToken, refreshToken, profile, done) => {
         try {
@@ -47,7 +47,7 @@ const GITHUB_CLIENT_SECRET = 'd6ddb5aa8bb4982608675b0bb9d6707683ea11bd';
 passport.use(new GitHubStrategy({
         clientID: GITHUB_CLIENT_ID,
         clientSecret: GITHUB_CLIENT_SECRET,
-        callbackURL: "https://moviesriders.com/auth/github/callback"
+        callbackURL: "http://localhost:3000/auth/github/callback"
     },
     async (request, accessToken, refreshToken, profile, done) => {
         try {
@@ -64,76 +64,6 @@ passport.use(new GitHubStrategy({
             newUser.email = "Missing";
             newUser.profilePicture = profile.photos[0].value;
             newUser.source = 'github';
-            newUser.verified = false;
-            await newUser.save();
-            return done(null, newUser);
-        } catch (error) {
-            return done(error, false)
-        }
-    }
-));
-
-var TwitterStrategy = require('passport-twitter').Strategy;
-const TWITTER_CONSUMER_KEY = 'kEVd09Poz1KP0RKwDvQvgBDuF';
-const TWITTER_CONSUMER_SECRET = 'punkebWjfB6QS5iTaWbfZdq1teQPhClEh2pFDnWlnL3s5CwJwO';
-passport.use(new TwitterStrategy({
-        consumerKey: TWITTER_CONSUMER_KEY,
-        consumerSecret: TWITTER_CONSUMER_SECRET,
-        userProfileURL: "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
-        callbackURL: "https://moviesriders.com/auth/callback/twitter",
-        proxy: true
-    },
-    async (accessToken, refreshToken, profile, done) => {
-        try {
-            let existingUser = await User.findOne({ 'password': profile.id });
-            if (existingUser) {
-                return done(null, existingUser);
-            }
-            console.log('Creating new user...');
-            console.log(profile);
-            console.log("Picture is "+profile.photos[0].value);
-            const newUser = new User();
-            newUser.username = profile.username.substring(0,8);
-            newUser.password = profile.id;
-            newUser.email = "Missing";
-            newUser.profilePicture = profile.photos[0].value;
-            newUser.source = 'twitter';
-            newUser.verified = false;
-            await newUser.save();
-            return done(null, newUser);
-        } catch (error) {
-            return done(error, false)
-        }
-    }
-));
-
-var FacebookStrategy = require('passport-facebook').Strategy;
-const FACEBOOK_APP_ID = '484179496769129';
-const FACEBOOK_APP_SECRET = 'b9c89b0ec0105be7c6627dfa3f77a5ba';
-
-passport.use(new FacebookStrategy({
-        clientID: FACEBOOK_APP_ID,
-        clientSecret: FACEBOOK_APP_SECRET,
-        callbackURL: 'https://moviesriders.com/auth/callback/facebook'
-    },
-    async (accessToken, refreshToken, profile, done) => {
-        try {
-            let existingUser = await User.findOne({ 'password': profile.id });
-            if (existingUser) {
-                return done(null, existingUser);
-            }
-            console.log('Creating new user...');
-            console.log(profile);
-            const newUser = new User();
-            if(profile.username !== undefined && profile.username !== null && (profile.displayName === undefined || profile.displayName === null)) {
-                newUser.username = profile.username.substring(0,8);
-            }
-            else {
-                newUser.username = profile.displayName.substring(0,8).replace(/\s/g, '');
-            }
-            newUser.password = profile.id;
-            newUser.email = "Missing";
-            newUser.source = 'twitter';
             newUser.verified = false;
             await newUser.save();
             return done(null, newUser);
