@@ -54,17 +54,17 @@ app.use((req, res, next) => {
 //=====================
  
 //Showing home page
-app.get("/", function (req, res) {
+app.get("/", (req, res, next) => {
     res.render("index");
 });
  
 //Showing secret page
-app.get("/index", isLoggedIn, function (req, res) {
+app.get("/index", isLoggedIn, (req, res, next) => {
     res.render("index");
 });
  
 //Showing register form
-app.get("/solitaire", function (req, res) {
+app.get("/solitaire", (req, res, next) => {
     res.render("solitaire");
 });
  
@@ -77,7 +77,7 @@ app.post('/signup', passport.authenticate('local-signup', {
 }));
  
 //Showing login form
-app.get("/login", function (req, res) {
+app.get("/login", (req, res, next) => {
     res.render("login");
 });
 
@@ -89,7 +89,7 @@ app.post('/signin', passport.authenticate('local-signin', {
 }));
 
 //Showing forgot password form
-app.get("/forgotpassword", function (req, res) {
+app.get("/forgotpassword", (req, res, next) => {
     res.render("forgotpassword");
 });
  
@@ -102,7 +102,7 @@ app.post("/login", passport.authenticate("local", {
 }));
  
 //Handling user logout
-app.get("/logout", function (req, res) {
+app.get("/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");
 });
