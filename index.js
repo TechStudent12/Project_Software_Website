@@ -81,10 +81,11 @@ app.get("/forgotpassword", function (req, res) {
  
 //Handling user login
 app.post("/login", passport.authenticate("local", {
-        successRedirect: "/secret",
-        failureRedirect: "/login"
-    }), function (req, res) {
-});
+    successRedirect: '/logging',
+    failureRedirect: '/signin',
+    failureFlash: true,
+    session: true
+}));
  
 //Handling user logout
 app.get("/logout", function (req, res) {
