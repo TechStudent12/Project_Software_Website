@@ -8,8 +8,8 @@ require('dotenv').config();
 console.log(process.env);
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const GOOGLE_CLIENT_ID = '1036715965318-rt9n9knbbcgphg848rvj35eid64b8ak8.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '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';
+const GOOGLE_CLIENT_ID = '1011955633562-j5ds90oe8ejbg2q0e1gb1enbo2r1opln.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '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';
 
 passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
@@ -126,11 +126,11 @@ passport.use('local-signup', new LocalStrategy({
                 if (err) {
                     throw err;
                 } else {
-                    var link = 'https://moviesriders.com/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
+                    var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
                     var msg = {
                         to: newUser.email,
                         from: process.env['EMAIL'],
-                        subject: 'Sign in to MoviesRiders',
+                        subject: 'Sign in to Solitaire',
                         text: 'Hello '+newUser.username+'!\nThanks for signing up!\nYour account has been created, you can login with the following credentials after you have activated your account by pressing the url below.\nAccount details:\n&#9745; Username: '+newUser.username+'\n&#9745; Password: '+password+'\nPlease click this link to activate your account:\r\n\r\n' + link,
                         html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+newUser.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.</p><br><p>Account details:</p><p>&#9745; Username: '+newUser.username+'</p><p>&#9745; Password: '+password+'</p><br><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
                     };
@@ -180,11 +180,11 @@ passport.use('local-verify', new LocalStrategy({
         });
         var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
         await User.findOneAndUpdate({ 'username': username, 'email': password }, { 'permalink': permalink, 'verify_token': verification_token, 'expiry_date_link': new Date(), 'expiry_date_time': numTimeSeconds+3600 });
-        var link = 'https://moviesriders.com/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
+        var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
         var msg = {
             to: user.email,
             from: process.env['EMAIL'],
-            subject: 'Sign in to MoviesRiders',
+            subject: 'Sign in to Solitaire',
             text: 'Hello '+user.username+'!\nThanks for signing up!\nYour account has been created, you can login after you have activated your account by pressing the url below.\nPlease click this link to activate your account:\r\n\r\n' + link,
             html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+user.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login after you have activated your account by pressing the url below.</p><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
         };
@@ -248,7 +248,7 @@ passport.use('local-email-reset', new LocalStrategy({
         });
         var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
         await User.findOneAndUpdate({ 'username': username, 'email': password }, { 'permalink': permalink, 'verify_token': verification_token, 'expiry_date_link': new Date(), 'expiry_date_time': numTimeSeconds+3600 });
-        var link = 'https://moviesriders.com/reset/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
+        var link = 'https://localhost:3000/reset/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
         var msg = {
             to: user.email,
             from: process.env['EMAIL'],

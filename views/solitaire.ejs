@@ -20,21 +20,21 @@
       <% if(user) { %>
          <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"></a><img class="navbar-brand" id="img44" src="<%= user.profilePicture %>" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; background-color: transparent; border: none; cursor: no-drop;" id="userRider">Hi, <%= user.username %>.</span></a>
       <% } else { %>
-         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
+         <a id="bottle" onclick="loginRe" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
       <% } %>
       <div class="navHamMovie" id="navTabs">
           <div id="tabsForNav">
-            <% if(!user) { %>
+            <% if(user) { %>
+               <ul id="nav2">
+                  <a class="active" href="/solitaire" style="text-decoration: none;">Home<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/logout" style="text-decoration: none;">Logout</a>
+               </ul>
+            <% } else { %>
                <ul id="nav2">
                   <a class="active" href="/solitaire" style="text-decoration: none;">Home<span class="sr-only">(current)</span></a>
                   <a class="nav-link" href="/login" style="text-decoration: none;">Sign-In</a>
                   <a class="nav-link" href="/login" style="text-decoration: none;">Sign-Up</a>
                   <a class="nav-link" href="/forgotpassword" style="text-decoration: none;">Reset</a>
-               </ul>
-            <% } else %>
-               <ul id="nav2">
-                  <a class="active" href="/solitaire" style="text-decoration: none;">Home<span class="sr-only">(current)</span></a>
-                  <a class="nav-link" href="/logout" style="text-decoration: none;">Logout</a>
                </ul>
             <% } %>
           </div>
@@ -212,26 +212,26 @@
 
       <div id="gamePlay">
          <div class="container" id="container">
-
-            <div id="score" style="display: none;">
-               <div class="timer">
-                  <button id="play-pause">
-                     <i id="play">Play</i>
-                     <i id="pause">Pause</i>
-                  </button>
-                  <label>Timer:</label>
-                  <span>00:00</span>
+            <% if(user) { %>
+               <div id="score">
+                  <div class="timer" style="display: none;">
+                     <button id="play-pause">
+                        <i id="play">Play</i>
+                        <i id="pause">Pause</i>
+                     </button>
+                     <label>Timer:</label>
+                     <span>00:00</span>
+                  </div>
+                  <div class="move-count" data-moves="0">
+                     <label>Moves:</label>
+                     <span>0</span>
+                  </div>
+                  <div class="score" data-score="0">
+                     <label>Score:</label>
+                     <span>0</span>
+                  </div>
                </div>
-               <div class="move-count" data-moves="0">
-                  <label>Moves:</label>
-                  <span>0</span>
-               </div>
-               <div class="score" data-score="0">
-                  <label>Score:</label>
-                  <span>0</span>
-               </div>
-            </div>
-
+            <% } %>
             <div id="table">
       
                <div class="upper-row">
