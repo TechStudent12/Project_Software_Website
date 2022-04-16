@@ -72,6 +72,10 @@ app.get("/solitaire", (req, res, next) => {
 app.get("/logging", isLoggedIn, (req, res, next) => {
     res.render("logging");
 });
+
+app.get("/loggout", isLoggedIn, (req, res, next) => {
+    res.render("loggout");
+});
  
 //Handling user signup
 app.post('/signup', passport.authenticate('local-signup', {
