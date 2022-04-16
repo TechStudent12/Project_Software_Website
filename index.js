@@ -32,7 +32,7 @@ app.use('/Images', express.static(__dirname + 'public/Images'))
 app.use('/Image_DayOrNight', express.static(__dirname + 'public/Image_DayOrNight'))
  
 app.use(require("express-session")({
-    secret: "Rusty is a dog",
+    secret: "Solitaire_Secret",
     resave: false,
     saveUninitialized: false
 }));
