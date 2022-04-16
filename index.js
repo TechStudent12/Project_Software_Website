@@ -67,6 +67,10 @@ app.get("/index", isLoggedIn, (req, res, next) => {
 app.get("/solitaire", (req, res, next) => {
     res.render("solitaire");
 });
+
+app.get("/logging", isLoggedIn, (req, res, next) => {
+    res.render("logging");
+});
  
 //Handling user signup
 app.post('/signup', passport.authenticate('local-signup', {
