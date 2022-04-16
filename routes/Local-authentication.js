@@ -73,8 +73,6 @@ passport.use(new GitHubStrategy({
     }
 ));
 
-sendgrid.setApiKey("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");
-
 const User = require('../models/user');
 
 passport.serializeUser((user, done) => {
@@ -122,24 +120,7 @@ passport.use('local-signup', new LocalStrategy({
         var numTimeSeconds = Math.round(newUser.expiry_date_link.getTime() / (1000*60/60));
         newUser.expiry_date_time = numTimeSeconds+3600;
 
-        try {
-            newUser.save(function (err) {
-                if (err) {
-                    throw err;
-                } else {
-                    var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
-                    var msg = {
-                        to: newUser.email,
-                        from: 'nona0001@algonquinlive.com',
-                        subject: 'Sign in to Solitaire',
-                        text: 'Hello '+newUser.username+'!\nThanks for signing up!\nYour account has been created, you can login with the following credentials after you have activated your account by pressing the url below.\nAccount details:\n&#9745; Username: '+newUser.username+'\n&#9745; Password: '+password+'\nPlease click this link to activate your account:\r\n\r\n' + link,
-                        html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+newUser.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.</p><br><p>Account details:</p><p>&#9745; Username: '+newUser.username+'</p><p>&#9745; Password: '+password+'</p><br><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
-                    };
-                    sendgrid.send(msg);
-                    console.log("Email sent");
-                }
-            });
-        } catch (err) { console.log(err); }
+        newUser.save();
         done(null, newUser);
     }
 }));
@@ -158,38 +139,6 @@ passport.use('local-signin', new LocalStrategy({
     }
     if (!user.comparePassword(password)) {
         return done(null, false, req.flash('signinMessage', 'Incorrect password.<br>Please enter a valid password.'));
-    }
-    return done(null, user);
-}));
-
-passport.use('local-verify', new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    passReqToCallback: true
-}, async (req, username, password, done) => {
-    const user = await User.findOne({ username: username });
-    if (!user) {
-        return done(null, false, req.flash('signinMessage', 'No user found.<br>Please enter a valid username.'));
-    }
-    if (user.verified  == true) {
-        return done(null, false, req.flash('signinMessage', 'User is verified.<br>Please sign-in.'));
-    }
-    if (user.verified  == false) {
-        var permalink = username.toLowerCase().replace(' ', '').replace(/[^\w\s]/gi, '').trim();
-        var verification_token = randomstring.generate({
-            length: 64
-        });
-        var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
-        await User.findOneAndUpdate({ 'username': username, 'email': password }, { 'permalink': permalink, 'verify_token': verification_token, 'expiry_date_link': new Date(), 'expiry_date_time': numTimeSeconds+3600 });
-        var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
-        var msg = {
-            to: user.email,
-            from: 'nona0001@algonquinlive.com',
-            subject: 'Sign in to Solitaire',
-            text: 'Hello '+user.username+'!\nThanks for signing up!\nYour account has been created, you can login after you have activated your account by pressing the url below.\nPlease click this link to activate your account:\r\n\r\n' + link,
-            html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+user.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login after you have activated your account by pressing the url below.</p><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
-        };
-        sendgrid.send(msg);
     }
     return done(null, user);
 }));
@@ -229,35 +178,4 @@ passport.use('local-reset', new LocalStrategy({
         await User.findOneAndUpdate({ 'username': username, 'email': req.body.email }, { 'password': encryptPasswordNow(password) });
         done(null, user);
     }
-}));
-
-passport.use('local-email-reset', new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    passReqToCallback: true
-}, async (req, username, password, done) => {
-    console.log(req.body.email);
-    const user = await User.findOne({ 'username': username, 'email': password });
-    console.log(user);
-    if (!user) {
-        return done(null, false, req.flash('resetMessage', 'No user found.<br>Incorrect email or username entered.'));
-    }
-    else {
-        var permalink = username.toLowerCase().replace(' ', '').replace(/[^\w\s]/gi, '').trim();
-        var verification_token = randomstring.generate({
-            length: 64
-        });
-        var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
-        await User.findOneAndUpdate({ 'username': username, 'email': password }, { 'permalink': permalink, 'verify_token': verification_token, 'expiry_date_link': new Date(), 'expiry_date_time': numTimeSeconds+3600 });
-        var link = 'https://localhost:3000/reset/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
-        var msg = {
-            to: user.email,
-            from: 'nona0001@algonquinlive.com',
-            subject: 'Resetting your account',
-            text: 'Hello '+user.username+'!\nThanks for signing up!\nYour account has been created, you can login after you have activated your account by pressing the url below.\nPlease click this link to activate your account:\r\n\r\n' + link,
-            html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+user.username+'!</h3><p>Thanks for signing up!</p><p>Your account details were retrieve, you can reset your account after you press the url below.</p><p>The link provided will expiry in an hour. Please click this link to reset your account:</p><p><a href="' + link + '">'+link+'</a></p>',
-        };
-        sendgrid.send(msg);
-    }
-    return done(null, user);
 }));
