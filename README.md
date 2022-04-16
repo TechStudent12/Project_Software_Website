@@ -17,7 +17,7 @@ The chart below shows what is completed and what remains to be completed:
 | Section       | Completed          |
 | ------------- | ------------------ |
 | Milestone 1   | :white_check_mark: |
-| Milestone 2   | :x:                |              
+| Milestone 2   | :white_check_mark: |              
 | Milestone 3   | :x:                |
 | Final         | :x:                |               
 
