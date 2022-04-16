@@ -144,18 +144,6 @@ function encryptPasswordNow(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }
 
-passport.use('local-guestsignin', new LocalStrategy({
-    usernameField: 'user',
-    passwordField: 'pass',
-    passReqToCallback: true
-}, async (req, username, password, done) => {
-    const user = await User.findOne({ username: username });
-    if (!user || !user.comparePassword(password)) {
-        return done(null, false, req.flash('signinMessage', 'Database error.<br>Unable to connect to guest account.'));
-    }
-    return done(null, user);
-}));
-
 function encryptPasswordNow(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }
@@ -166,13 +154,30 @@ passport.use('local-reset', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
     console.log(req.body.email);
-    const user = await User.findOne({ 'username': username, 'email': req.body.email });
+    const user = await User.findOne({ 'username': username });
     console.log(user);
     if (!user) {
         return done(null, false, req.flash('resetMessage', 'No user found.<br>Incorrect email or username entered.'));
     }
     else {
-        await User.findOneAndUpdate({ 'username': username, 'email': req.body.email }, { 'password': encryptPasswordNow(password) });
+        await User.findOneAndUpdate({ 'username': username }, { 'password': encryptPasswordNow(password) });
+        done(null, user);
+    }
+}));
+
+passport.use('local-reset-email', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true
+}, async (req, username, password, done) => {
+    console.log(req.body.email);
+    const user = await User.findOne({ 'username': username });
+    console.log(user);
+    if (!user) {
+        return done(null, false, req.flash('resetMessage', 'No user found.<br>Incorrect email or username entered.'));
+    }
+    else {
+        await User.findOneAndUpdate({ 'username': username }, { 'email': req.body.email });
         done(null, user);
     }
 }));

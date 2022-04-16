@@ -97,6 +97,21 @@ app.post('/signin', passport.authenticate('local-signin', {
     session: true
 }));
 
+app.post('/reset', passport.authenticate('local-reset', {
+    successRedirect: '/logging',
+    failureRedirect: '/forgotpassword',
+    failureFlash: true,
+    session: true
+}));
+
+app.post('/resetEmail', passport.authenticate('local-reset-email', {
+    successRedirect: '/logging',
+    failureRedirect: '/forgotpassword',
+    failureFlash: true,
+    session: true
+}));
+
+
 //Showing forgot password form
 app.get("/forgotpassword", (req, res, next) => {
     res.render("forgotpassword");
