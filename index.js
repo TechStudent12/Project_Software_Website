@@ -69,10 +69,12 @@ app.get("/solitaire", (req, res, next) => {
     res.render("solitaire");
 });
 
+//Showing logging page
 app.get("/logging", isLoggedIn, (req, res, next) => {
     res.render("logging");
 });
 
+//Showing loggout page
 app.get("/loggout", (req, res, next) => {
     res.render("loggout");
 });
@@ -114,7 +116,6 @@ app.post('/resetEmail', passport.authenticate('local-reset-email', {
     session: true
 }));
 
-
 //Showing forgot password form
 app.get("/forgotpassword", (req, res, next) => {
     res.render("forgotpassword");
@@ -130,6 +131,8 @@ app.get("/logout", (req, res, next) => {
 app.get('/auth/google', 
     passport.authenticate('google', { scope : ['profile', 'email'] })
 );
+
+//Handling user google authentication
 app.get('/auth/google/callback', 
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
@@ -141,6 +144,8 @@ app.get('/auth/google/callback',
 app.get('/auth/github',
     passport.authenticate('github')
 );
+
+//Handling user gihtub authentication
 app.get('/auth/github/callback', 
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
