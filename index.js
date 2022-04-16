@@ -73,7 +73,7 @@ app.get("/logging", isLoggedIn, (req, res, next) => {
     res.render("logging");
 });
 
-app.get("/loggout", isLoggedIn, (req, res, next) => {
+app.get("/loggout", (req, res, next) => {
     res.render("loggout");
 });
  
