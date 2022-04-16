@@ -166,6 +166,7 @@ function isLoggedIn(req, res, next) {
 //    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 //});
 
+//Function to encrypt password using bcrypt hashing algorithm.
 function encryptPasswordProfile(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }
