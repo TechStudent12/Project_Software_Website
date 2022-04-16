@@ -8,6 +8,7 @@ const User = require("./models/user");
 const path = require('path');
 const engine = require('ejs-mate');
 const flash = require('connect-flash');
+var jsonParser = bodyParser.json();
 
 //Databse connection
 mongoose.connect("mongodb://localhost:27017/auth_demo_app", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -124,6 +125,82 @@ app.get('/auth/github/callback',
         res.redirect('/logging');
     }
 );
+
+app.get('/verify/:expiry/:permaink/:token', jsonParser, function (req, res) {
+    var permalink = req.params.permaink;
+    var token = req.params.token;
+    var expiry = req.params.expiry;
+    var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
+    if(expiry >= numTimeSeconds) {
+        User.findOne({'permalink': permalink}, function (err, user) {
+            if(err) {
+                console.log(err);
+            }
+            if (user.verify_token == token) {
+                console.log('that token is correct! Verify the user');
+                if(numTimeSeconds <= user.expiry_date_time) {
+                    User.findOneAndUpdate({'permalink': permalink}, {'verified': true}, function (err, resp) {
+                        if(err) {
+                            console.log(err);
+                        }
+                        console.log('The user has been verified!');
+                    });
+                    res.redirect('/signin');
+                }
+                else {
+                    res.render('548');
+                    res.end();
+                }
+            } 
+            else {
+                console.log('The token is wrong! Reject the user. token should be: ' + user.verify_token);
+                res.render('548');
+                res.end();
+            }
+        });
+    }
+    else {
+        res.render('548');
+        res.end();
+    }
+});
+
+app.get('/reset/:expiry/:permaink/:token', function (req, res) {
+    var permalink = req.params.permaink;
+    var token = req.params.token;
+    var expiry = req.params.expiry;
+    var numTimeSeconds = Math.round((new Date()).getTime() / (1000*60/60));
+    if(expiry >= numTimeSeconds) {
+        User.findOne({'permalink': permalink}, function (err, data) {
+            if(err) {
+                console.log(err);
+            }
+            if (data.verify_token == token) {
+                if(numTimeSeconds <= data.expiry_date_time) {
+                    console.log(data);
+                    res.render('new', {
+                        username: data.username,
+                        email: data.email
+                    });
+                    res.end(); 
+                }
+                else {
+                    res.render('548');
+                    res.end();
+                }
+            }
+            else {
+                console.log('The token is wrong! Reject the user. token should be: ' + data.verify_token);
+                res.render('548');
+                res.end();
+            }
+        });
+    }
+    else {
+        res.render('548');
+        res.end();
+    }
+});
 
 //Check if user logged in.
 function isLoggedIn(req, res, next) {

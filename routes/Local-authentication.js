@@ -105,6 +105,7 @@ passport.use('local-signup', new LocalStrategy({
         newUser.username = username;
         newUser.password = newUser.encryptPassword(password);
         newUser.email = req.body.email;
+        newUser.source = "None";
         console.log(newUser);
 
         var permalink = req.body.username.toLowerCase().replace(' ', '').replace(/[^\w\s]/gi, '').trim();

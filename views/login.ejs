@@ -47,16 +47,18 @@
             Log in with Google
           </a>
         </div>
-        <form class="email-login" action="/signin" method="post">
-          <div class="u-form-group">
-            <input type="username" name="username" placeholder="Username" aria-label="username"/>
-          </div>
-          <div class="u-form-group">
-            <input type="password" name="password" placeholder="Password" aria-label="password"/>
-          </div>
-          <div class="u-form-group">
-            <button type="submit">Login</button>
-          </div>
+        <div class="email-login">
+          <form action="/signin" method="post">
+            <div class="u-form-group">
+              <input type="username" name="username" placeholder="Username" aria-label="username"/>
+            </div>
+            <div class="u-form-group">
+              <input type="password" name="password" placeholder="Password" aria-label="password"/>
+            </div>
+            <div class="u-form-group">
+              <button type="submit">Login</button>
+            </div>
+          </form>
           <div class="u-form-group">
             <button onclick="redirect()">Login as guest</button>
           </div>
@@ -66,24 +68,26 @@
           <div class="u-form-group">
             <a href="/forgotpassword" class="forgot-password">Forgot password?</a>
           </div>
-        </form>
-        <form class="email-signup" action="/signup" method="post">
-          <div class="u-form-group">
-            <input type="username" name="username" placeholder="Username" aria-label="username"/>
-          </div>
-          <div class="u-form-group">
-            <input type="email" name="email" placeholder="Email" aria-label="email"/>
-          </div>
-          <div class="u-form-group">
-            <input type="password" name="password" placeholder="Password" aria-label="password"/>
-          </div>
-          <div class="u-form-group">
-            <button type="submit">Sign Up</button>
-          </div>
+        </div>
+        <div class="email-signup">
+          <form action="/signup" method="post">
+            <div class="u-form-group">
+              <input type="username" name="username" placeholder="Username" aria-label="username"/>
+            </div>
+            <div class="u-form-group">
+              <input type="email" name="email" placeholder="Email" aria-label="email"/>
+            </div>
+            <div class="u-form-group">
+              <input type="password" name="password" placeholder="Password" aria-label="password"/>
+            </div>
+            <div class="u-form-group">
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
           <div class="u-form-group">
             <button id="goBack" onclick="redirect()">Go back</button>
           </div>
-        </form>
+        </div>
     </div>
     <script>
         $(".email-signup").hide();
