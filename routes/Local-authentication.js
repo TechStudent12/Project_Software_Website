@@ -73,7 +73,7 @@ passport.use(new GitHubStrategy({
     }
 ));
 
-sendgrid.setApiKey(process.env['SENDGRID_API_KEY']);
+sendgrid.setApiKey("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");
 
 const User = require('../models/user');
 
@@ -130,7 +130,7 @@ passport.use('local-signup', new LocalStrategy({
                     var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
                     var msg = {
                         to: newUser.email,
-                        from: process.env['EMAIL'],
+                        from: 'nona0001@algonquinlive.com',
                         subject: 'Sign in to Solitaire',
                         text: 'Hello '+newUser.username+'!\nThanks for signing up!\nYour account has been created, you can login with the following credentials after you have activated your account by pressing the url below.\nAccount details:\n&#9745; Username: '+newUser.username+'\n&#9745; Password: '+password+'\nPlease click this link to activate your account:\r\n\r\n' + link,
                         html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+newUser.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.</p><br><p>Account details:</p><p>&#9745; Username: '+newUser.username+'</p><p>&#9745; Password: '+password+'</p><br><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
@@ -184,7 +184,7 @@ passport.use('local-verify', new LocalStrategy({
         var link = 'https://localhost:3000/verify/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
         var msg = {
             to: user.email,
-            from: process.env['EMAIL'],
+            from: 'nona0001@algonquinlive.com',
             subject: 'Sign in to Solitaire',
             text: 'Hello '+user.username+'!\nThanks for signing up!\nYour account has been created, you can login after you have activated your account by pressing the url below.\nPlease click this link to activate your account:\r\n\r\n' + link,
             html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+user.username+'!</h3><p>Thanks for signing up!</p><p>Your account has been created, you can login after you have activated your account by pressing the url below.</p><p>The link provided will expiry in an hour. Please click this link to activate your account:</p><p><a href="' + link + '">'+link+'</a></p>',
@@ -252,7 +252,7 @@ passport.use('local-email-reset', new LocalStrategy({
         var link = 'https://localhost:3000/reset/'+numTimeSeconds+3600+'/'+permalink+'/'+verification_token;
         var msg = {
             to: user.email,
-            from: process.env['EMAIL'],
+            from: 'nona0001@algonquinlive.com',
             subject: 'Resetting your account',
             text: 'Hello '+user.username+'!\nThanks for signing up!\nYour account has been created, you can login after you have activated your account by pressing the url below.\nPlease click this link to activate your account:\r\n\r\n' + link,
             html: '<center><img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;"/></center><h3>Hello '+user.username+'!</h3><p>Thanks for signing up!</p><p>Your account details were retrieve, you can reset your account after you press the url below.</p><p>The link provided will expiry in an hour. Please click this link to reset your account:</p><p><a href="' + link + '">'+link+'</a></p>',
