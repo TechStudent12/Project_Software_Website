@@ -77,6 +77,11 @@ app.get("/loggout", (req, res, next) => {
     res.render("loggout");
 });
  
+//Showing login form
+app.get("/login", (req, res, next) => {
+    res.render("login");
+});
+
 //Handling user signup
 app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/login',
@@ -84,12 +89,8 @@ app.post('/signup', passport.authenticate('local-signup', {
     failureFlash: true,
     session: false
 }));
- 
-//Showing login form
-app.get("/login", (req, res, next) => {
-    res.render("login");
-});
 
+//Handling user signin
 app.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/logging',
     failureRedirect: '/login',
@@ -97,6 +98,7 @@ app.post('/signin', passport.authenticate('local-signin', {
     session: true
 }));
 
+//Handling user password reset
 app.post('/reset', passport.authenticate('local-reset', {
     successRedirect: '/logging',
     failureRedirect: '/forgotpassword',
@@ -104,6 +106,7 @@ app.post('/reset', passport.authenticate('local-reset', {
     session: true
 }));
 
+//Handling user email reset
 app.post('/resetEmail', passport.authenticate('local-reset-email', {
     successRedirect: '/logging',
     failureRedirect: '/forgotpassword',
