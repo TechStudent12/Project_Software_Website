@@ -90,9 +90,11 @@ btn2.onclick = function() {
     functionPause();
 }
 
-btn3.onclick = function() {
-    modal5.style.display = "block";
-    functionPause();
+if(btn3) {
+    btn3.onclick = function() {
+        modal5.style.display = "block";
+        functionPause();
+    }
 }
 
 // When the user clicks anywhere outside of the modal, close it
