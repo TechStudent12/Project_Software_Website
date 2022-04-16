@@ -136,6 +136,7 @@
         width:100%;
         margin-bottom: 10px;
     }
+    .u-form-group input[type="username"],
     .u-form-group input[type="email"],
     .u-form-group input[type="password"]{
         width: calc(50% - 22px);
@@ -189,7 +190,7 @@
         font-weight: 500;
     }
     .forgot-password:hover {
-        color: green;
+        color: red;
         text-decoration: none;
     }
     .u-form-group button:hover {
