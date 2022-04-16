@@ -154,7 +154,7 @@
     .u-form-group input:focus{
         border-color: #358efb;
     }
-    .u-form-group button{
+    .u-form-group #submitVal, .u-form-group #submitVal2, .u-form-group button{
         width: 50%;
         border: 2px solid green;
         background-color: transparent;
@@ -167,7 +167,7 @@
         text-transform: uppercase;
         cursor: pointer
     }
-    #goBack {
+    #goBack, #goBack2 {
         width: 50%;
         border: 2px solid red;
         background-color: transparent;
@@ -193,11 +193,11 @@
         color: red;
         text-decoration: none;
     }
-    .u-form-group button:hover {
+    .u-form-group #submitVal:hover, .u-form-group #submitVal2:hover, .u-form-group button:hover {
         color: white;
         background-color: green;
     }
-    #goBack:hover {
+    #goBack:hover, #goBack2:hover {
         color: white;
         background-color: red;
     }

@@ -97,18 +97,10 @@ app.get("/forgotpassword", (req, res, next) => {
     res.render("forgotpassword");
 });
  
-//Handling user login
-app.post("/login", passport.authenticate("local", {
-    successRedirect: '/logging',
-    failureRedirect: '/signin',
-    failureFlash: true,
-    session: true
-}));
- 
 //Handling user logout
 app.get("/logout", (req, res, next) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/loggout");
 });
 
 //Handling user google authentication
@@ -145,6 +137,10 @@ function isLoggedIn(req, res, next) {
 //app.use((req, res, next) => {
 //    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 //});
+
+function encryptPasswordProfile(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+}
 
 //Port to open site on. The port for localhost is 3000.
 app.listen(app.get('port'), () => {

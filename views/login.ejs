@@ -17,6 +17,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <%if (signupMessage.length>0) {%>
+      <div class="alert alert-danger" id="oneF">
+        <%- signupMessage %>
+      </div>
+    <% } %>
+    <%if (signinMessage.length>0) {%>
+      <div class="alert alert-danger" id="oneF">
+        <%- signinMessage %>
+      </div>
+    <% } %>
+    <%if (resetMessage.length>0) {%>
+      <div class="alert alert-danger" id="oneF">
+        <%- resetMessage %>
+      </div>
+    <% } %>
     <div class="login-box">
         <div class="lb-header">
           <a href="#" class="active" id="login-box-link">Login</a>
@@ -32,15 +47,15 @@
             Log in with Google
           </a>
         </div>
-        <form class="email-login" action="/login" method="post">
+        <form class="email-login" action="/signin" method="post">
           <div class="u-form-group">
-            <input type="email" name="email" placeholder="Email" aria-label="email"/>
+            <input type="username" name="username" placeholder="Username" aria-label="username"/>
           </div>
           <div class="u-form-group">
             <input type="password" name="password" placeholder="Password" aria-label="password"/>
           </div>
           <div class="u-form-group">
-            <button>Login</button>
+            <button type="submit">Login</button>
           </div>
           <div class="u-form-group">
             <button onclick="redirect()">Login as guest</button>
@@ -63,7 +78,7 @@
             <input type="password" name="password" placeholder="Password" aria-label="password"/>
           </div>
           <div class="u-form-group">
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
           </div>
           <div class="u-form-group">
             <button id="goBack" onclick="redirect()">Go back</button>
@@ -83,12 +98,6 @@
             $(".email-signup").fadeOut(100);
             $("#login-box-link").addClass("active");
             $("#signup-box-link").removeClass("active");
-        });
-        $(".email-login").submit(function(e) {
-            e.preventDefault();
-        });
-        $(".email-signup").submit(function(e) {
-            e.preventDefault();
         });
         function redirect() {
             window.location.assign('/solitaire');
