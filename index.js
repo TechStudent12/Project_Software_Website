@@ -13,10 +13,10 @@ const flash = require('connect-flash');
 mongoose.connect("mongodb://localhost:27017/auth_demo_app", { useNewUrlParser: true, useUnifiedTopology: true });
 
 //The ejs routes
-var secure = require('express-force-https');
+//var secure = require('express-force-https');
 var app = express();
 require('./routes/local-authentication');
-app.use(secure);
+//app.use(secure);
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
@@ -140,11 +140,11 @@ function isLoggedIn(req, res, next) {
 }
  
 //Extra settings for security
-app.enable('trust proxy');
+//app.enable('trust proxy');
 
-app.use((req, res, next) => {
-    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
-});
+//app.use((req, res, next) => {
+//    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+//});
 
 //Port to open site on. The port for localhost is 3000.
 app.listen(app.get('port'), () => {
