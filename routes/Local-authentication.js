@@ -134,9 +134,6 @@ passport.use('local-signin', new LocalStrategy({
     if (!user) {
         return done(null, false, req.flash('signinMessage', 'No user found.<br>Please enter a valid username.'));
     }
-    if (user.verified  == false) {
-        return done(null, false, req.flash('signinMessage', 'User is not verified.<br>Please check your email.'));
-    }
     if (!user.comparePassword(password)) {
         return done(null, false, req.flash('signinMessage', 'Incorrect password.<br>Please enter a valid password.'));
     }
