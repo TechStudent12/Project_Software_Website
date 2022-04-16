@@ -18,9 +18,9 @@
 <body id="bodyTag">
    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav1">
       <% if(user) { %>
-         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"></a><img class="navbar-brand" id="img44" src="<%= user.profilePicture %>" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; background-color: transparent; border: none; cursor: no-drop;" id="userRider">Hi, <%= user.username %>.</span></a>
+         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"></a><img class="navbar-brand" id="img44" src="<%= user.profilePicture %>" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; background-color: transparent; border: none; cursor: no-drop;" id="user">Hi, <%= user.username %>.</span></a>
       <% } else { %>
-         <a id="bottle" onclick="loginRe" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
+         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
       <% } %>
       <div class="navHamMovie" id="navTabs">
           <div id="tabsForNav">
