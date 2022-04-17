@@ -73,12 +73,14 @@ var modal2 = document.getElementById("myModal2");
 var modal3 = document.getElementById("myModal3");
 var modal4 = document.getElementById("myModal4");
 var modal5 = document.getElementById("myModal5");
+var modal6 = document.getElementById("myModal6");
 
 
 // Get the button that opens the modal
 var btn = document.getElementById("helpBtn");
 var btn2 = document.getElementById("pauseBtn");
 var btn3 = document.getElementById("guestAccount");
+var btn4 = document.getElementById("img444");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -93,6 +95,12 @@ btn2.onclick = function() {
 if(btn3) {
     btn3.onclick = function() {
         modal5.style.display = "block";
+        functionPause();
+    }
+}
+if(btn4) {
+    btn4.onclick = function() {
+        modal6.style.display = "block";
         functionPause();
     }
 }
@@ -115,6 +123,9 @@ window.onclick = function(event) {
     }
     if (event.target == modal5) {
         modal5.style.display = "none";
+    }
+    if (event.target == modal6) {
+        modal6.style.display = "none";
     }
 }
 // End of help button modal 

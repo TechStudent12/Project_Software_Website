@@ -18,11 +18,40 @@
 <body id="bodyTag">
    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav1">
       <% if(user && user.profilePicture) { %>
-         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="<%= user.profilePicture %>" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, <%= user.username %>.</span></a>
+         <a id="bottle" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img444" src="<%= user.profilePicture %>" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, <%= user.username %>.</span></a>      
       <% } else if(user) { %>
-         <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, <%= user.username %>.</span></a>
+         <a id="bottle" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img444" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="<%= user.username %>" /> <span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, <%= user.username %>.</span></a>
       <% } else { %>
          <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
+      <% } %>
+      <% if(user) { %>
+         <!-- The help button modal--->
+         <div id="myModal6" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+               <h1 id="headerMain2" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;">How to play: Accounts<br><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
+
+               <p id="first2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>GUEST ACCOUNT</strong></p>
+               <p>Guest accounts cannot do the following: </p>
+               <ul>
+                  <li>Save score.</li>
+                  <li>Save game.</li>
+                  <li>Change profile picture.</li>
+                  <li>Change background music.</li>
+               </ul>
+               <p id="second2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>USER ACCOUNT</strong></p>
+               <p>User accounts that have sign-up to our site can enjoy various benefits, such as the following:
+               <ul>
+                  <li>Changing background music.</li>
+                  <li>Saving score.</li>
+                  <li>Being added to the scoreboard.</li>
+                  <li>Much more...</li>
+               </ul>
+
+            </div>
+         
+         </div>
       <% } %>
       <div class="navHamMovie" id="navTabs">
           <div id="tabsForNav">

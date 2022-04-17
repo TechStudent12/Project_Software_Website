@@ -1198,7 +1198,7 @@ body::-webkit-scrollbar-thumb {
          margin-left: 25px;
          margin-right: 10px;
       }
-      #img44 {
+      #img44, #img444 {
          top: 0;
          left: 0; 
          right: 0;
@@ -1209,7 +1209,7 @@ body::-webkit-scrollbar-thumb {
          border-radius: 50%;  
          cursor: pointer;
       }
-      #img44:hover {
+      #img44:hover, #img444:hover {
          border: 4px solid red;
       }
       .navHamMovie {
