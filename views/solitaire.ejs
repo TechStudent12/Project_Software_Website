@@ -246,14 +246,13 @@
             <br/><br/>For example, of the seven cards facing up in the tableau, if one is a nine and another is a ten, you may transfer the nine to on top of the ten to begin building that pile in sequence. Since you have moved the nine from one of the seven piles, you have now unblocked a face down card; this card can be turned over and now is in play.
             As you transfer cards in the tableau and begin building sequences, if you uncover an ace, the ace should be placed in one of the foundation piles. The foundations get built by suit and in sequence from ace to king.</p>
             
-            <p>Continue to transfer cards on top of each other in the tableau in sequence. 
+            <p>Continue to transfer cards on top of each other in the tableau in sequence.</p>
             <ul>
                <li>If you can’t move any more face up cards, you can utilize the stock pile by flipping over the first card. This card can be played in the foundations or tableau. </li>
                <li>If you cannot play the card in the tableau or the foundations piles, move the card to the waste pile and turn over another card in the stock pile.</li>
                <li>If a vacancy in the tableau is created by the removal of cards elsewhere it is called a “space”, and it is of major importance in manipulating the tableau. </li>
                <li>If a space is created, it can only be filled in with a king. Filling a space with a king could potentially unblock one of the face down cards in another pile in the tableau.</li>
             </ul>
-            </p>
             <p>Continue to transfer cards in the tableau and bring cards into play from the stock pile until all the cards are built in suit sequences in the foundation piles to win!</p>
          </div>
       
@@ -576,7 +575,123 @@
       <script type="text/javascript">
          var user = "<%= user.username %>";
          var nightDayVal = "<%= user.nightOrDayVal %>";
-         toggleUser(nightDayVal, user);
+         function firstTime() {
+            var t = document.getElementById("checkbox");
+            console.log(nightDayVal);
+            if(nightDayVal === true || nightDayVal === "true") {
+               document.getElementById("ballVal").style.transform = 'translateX(0px)';
+               document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+false+'\', \''+user+'\');" />';
+               document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/day.jpg")';
+               document.getElementById("checkbox-label").style.backgroundColor = '#3cb371';
+               document.getElementById("modal-content2").style.backgroundColor = '#63d471';
+               document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("modal-content3").style.backgroundColor = '#63d471';
+               document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("modal-content4").style.backgroundColor = '#63d471';
+               document.getElementById("modal-content4").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("headerMain").style.border = '2px dashed green';
+               document.getElementById("headerMain").style.backgroundColor = '#63d471';
+               document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               if(document.getElementById("detailsDivVal")) {
+                  document.getElementById("detailsDivVal").style.border = '2px dashed green';
+                  document.getElementById("detailsDivVal").style.backgroundColor = '#63d471';
+                  document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+                  document.getElementById("headerMain3").style.border = '2px dashed green';
+                  document.getElementById("headerMain3").style.backgroundColor = '#63d471';
+                  document.getElementById("headerMain3").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+                  document.getElementById("imagesDivVal").style.border = '2px dashed green';
+                  document.getElementById("imagesDivVal").style.backgroundColor = '#63d471';
+                  document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               }
+               document.getElementById("first").style.backgroundColor = '#63d471';
+               document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("first").style.borderColor = 'green';
+               document.getElementById("second").style.backgroundColor = '#63d471';
+               document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("second").style.borderColor = 'green';
+               document.getElementById("headerMain2").style.border = '2px dashed green';
+               document.getElementById("headerMain2").style.backgroundColor = '#63d471';
+               document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("first2").style.backgroundColor = '#63d471';
+               document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("first2").style.borderColor = 'green';
+               document.getElementById("second2").style.backgroundColor = '#63d471';
+               document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("second2").style.borderColor = 'green';
+               document.getElementById("third").style.backgroundColor = '#63d471';
+               document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("third").style.borderColor = 'green';
+               document.getElementById("fourth").style.backgroundColor = '#63d471';
+               document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("fourth").style.borderColor = 'green';
+               document.getElementById("fifth").style.backgroundColor = '#63d471';
+               document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("fifth").style.borderColor = 'green';
+               document.getElementById("sixth").style.backgroundColor = '#63d471';
+               document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("sixth").style.borderColor = 'green';
+               document.getElementById("seventh").style.backgroundColor = '#63d471';
+               document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+               document.getElementById("seventh").style.borderColor = 'green';
+            }
+            if(nightDayVal === false || nightDayVal === "false") {
+               document.getElementById("ballVal").style.transform = 'translateX(24px)';
+               document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+true+'\', \''+user+'\');" />';
+               document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/night.jpg")';
+               document.getElementById("checkbox-label").style.backgroundColor = 'black';
+               document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
+               document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("modal-content3").style.backgroundColor = '#7f5a83';
+               document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("modal-content4").style.backgroundColor = '#7f5a83';
+               document.getElementById("modal-content4").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("headerMain").style.border = '2px dashed black';
+               document.getElementById("headerMain").style.backgroundColor = '#7f5a83';
+               document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               if(document.getElementById("detailsDivVal")) {
+                  document.getElementById("detailsDivVal").style.border = '2px dashed black';
+                  document.getElementById("detailsDivVal").style.backgroundColor = '#7f5a83';
+                  document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                  document.getElementById("headerMain3").style.border = '2px dashed black';
+                  document.getElementById("headerMain3").style.backgroundColor = '#7f5a83';
+                  document.getElementById("headerMain3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                  document.getElementById("imagesDivVal").style.border = '2px dashed black';
+                  document.getElementById("imagesDivVal").style.backgroundColor = '#7f5a83';
+                  document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               }
+               document.getElementById("first").style.backgroundColor = '#7f5a83';
+               document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("first").style.borderColor = 'black';
+               document.getElementById("second").style.backgroundColor = '#7f5a83';
+               document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("second").style.borderColor = 'black';
+               document.getElementById("headerMain2").style.border = '2px dashed black';
+               document.getElementById("headerMain2").style.backgroundColor = '#7f5a83';
+               document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("first2").style.backgroundColor = '#7f5a83';
+               document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("first2").style.borderColor = 'black';
+               document.getElementById("second2").style.backgroundColor = '#7f5a83';
+               document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("second2").style.borderColor = 'black';
+               document.getElementById("third").style.backgroundColor = '#7f5a83';
+               document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("third").style.borderColor = 'black';
+               document.getElementById("fourth").style.backgroundColor = '#7f5a83';
+               document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("fourth").style.borderColor = 'black';
+               document.getElementById("fifth").style.backgroundColor = '#7f5a83';
+               document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("fifth").style.borderColor = 'black';
+               document.getElementById("sixth").style.backgroundColor = '#7f5a83';
+               document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("sixth").style.borderColor = 'black';
+               document.getElementById("seventh").style.backgroundColor = '#7f5a83';
+               document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+               document.getElementById("seventh").style.borderColor = 'black';
+            }
+         }
+         firstTime();
          function changePicture(valueId) {
             $.ajax({
                url: '/updateImage/'+user,

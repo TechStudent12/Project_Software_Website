@@ -296,11 +296,9 @@ function toggle() {
 }
 function toggleUser(valueNightOrDay, userId3) {
     var t = document.getElementById("checkbox");
-    console.log("Here0");
     console.log("Value is "+valueNightOrDay);
     console.log("Username is "+userId3);
     if(valueNightOrDay === true || valueNightOrDay === "true") {
-        console.log("Here1");
         $.ajax({
             url: '/changeNightOrDay/'+userId3,
             type: 'POST',
@@ -315,7 +313,6 @@ function toggleUser(valueNightOrDay, userId3) {
                 document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+false+'\', \''+userId3+'\');" />';
                 document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/day.jpg")';
                 document.getElementById("checkbox-label").style.backgroundColor = '#3cb371';
-                //document.getElementsByClassName("card").style.backgroundImage = 'url("https://bfa.github.io/solitaire-js/img/card_back_bg.png")';
                 document.getElementById("modal-content2").style.backgroundColor = '#63d471';
                 document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
                 document.getElementById("modal-content3").style.backgroundColor = '#63d471';
@@ -373,7 +370,6 @@ function toggleUser(valueNightOrDay, userId3) {
         });
     }
     if(valueNightOrDay === false || valueNightOrDay === "false") {
-        console.log("Here2");
         $.ajax({
             url: '/changeNightOrDay/'+userId3,
             type: 'POST',
@@ -388,7 +384,6 @@ function toggleUser(valueNightOrDay, userId3) {
                 console.log("Response obtained. Changed to day layout.");
                 document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/night.jpg")';
                 document.getElementById("checkbox-label").style.backgroundColor = 'black';
-                //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
                 document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
                 document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
                 document.getElementById("modal-content3").style.backgroundColor = '#7f5a83';
