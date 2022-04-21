@@ -122,10 +122,45 @@ app.get("/forgotpassword", (req, res, next) => {
 });
  
 //Handling user logout
-app.get("/logout", (req, res, next) => {
+app.get("/logout/:id", (req, res, next) => {
+    User.updateOne({ username: req.params.id }, { $set: { onlineOrNot: false }}, {new: true}, function (err, data) {
+        if(err) {
+            console.log("An error occurred trying to update online or not value of user! Error is as follows: "+err);
+        }
+        console.log("Data is "+data+" - end of data.");
+        console.log("You are now offline!");
+    });
     req.logout();
     res.redirect("/loggout");
 });
+
+//handle changing day or night background
+app.post('/changeNightOrDay/:id', function(req, res) {
+    console.log("True or false: "+req.body.booleanVal);
+    console.log("req._id is "+req.params.id);
+    User.findOneAndUpdate({ username: req.params.id }, { $set: { nightOrDayVal: req.body.booleanVal } }, { new: true }, function(err, data) { 
+        if(err) {
+            console.log(err); 
+        }
+        console.log("Data is "+data+" - end of data.");
+        res.send(data); 
+        res.end(); 
+    });
+})
+
+//handle update image
+app.post('/updateImage/:id', function(req, res) {
+    console.log("True or false: "+req.body.imageUpdate);
+    console.log("req._id is "+req.params.id);
+    User.findOneAndUpdate({ username: req.params.id }, { profilePicture: req.body.imageUpdate }, { new: true }, function(err, data) { 
+        if(err) {
+            console.log(err); 
+        }
+        console.log("Data is "+data+" - end of data.");
+        res.send(data); 
+        res.end(); 
+    });
+})
 
 //Handling user google authentication
 app.get('/auth/google', 

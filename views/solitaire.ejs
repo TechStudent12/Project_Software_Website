@@ -25,29 +25,52 @@
          <a id="bottle" onclick="redirect()" style="text-decoration: none; outline: none;"><img class="navbar-brand" id="img44" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381261-stock-illustration-silhouette-of-anonymous-man-with.jpg" style="height:50px; width: 50px; float: left; left: 0; margin-top: 10px; text-align: left;" alt="Anonymous" /><span class="navbar-brand" style="text-decoration: none; border: none; cursor: no-drop;" id="user">Hi, Anonymous.</span></a>
       <% } %>
       <% if(user) { %>
-         <!-- The help button modal--->
+         <!-- The profile button modal--->
          <div id="myModal6" class="modal">
 
             <!-- Modal content -->
-            <div class="modal-content">
-               <h1 id="headerMain2" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;"><%= user.username %><br><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
+            <div class="modal-content-details">
+               <h1 id="headerMain2" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;"><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll<br>Not full username &rArr; Cut after 8 characters</p></h1>
 
-               <p id="first2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>GUEST ACCOUNT</strong></p>
-               <p>Guest accounts cannot do the following: </p>
-               <ul>
-                  <li>Save score.</li>
-                  <li>Save game.</li>
-                  <li>Change profile picture.</li>
-                  <li>Change background music.</li>
-               </ul>
-               <p id="second2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>USER ACCOUNT</strong></p>
-               <p>User accounts that have sign-up to our site can enjoy various benefits, such as the following:
-               <ul>
-                  <li>Changing background music.</li>
-                  <li>Saving score.</li>
-                  <li>Being added to the scoreboard.</li>
-                  <li>Much more...</li>
-               </ul>
+               <div class="detailsDiv" id="detailsDivVal">
+                  <img class="profileImage" alt="profileImage" id="imgProfile" src="<%= user.profilePicture %>" />
+                  <label class="details">Username: <%= user.username %></label>
+                  <br>
+                  <label class="details">Email: <%= user.email %></label>
+                  <br>
+                  <label class="details">Praises: <%= user.praises %> praises</label>
+                  <br>
+                  <% if(user.onlineOrNot === true) { %>
+                     <label class="details" id="onlineVal" style="float: left; margin-top: 0px;">Online: <i class="fa fa-circle" style="color: lime;" title="Online" aria-label="Online"></i></label><br>
+                  <% } %>
+                  <% if(user.onlineOrNot === false) { %>
+                     <label class="details" id="onlineVal" style="float: left; margin-top: 0px;">Offline: <i class="fa fa-circle" style="color: red;" title="Offline" aria-label="Offline"></i></label><br>
+                  <% } %>
+                  <label class="details">Best score: <%= user.bestScore %> points</label>
+                  <br>
+                  <label class="details">Best time: <%= user.bestTime %> minutes</label>
+                  <br>
+               </div>
+
+            </div>
+         
+         </div>
+
+         <!-- The image profile button modal--->
+         <div id="myModal7" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content-images">
+               <h1 id="headerMain3" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;"><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll<br>Profile image changer &rArr; Under-development</p></h1>
+
+               <div class="imagesDiv" id="imagesDivVal">
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://wallpaperaccess.com/full/1141048.jpg" style="margin-left: 15px;" />
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://live.staticflickr.com/4736/38596421424_2fde6e6720_b.jpg" />
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://www.teahub.io/photos/full/180-1803028_anime-fantasy-background.jpg" />
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://i.pinimg.com/originals/49/3b/39/493b39a0017626970362b990394a3d95.jpg" />
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://wallpaperaccess.com/full/1851836.jpg" />
+                  <img class="profileImageDiv" onclick="changePicture(this.src);" alt="profile" id="imgProfileDiv" src="https://images.alphacoders.com/438/thumb-1920-438767.png" />
+               </div>
 
             </div>
          
@@ -58,7 +81,7 @@
             <% if(user) { %>
                <ul id="nav2">
                   <a class="active" href="/solitaire" style="text-decoration: none;">Home<span class="sr-only">(current)</span></a>
-                  <a class="nav-link" href="/logout" style="text-decoration: none;">Logout</a>
+                  <a class="nav-link" href="/logout/<%= user.username %>" style="text-decoration: none;">Logout</a>
                </ul>
             <% } else { %>
                <ul id="nav2">
@@ -82,14 +105,25 @@
       <% } %>
       <!-- Checkbox (day or night) -->
       <center>
-         <label class="switch">
-            <input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="1" onclick="toggle();" />
-            <label for="checkbox" class="checkbox-label" id="checkbox-label">
-               <i class="fa fa-sun-o" aria-hidden="true"></i>
-               <i class="fa fa-moon-o" aria-hidden="true"></i>
-               <span class="ball"></span>
-             </label>
-         </label>
+         <% if(user) { %>
+            <label class="switch">
+               <label id="inputswitch"><input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(<%=user.nightOrDayVal %>, this.value);" /></label>
+               <label for="checkbox" class="checkbox-label" id="checkbox-label">
+                  <i class="fa fa-sun-o" aria-hidden="true"></i>
+                  <i class="fa fa-moon-o" aria-hidden="true"></i>
+                  <span id="ballVal" class="ball"></span>
+               </label>
+            </label>
+         <% } else { %>
+            <label class="switch">
+               <label id="inputswitch"><input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="1" onclick="toggle();" /></label>
+               <label for="checkbox" class="checkbox-label" id="checkbox-label">
+                  <i class="fa fa-sun-o" aria-hidden="true"></i>
+                  <i class="fa fa-moon-o" aria-hidden="true"></i>
+                  <span id="ballVal" class="ball"></span>
+               </label>
+            </label>
+         <% } %>
       </center>
       <br/>
       <br/>
@@ -99,7 +133,20 @@
       <button id="helpBtn">Help</button>
       <!--Nice to have features below:-->
       <!--Add if we have time. Needs implementation.-->
-      <button id="scoreBtn" style="display: none;" disabled >Score: 0</button>
+      <% if(user) { %>
+         <button id="scoreBtn" disabled>
+            <div class="move-count" data-moves="0">
+               <label>Moves:</label>
+               <span>0</span>
+            </div>
+         </button>
+         <button id="movesBtn" disabled>
+            <div class="score" data-score="0">
+               <label>Score:</label>
+               <span>0</span>
+            </div>
+         </button>
+      <% } %>
       <button id="timerBtn" disabled>Timer: <label id="hours">00</label> hours : <label id="minutes">00</label> minutes : <label id="seconds">00</label> seconds <!--: <label id="miliseconds">00</label> milliseconds--></button>
       <button id="pauseBtn" disabled>Pause</button>
       <!--<button id="resumeBtn" onclick="functionResume();" disabled>Resume</button></center>-->
@@ -217,23 +264,31 @@
 
          <!-- Modal content -->
          <div class="modal-content">
-            <h1 id="headerMain2" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;">How to play: Accounts<br><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
+            <h1 id="headerMain2" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;"><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
 
             <p id="first2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>GUEST ACCOUNT</strong></p>
             <p>Guest accounts cannot do the following: </p>
             <ul>
-               <li>Save score.</li>
-               <li>Save game.</li>
-               <li>Change profile picture.</li>
-               <li>Change background music.</li>
+               <li>Save score &rArr; under-development.</li>
+               <li>Save game &rArr; under-development.</li>
+               <li>Change profile picture &rArr; under-development.</li>
+               <li>Change background music &rArr; under-development.</li>
+            </ul>
+            <p>Guest accounts can do the following: </p>
+            <ul>
+               <li>Play a solitaire game &rArr; completed.</li>
+               <li>Stop game &rArr; completed.</li>
+               <li>End game &rArr; completed.</li>
+               <li>Record the time of a game &rArr; completed.</li>
             </ul>
             <p id="second2" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>USER ACCOUNT</strong></p>
             <p>User accounts that have sign-up to our site can enjoy various benefits, such as the following:
             <ul>
-               <li>Changing background music.</li>
-               <li>Saving score.</li>
-               <li>Being added to the scoreboard.</li>
-               <li>Much more...</li>
+               <li>Can do everything a guest account &rArr; completed.</li></li>
+               <li>Changing background music &rArr; under-development.</li>
+               <li>Saving best time &rArr; under-development.</li>
+               <li>Highest score is saved &rArr; under-development.</li>
+               <li>Leaderboard &rArr; under-development.</li>
             </ul>
 
          </div>
@@ -244,8 +299,7 @@
 
       <div id="gamePlay">
          <div class="container" id="container">
-            <% if(user) { %>
-               <div id="score">
+            <!--<div id="score" style="display: none;">
                   <div class="timer" style="display: none;">
                      <button id="play-pause">
                         <i id="play">Play</i>
@@ -254,16 +308,7 @@
                      <label>Timer:</label>
                      <span>00:00</span>
                   </div>
-                  <div class="move-count" data-moves="0">
-                     <label>Moves:</label>
-                     <span>0</span>
-                  </div>
-                  <div class="score" data-score="0">
-                     <label>Score:</label>
-                     <span>0</span>
-                  </div>
-               </div>
-            <% } %>
+               </div>-->
             <div id="table">
       
                <div class="upper-row">
@@ -524,9 +569,34 @@
          </ul>
       </div>
       <!-- Suleman addition end 22-03-22 -->
-
+   
    <script type="text/javascript" src="../js/gameplay.js"></script>
    <script type="text/javascript" src="../js/card.js"></script>
+   <% if(user) { %> {
+      <script type="text/javascript">
+         var user = "<%= user.username %>";
+         var nightDayVal = "<%= user.nightOrDayVal %>";
+         toggleUser(nightDayVal, user);
+         function changePicture(valueId) {
+            $.ajax({
+               url: '/updateImage/'+user,
+               type: 'POST',
+               data: {
+                  imageUpdate: valueId
+               },
+               dataType: 'json',
+               success : function(data) {              
+                  console.log('Data: '+data);
+                  document.getElementById("imgProfile").src = valueId;
+                  document.getElementById("img444").src = valueId;
+               },
+               error : function(request, error) {
+                  console.log(error);
+               }
+         });
+         }
+      </script>
+   <% } %>
     
 </body>
 </html> 

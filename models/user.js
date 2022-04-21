@@ -36,7 +36,9 @@ const userSchema = new Schema
     expiry_date_time: {type: Number, default: 0},
     source: { type: String, required: [true, "source not specified"] },
     firstName: String,
-    lastName: String
+    lastName: String,
+    bestTime: {type: Number, default: 0},
+    bestScore: {type: Number, default: 0}
 });
 
 userSchema.methods.encryptPassword = (password) => {

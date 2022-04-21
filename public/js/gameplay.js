@@ -119,13 +119,13 @@ Optional Features:
    '#tab .card:last-child';
 
    // cache selectors
-   var $timer = d.querySelector('#score .timer');
-   var $timerSpan = d.querySelector('#score .timer span');
-   var $moveCount = d.querySelector('#score .move-count');
-   var $moveCountSpan = d.querySelector('#score .move-count span');
-   var $score = d.querySelector('#score .score');
-   var $scoreSpan = d.querySelector('#score .score span');
-   var $playPause = d.querySelector('#play-pause');
+   //var $timer = d.querySelector('#score .timer');
+   //var $timerSpan = d.querySelector('#score .timer span');
+   var $moveCount = d.querySelector('#scoreBtn .move-count');
+   var $moveCountSpan = d.querySelector('#scoreBtn .move-count span');
+   var $score = d.querySelector('#movesBtn .score');
+   var $scoreSpan = d.querySelector('#movesBtn .score span');
+   //var $playPause = d.querySelector('#play-pause');
    var $table = d.querySelector('#table');
    var $upper = d.querySelector('#table .upper-row');
    var $lower = d.querySelector('#table .lower-row');
@@ -468,7 +468,9 @@ Optional Features:
                               if (  e.dataset.rank === card[0] &&
                                     e.dataset.suit === card[1] )
                               // score 5 points
-                              updateScore(5);
+                              if(document.getElementById("movesBtn")) { 
+                                 updateScore(5);
+                              }
                            }
                         }
                         e.className += ' up'; // add class
@@ -580,9 +582,9 @@ Optional Features:
          event.preventDefault();
 
          // start timer
-         if ( $timer.dataset.action !== 'start' ) {
-            timer('start');
-         }
+         //if ( $timer.dataset.action !== 'start' ) {
+         //   timer('start');
+         //}
 
          // if timestamp matches then return false
          var time = event.timeStamp; // get timestamp
@@ -665,7 +667,9 @@ Optional Features:
                      // if empty, then bind click to stock pile element
                      if (table['stock'].length === 0) bindClick('#stock .reload-icon');
                      // count move
-                     countMove(moves++);
+                     if(document.getElementById("scoreBtn")) {
+                        countMove(moves++);
+                     }
                      // return to play
                      play(table);
                   }
@@ -686,7 +690,9 @@ Optional Features:
                   // turn all stock cards face down
                   flipCards('#stock .card', 'down');
                   // update score by -100 pts
-                  updateScore(-100);
+                  if(document.getElementById("movesBtn")) { 
+                     updateScore(-100);
+                  }
                   // return to play
                   play(table);
                }
@@ -852,13 +858,17 @@ Optional Features:
             if ( isNaN(dest) ) {
                console.log('Moving To Foundation Pile');
                move(table[source], table[dest], true);
-               updateScore(10); // score 10 pts
+               if(document.getElementById("movesBtn")) { 
+                  updateScore(10); // score 10 pts
+               }
             }
             // if moving card to tableau pile
             else {
                console.log('Moving To Tableau Pile');
                move(table[source], table['tab'][dest], true);
-               updateScore(5); // score 5 pts
+               if(document.getElementById("movesBtn")) { 
+                  updateScore(5); // score 5 pts
+               }
             }
          }
 
@@ -873,7 +883,9 @@ Optional Features:
             else {
                console.log('Moving To Tableau Pile');
                move(table[source], table['tab'][dest], true);
-               updateScore(-15); // score -15 pts
+               if(document.getElementById("movesBtn")) { 
+                  updateScore(-15); // score -15 pts
+               }
             }
          }
 
@@ -883,7 +895,9 @@ Optional Features:
             if ( isNaN(dest) ) {
                console.log('Moving To Foundation Pile');
                move(table['tab'][source], table[dest], true);
-               updateScore(10); // score 10 pts
+               if(document.getElementById("movesBtn")) { 
+                  updateScore(10); // score 10 pts
+               }
             }
             // if moving card to tableau pile
             else {
@@ -925,7 +939,9 @@ Optional Features:
          )
 
          // count move
-         countMove(moves++);
+         if(document.getElementById("scoreBtn")) {
+            countMove(moves++);
+         }
 
          // reset table
          console.log('Ending Move...');
@@ -976,7 +992,7 @@ Optional Features:
       }
 
    // timer funcion
-      function timer(action) {
+      /*function timer(action) {
          // declare timer vars
          var minutes = 0;
          var seconds = 0;
@@ -1037,7 +1053,7 @@ Optional Features:
          console.log(time);
          return;
       }
-
+   */
    // move counter
       function countMove(moves) {
          console.log('Move Counter', moves);
@@ -1095,9 +1111,11 @@ Optional Features:
                === 52 ) {
             console.log('Game Has Been Won');
             // stop timer
-            timer('stop');
+            //timer('stop');
             // bonus points for time
-            updateScore(getBonus());
+            if(document.getElementById("movesBtn")) { 
+               updateScore(getBonus());
+            }
             // throw confetti
             throwConfetti();
             // return true
@@ -1151,9 +1169,11 @@ Optional Features:
          // animate cards to foundation piles
          autoWinAnimation(table);
          // stop timer
-         timer('stop');
+         //timer('stop');
          // bonus points for time
-         updateScore(getBonus());
+         if(document.getElementById("movesBtn")) { 
+            updateScore(getBonus());
+         }
       }
 
    // auto win animation

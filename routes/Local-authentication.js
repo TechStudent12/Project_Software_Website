@@ -20,7 +20,8 @@ passport.use(new GoogleStrategy({
         try {
             let existingUser = await User.findOne({ 'password': profile.id });
             if (existingUser) {
-                return done(null, existingUser);
+                await User.findOneAndUpdate({ password: profile.id }, { $set: { onlineOrNot: true }}, {new: true});
+                done(null, existingUser);
             }
             console.log('Creating new user...');
             console.log(profile);
@@ -32,6 +33,7 @@ passport.use(new GoogleStrategy({
             newUser.profilePicture = profile.photos[0].value;
             newUser.source = 'google';
             newUser.verified = true;
+            newUser.onlineOrNot = true;
             await newUser.save();
             return done(null, newUser);
         } catch (error) {
@@ -53,7 +55,8 @@ passport.use(new GitHubStrategy({
         try {
             let existingUser = await User.findOne({ 'password': profile.id });
             if (existingUser) {
-                return done(null, existingUser);
+                await User.findOneAndUpdate({ password: profile.id }, { $set: { onlineOrNot: true }}, {new: true});
+                done(null, existingUser);
             }
             console.log('Creating new user...');
             console.log(profile);
@@ -65,6 +68,7 @@ passport.use(new GitHubStrategy({
             newUser.profilePicture = profile.photos[0].value;
             newUser.source = 'github';
             newUser.verified = false;
+            newUser.onlineOrNot = true;
             await newUser.save();
             return done(null, newUser);
         } catch (error) {
@@ -137,7 +141,10 @@ passport.use('local-signin', new LocalStrategy({
     if (!user.comparePassword(password)) {
         return done(null, false, req.flash('signinMessage', 'Incorrect password.<br>Please enter a valid password.'));
     }
-    return done(null, user);
+    else  {
+        await User.findOneAndUpdate({ username: username }, { $set: { onlineOrNot: true }}, {new: true});
+        done(null, user);
+    }
 }));
 
 function encryptPasswordNow(password) {

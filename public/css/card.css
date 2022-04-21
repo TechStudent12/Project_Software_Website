@@ -10,7 +10,7 @@ body, html {
 }
 #gamePlay {
    position: relative;
-   padding-bottom: 8%;
+   padding-bottom: 10%;
 }
 p {
     padding: 5px;
@@ -33,13 +33,13 @@ a:hover {
    margin-top: 0px;
    margin-bottom: 55px;
 }
-#gameNew, #gameEnd, #helpBtn, #scoreBtn, #timerBtn, #pauseBtn  {
+#gameNew, #gameEnd, #helpBtn, #scoreBtn, #movesBtn, #timerBtn, #pauseBtn  {
     padding: 10px;
     color: white;
     outline-color: red;
     border-color: crimson;
 }
-#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled {
+#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #movesBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled {
     background: repeating-linear-gradient(45deg, black,  black 10px, darkred 10px, darkred 20px);
 }
 #timerBtn {
@@ -47,7 +47,7 @@ a:hover {
     /*width: 390px;*/
     width: 275px;
 }
-#scoreBtn, #timerBtn {
+#scoreBtn, #timerBtn, #movesBtn {
     cursor: no-drop;
 }
 #gameNew {
@@ -197,17 +197,30 @@ a:hover {
 .modal-content p, .modal-content2 p, .modal-content5 p {
     color: black;
 }
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .modal-content-details::-webkit-scrollbar, .modal-content-images::-webkit-scrollbar {
     width: 0em;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-track {
+.modal-content::-webkit-scrollbar-track, .modal-content-details::-webkit-scrollbar-track, .modal-content-images::-webkit-scrollbar-track {
     box-shadow: none;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-thumb {
+.modal-content::-webkit-scrollbar-thumb, .modal-content-details::-webkit-scrollbar-thumb, .modal-content-images::-webkit-scrollbar-thumb {
     background-color: red;
     outline: none;
+}
+/* Modal Content/Box */
+.modal-content-details, .modal-content-images {
+   color: black;
+   background-color: #fefefe;
+   margin: 15% auto; /* 15% from the top and centered */
+   padding: 20px;
+   border: 1px solid #888;
+   width: 40%; /* Could be more or less, depending on screen size */
+   height: 33%;
+   overflow-y: scroll;
+   z-index: 99999;
+   text-align: left;
 }
 body::-webkit-scrollbar {
     width: 0em;
@@ -383,14 +396,14 @@ body::-webkit-scrollbar-thumb {
     height: 26px;
 }
   /* Hide default HTML checkbox */
-.switch input[type="checkbox"] {
+.switch #inputswitch input[type="checkbox"] {
     opacity: 0;
     width: 0;
     height: 0;
 }
 /* The slider */
-.checkbox-label {
-    background-color: #111;
+.switch .checkbox-label {
+    background-color: #3cb371;
     width: 40px;
     height: 16px;
     border-radius: 50px;
@@ -406,7 +419,7 @@ body::-webkit-scrollbar-thumb {
   
   .fa-sun-o {color: white;}
   
-  .checkbox-label .ball {
+  .switch .checkbox-label .ball {
     background-color: #fff;
     width: 22px;
     height: 22px;
@@ -417,8 +430,12 @@ body::-webkit-scrollbar-thumb {
     transition: transform 0.2s linear;
   }
   
-  .checkbox:checked + .checkbox-label .ball {
-    transform: translateX(24px);
+  #inputswitch .checkbox:checked + .switch .checkbox-label .ball {
+      transform: translateX(24px);
+  }
+
+  #inputswitch .checkbox:not(:checked) + .switch .checkbox-label .ball {
+      transform: translateX(-24px);
   }
 
   #container {
@@ -1208,6 +1225,7 @@ body::-webkit-scrollbar-thumb {
          border: 4px solid ghostwhite; 
          border-radius: 50%;  
          cursor: pointer;
+         background-color:rgba(0, 0, 0, 0.50);
       }
       #img44:hover, #img444:hover {
          border: 4px solid red;
@@ -1285,5 +1303,84 @@ body::-webkit-scrollbar-thumb {
       #guestAccount:hover {
          color: yellow;
          cursor: pointer;
+      }
+      .details {
+         font-size: 15px;
+         font-family: 'Antic Slab', serif; 
+         cursor: no-drop;
+      }
+      .detailsDiv {
+         padding-top: 0px; 
+         padding: 10px; 
+         margin-top: 0px; 
+         color:white; 
+         background-color: #42378f;
+         background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); 
+         border: 1px dotted black;
+         cursor: no-drop;
+      }
+      .imagesDiv {
+         padding-top: 0px; 
+         padding: 10px; 
+         margin-top: 0px; 
+         height: 110px;
+         color:white; 
+         background-color: #42378f;
+         background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); 
+         border: 1px dotted black;
+         cursor: no-drop;
+      }
+      .profileImage {
+         height: 20px; 
+         width: 20px; 
+         float: left; 
+         left: 0; 
+         margin-top: 10px; 
+         text-align: left;
+      }
+      #imgProfile {
+         top: 0;
+         left: 0; 
+         right: 0;
+         height: 60px;
+         width: 60px;
+         margin-top: 20px;
+         margin-bottom: 100px; 
+         margin-left: 10px;
+         margin-right: 20px;
+         border: 4px solid ghostwhite; 
+         border-radius: 50%;  
+         cursor: pointer;
+         background-color:rgba(0, 0, 0, 0.50);
+      }
+      #imgProfile:hover {
+         border: 4px solid red;
+      }
+      .profileImageDiv {
+         height: 20px; 
+         width: 20px; 
+         float: left; 
+         left: 0; 
+         margin-top: 10px; 
+         text-align: left;
+      }
+      #imgProfileDiv {
+         top: 0;
+         left: 0; 
+         right: 0;
+         height: 60px;
+         width: 60px;
+         margin-top: 20px;
+         margin-bottom: 100px; 
+         margin-left: 5px;
+         margin-right: 5px;
+         border: 4px solid ghostwhite; 
+         border-radius: 0%;  
+         cursor: pointer;
+         background-color:rgba(0, 0, 0, 0.50);
+         float: left;
+      }
+      #imgProfileDiv:hover {
+         border: 4px solid red;
       }
   
