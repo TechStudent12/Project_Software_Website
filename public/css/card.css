@@ -48,13 +48,13 @@ a:hover {
    margin-top: 0px;
    margin-bottom: 55px;
 }
-#gameNew, #gameEnd, #helpBtn, #scoreBtn, #movesBtn, #timerBtn, #pauseBtn  {
+#gameNew, #gameEnd, #helpBtn, #scoreBtn, #movesBtn, #timerBtn, #pauseBtn, #leaderboardBtn  {
     padding: 10px;
     color: white;
     outline-color: red;
     border-color: crimson;
 }
-#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #movesBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled {
+#gameNew:disabled, #gameEnd:disabled, #helpBtn:disabled, #scoreBtn:disabled, #movesBtn:disabled, #timerBtn:disabled, #pauseBtn:disabled, #leaderboardBtn:disabled {
     background: repeating-linear-gradient(45deg, black,  black 10px, darkred 10px, darkred 20px);
 }
 #timerBtn {
@@ -62,7 +62,7 @@ a:hover {
     /*width: 390px;*/
     width: 275px;
 }
-#scoreBtn, #timerBtn, #movesBtn {
+#scoreBtn, #timerBtn, #movesBtn, #leaderboardBtn {
     cursor: no-drop;
 }
 #gameNew {
