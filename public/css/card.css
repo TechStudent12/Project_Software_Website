@@ -14,6 +14,7 @@ body, html {
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   background-position: center;
 }
 #bodyTag {
    background-image: url("../Image_DayOrNight/day.jpg");
