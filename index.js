@@ -102,7 +102,7 @@ app.post('/signin', passport.authenticate('local-signin', {
 
 //Handling user password reset
 app.post('/reset', passport.authenticate('local-reset', {
-    successRedirect: '/logging',
+    successRedirect: '/login',
     failureRedirect: '/forgotpassword',
     failureFlash: true,
     session: false
@@ -110,7 +110,7 @@ app.post('/reset', passport.authenticate('local-reset', {
 
 //Handling user email reset
 app.post('/resetEmail', passport.authenticate('local-reset-email', {
-    successRedirect: '/logging',
+    successRedirect: '/login',
     failureRedirect: '/forgotpassword',
     failureFlash: true,
     session: false
