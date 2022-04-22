@@ -21,8 +21,10 @@ body, html {
    overflow-x: hidden;
 }
 #gamePlay {
+   height: 550px;
    position: relative;
    padding-bottom: 10%;
+   overflow-y: scroll;
 }
 p {
     padding: 5px;
@@ -209,15 +211,15 @@ a:hover {
 .modal-content p, .modal-content2 p, .modal-content5 p {
     color: black;
 }
-.modal-content::-webkit-scrollbar, .modal-content-details::-webkit-scrollbar, .modal-content-images::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .modal-content-details::-webkit-scrollbar, .modal-content-images::-webkit-scrollbar, #gamePlay::-webkit-scrollbar {
     width: 0em;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-track, .modal-content-details::-webkit-scrollbar-track, .modal-content-images::-webkit-scrollbar-track {
+.modal-content::-webkit-scrollbar-track, .modal-content-details::-webkit-scrollbar-track, .modal-content-images::-webkit-scrollbar-track, #gamePlay::-webkit-scrollbar-track {
     box-shadow: none;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-thumb, .modal-content-details::-webkit-scrollbar-thumb, .modal-content-images::-webkit-scrollbar-thumb {
+.modal-content::-webkit-scrollbar-thumb, .modal-content-details::-webkit-scrollbar-thumb, .modal-content-images::-webkit-scrollbar-thumb, #gamePlay::-webkit-scrollbar-thumb {
     background-color: red;
     outline: none;
 }

@@ -1,11 +1,23 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt-nodejs');
 const LocalStrategy = require('passport-local').Strategy;
+
 var MagicLinkStrategy = require('passport-magic-link').Strategy;
 var sendgrid = require('@sendgrid/mail');
 var randomstring = require("randomstring");
 require('dotenv').config();
 console.log(process.env);
+
+const User = require('../models/user');
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+    const user = await User.findById(id);
+    done(null, user);
+});
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const GOOGLE_CLIENT_ID = '1011955633562-j5ds90oe8ejbg2q0e1gb1enbo2r1opln.apps.googleusercontent.com';
@@ -23,19 +35,21 @@ passport.use(new GoogleStrategy({
                 await User.findOneAndUpdate({ password: profile.id }, { $set: { onlineOrNot: true }}, {new: true});
                 done(null, existingUser);
             }
-            console.log('Creating new user...');
-            console.log(profile);
-            console.log("Picture is "+profile.picture);
-            const newUser = new User();
-            newUser.username = profile.displayName.substring(0,8);
-            newUser.password = profile.id;
-            newUser.email = profile.emails[0].value;
-            newUser.profilePicture = profile.photos[0].value;
-            newUser.source = 'google';
-            newUser.verified = true;
-            newUser.onlineOrNot = true;
-            await newUser.save();
-            return done(null, newUser);
+            else {
+                console.log('Creating new user...');
+                console.log(profile);
+                console.log("Picture is "+profile.picture);
+                const newUser = new User();
+                newUser.username = profile.displayName.substring(0,8);
+                newUser.password = profile.id;
+                newUser.email = profile.emails[0].value;
+                newUser.profilePicture = profile.photos[0].value;
+                newUser.source = 'google';
+                newUser.verified = true;
+                newUser.onlineOrNot = true;
+                await newUser.save();
+                done(null, newUser);
+            }
         } catch (error) {
             return done(error, false)
         }
@@ -58,35 +72,26 @@ passport.use(new GitHubStrategy({
                 await User.findOneAndUpdate({ password: profile.id }, { $set: { onlineOrNot: true }}, {new: true});
                 done(null, existingUser);
             }
-            console.log('Creating new user...');
-            console.log(profile);
-            console.log("Picture is "+profile.photos[0].value);
-            const newUser = new User();
-            newUser.username = profile.username.substring(0,8);
-            newUser.password = profile.id;
-            newUser.email = "Missing";
-            newUser.profilePicture = profile.photos[0].value;
-            newUser.source = 'github';
-            newUser.verified = false;
-            newUser.onlineOrNot = true;
-            await newUser.save();
-            return done(null, newUser);
+            else {
+                console.log('Creating new user...');
+                console.log(profile);
+                console.log("Picture is "+profile.photos[0].value);
+                const newUser = new User();
+                newUser.username = profile.username.substring(0,8);
+                newUser.password = profile.id;
+                newUser.email = "Missing";
+                newUser.profilePicture = profile.photos[0].value;
+                newUser.source = 'github';
+                newUser.verified = true;
+                newUser.onlineOrNot = true;
+                await newUser.save();
+                done(null, newUser);
+            }
         } catch (error) {
             return done(error, false)
         }
     }
 ));
-
-const User = require('../models/user');
-
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-    const user = await User.findById(id);
-    done(null, user);
-});
 
 passport.use('local-signup', new LocalStrategy({
     usernameField: 'username',
@@ -117,7 +122,7 @@ passport.use('local-signup', new LocalStrategy({
         });
         
         newUser.permalink = permalink;
-        newUser.verified = false;
+        newUser.verified = true;
         newUser.verify_token = verification_token;
         newUser.expiry_date_link = new Date();
         
