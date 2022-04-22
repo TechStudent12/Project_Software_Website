@@ -7,6 +7,7 @@ body, html {
 }
 #bodyTag {
    background-image: url("../Image_DayOrNight/day.jpg");
+   overflow-x: hidden;
 }
 #gamePlay {
    position: relative;
