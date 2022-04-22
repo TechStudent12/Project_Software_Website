@@ -177,14 +177,14 @@ passport.use('local-reset-email', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    console.log(req.body.email);
+    console.log("The new email is "+password);
     const user = await User.findOne({ 'username': username });
     console.log(user);
     if (!user) {
         return done(null, false, req.flash('resetMessage', 'No user found.<br>Incorrect email or username entered.'));
     }
     else {
-        await User.findOneAndUpdate({ 'username': username }, { 'email': req.body.email });
+        await User.findOneAndUpdate({ 'username': username }, { 'email': password });
         done(null, user);
     }
 }));
