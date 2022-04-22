@@ -105,7 +105,7 @@ app.post('/reset', passport.authenticate('local-reset', {
     successRedirect: '/logging',
     failureRedirect: '/forgotpassword',
     failureFlash: true,
-    session: true
+    session: false
 }));
 
 //Handling user email reset
@@ -113,7 +113,7 @@ app.post('/resetEmail', passport.authenticate('local-reset-email', {
     successRedirect: '/logging',
     failureRedirect: '/forgotpassword',
     failureFlash: true,
-    session: true
+    session: false
 }));
 
 //Showing forgot password form
