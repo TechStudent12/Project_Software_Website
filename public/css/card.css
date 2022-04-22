@@ -21,9 +21,10 @@ body, html {
    overflow-x: hidden;
 }
 #gamePlay {
-   height: 550px;
+   height: 580px;
    position: relative;
    padding-bottom: 10%;
+   padding-top: 4%;
    overflow-y: scroll;
 }
 p {
