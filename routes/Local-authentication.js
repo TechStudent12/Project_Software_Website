@@ -100,6 +100,7 @@ passport.use('local-signup', new LocalStrategy({
 }, async (req, username, password, done) => {
     const user = await User.findOne({ 'username': username })
     const userEmail = await User.findOne({ 'email': req.body.email })
+    console.log(userEmail);
     console.log(user)
     if (user) {
         return done(null, false, req.flash('signupMessage', username+' is already taken.<br>Please enter another username.'));
