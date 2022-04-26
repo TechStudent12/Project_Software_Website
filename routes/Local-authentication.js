@@ -189,7 +189,12 @@ passport.use('local-reset-email', new LocalStrategy({
         return done(null, false, req.flash('resetMessage', 'No user found.<br>Incorrect email or username entered.'));
     }
     else {
-        await User.findOneAndUpdate({ 'username': username }, { 'email': password });
-        done(null, user);
+        if(user.source !== 'github' && user.source !== 'google') {
+            await User.findOneAndUpdate({ 'username': username }, { 'email': password });
+            done(null, user);
+        }
+        else {
+            return done(null, false, req.flash('resetMessage', 'Invalid email.<br>Email is used to login to google or github.'));
+        }
     }
 }));
