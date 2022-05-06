@@ -202,13 +202,12 @@
         background-color: red;
     }
     #oneF {
-        background-color: red;
+        background-color: white;
         width: 20%;
         margin-top: 2%;
         margin-left: 0%;
-        color: white;
-        border: 2px solid white;
+        color: red;
+        border: 1px solid #ddd;
         border-left: none;
-        font-weight: 600;
         padding: 1%;
     }

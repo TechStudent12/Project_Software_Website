@@ -295,7 +295,6 @@ function toggle() {
     }   
 }
 function toggleUser(valueNightOrDay, userId3) {
-    var t = document.getElementById("checkbox");
     console.log("Value is "+valueNightOrDay);
     console.log("Username is "+userId3);
     if(valueNightOrDay === true || valueNightOrDay === "true") {
@@ -307,7 +306,7 @@ function toggleUser(valueNightOrDay, userId3) {
             },
             dataType: 'json',
             success : function(data) {              
-                console.log('Data: '+data);
+                console.log('Data: '+JSON.stringify(data));
                 console.log("Response obtained. Changed to day layout.");
                 document.getElementById("ballVal").style.transform = 'translateX(0px)';
                 document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+false+'\', \''+userId3+'\');" />';
@@ -378,7 +377,7 @@ function toggleUser(valueNightOrDay, userId3) {
             },
             dataType: 'json',
             success : function(data) {              
-                console.log('Data: '+data);
+                console.log('Data: '+JSON.stringify(data));
                 document.getElementById("ballVal").style.transform = 'translateX(24px)';
                 document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+true+'\', \''+userId3+'\');" />';
                 console.log("Response obtained. Changed to day layout.");
@@ -439,6 +438,123 @@ function toggleUser(valueNightOrDay, userId3) {
                 alert("Request: "+JSON.stringify(request));
             }
         });
+    }   
+}
+
+function firstTime() {
+    if(valueNightOrDay === true || valueNightOrDay === "true") {
+        console.log("Response obtained. Changed to day layout.");
+        document.getElementById("ballVal").style.transform = 'translateX(0px)';
+        document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+false+'\', \''+userId3+'\');" />';
+        document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/day.jpg")';
+        document.getElementById("checkbox-label").style.backgroundColor = '#3cb371';
+        document.getElementById("modal-content2").style.backgroundColor = '#63d471';
+        document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("modal-content3").style.backgroundColor = '#63d471';
+        document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("modal-content4").style.backgroundColor = '#63d471';
+        document.getElementById("modal-content4").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("headerMain").style.border = '2px dashed green';
+        document.getElementById("headerMain").style.backgroundColor = '#63d471';
+        document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        if( document.getElementById("detailsDivVal")) {
+            document.getElementById("detailsDivVal").style.border = '2px dashed green';
+            document.getElementById("detailsDivVal").style.backgroundColor = '#63d471';
+            document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+            document.getElementById("headerMain3").style.border = '2px dashed green';
+            document.getElementById("headerMain3").style.backgroundColor = '#63d471';
+            document.getElementById("headerMain3").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+            document.getElementById("imagesDivVal").style.border = '2px dashed green';
+            document.getElementById("imagesDivVal").style.backgroundColor = '#63d471';
+            document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        }
+        document.getElementById("first").style.backgroundColor = '#63d471';
+        document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first").style.borderColor = 'green';
+        document.getElementById("second").style.backgroundColor = '#63d471';
+        document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("second").style.borderColor = 'green';
+        document.getElementById("headerMain2").style.border = '2px dashed green';
+        document.getElementById("headerMain2").style.backgroundColor = '#63d471';
+        document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first2").style.backgroundColor = '#63d471';
+        document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("first2").style.borderColor = 'green';
+        document.getElementById("second2").style.backgroundColor = '#63d471';
+        document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("second2").style.borderColor = 'green';
+        document.getElementById("third").style.backgroundColor = '#63d471';
+        document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("third").style.borderColor = 'green';
+        document.getElementById("fourth").style.backgroundColor = '#63d471';
+        document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("fourth").style.borderColor = 'green';
+        document.getElementById("fifth").style.backgroundColor = '#63d471';
+        document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("fifth").style.borderColor = 'green';
+        document.getElementById("sixth").style.backgroundColor = '#63d471';
+        document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("sixth").style.borderColor = 'green';
+        document.getElementById("seventh").style.backgroundColor = '#63d471';
+        document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
+        document.getElementById("seventh").style.borderColor = 'green';
+    }
+    if(valueNightOrDay === false || valueNightOrDay === "false") {
+        document.getElementById("ballVal").style.transform = 'translateX(24px)';
+        document.getElementById('inputswitch').innerHTML = '<input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle Day/Night" value="<%= user.username %>" onclick="toggleUser(\''+true+'\', \''+userId3+'\');" />';
+        console.log("Response obtained. Changed to night layout.");
+        document.getElementById("bodyTag").style.backgroundImage = 'url("../Image_DayOrNight/night.jpg")';
+        document.getElementById("checkbox-label").style.backgroundColor = 'black';
+        document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("modal-content3").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("modal-content4").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content4").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("headerMain").style.border = '2px dashed black';
+        document.getElementById("headerMain").style.backgroundColor = '#7f5a83';
+        document.getElementById("headerMain").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        if( document.getElementById("detailsDivVal")) {
+            document.getElementById("detailsDivVal").style.border = '2px dashed black';
+            document.getElementById("detailsDivVal").style.backgroundColor = '#7f5a83';
+            document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+            document.getElementById("headerMain3").style.border = '2px dashed black';
+            document.getElementById("headerMain3").style.backgroundColor = '#7f5a83';
+            document.getElementById("headerMain3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+            document.getElementById("imagesDivVal").style.border = '2px dashed black';
+            document.getElementById("imagesDivVal").style.backgroundColor = '#7f5a83';
+            document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        document.getElementById("first").style.backgroundColor = '#7f5a83';
+        document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first").style.borderColor = 'black';
+        document.getElementById("second").style.backgroundColor = '#7f5a83';
+        document.getElementById("second").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("second").style.borderColor = 'black';
+        document.getElementById("headerMain2").style.border = '2px dashed black';
+        document.getElementById("headerMain2").style.backgroundColor = '#7f5a83';
+        document.getElementById("headerMain2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first2").style.backgroundColor = '#7f5a83';
+        document.getElementById("first2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("first2").style.borderColor = 'black';
+        document.getElementById("second2").style.backgroundColor = '#7f5a83';
+        document.getElementById("second2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("second2").style.borderColor = 'black';
+        document.getElementById("third").style.backgroundColor = '#7f5a83';
+        document.getElementById("third").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("third").style.borderColor = 'black';
+        document.getElementById("fourth").style.backgroundColor = '#7f5a83';
+        document.getElementById("fourth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("fourth").style.borderColor = 'black';
+        document.getElementById("fifth").style.backgroundColor = '#7f5a83';
+        document.getElementById("fifth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("fifth").style.borderColor = 'black';
+        document.getElementById("sixth").style.backgroundColor = '#7f5a83';
+        document.getElementById("sixth").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("sixth").style.borderColor = 'black';
+        document.getElementById("seventh").style.backgroundColor = '#7f5a83';
+        document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("seventh").style.borderColor = 'black';
     }   
 }
 
