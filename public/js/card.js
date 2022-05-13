@@ -74,6 +74,8 @@ var modal5 = document.getElementById("myModal5");
 var modal6 = document.getElementById("myModal6");
 var modal7 = document.getElementById("myModal7");
 var modal8 = document.getElementById("myModal8");
+var modal9 = document.getElementById("myModal9");
+var modal10 = document.getElementById("myModal10");
 
 
 // Get the button that opens the modal
@@ -83,6 +85,7 @@ var btn3 = document.getElementById("guestAccount");
 var btn4 = document.getElementById("img444");
 var btn5 = document.getElementById("imgProfile");
 var btn6 = document.getElementById("changeTypeStandard");
+var btn7 = document.getElementById("vegasOpen");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -122,6 +125,13 @@ if(btn6) {
     }
 }
 
+if(btn7) {
+    btn7.onclick = function() {
+        modal9.style.display = "block";
+        functionPause();
+    }
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -137,6 +147,7 @@ window.onclick = function(event) {
     }
     if (event.target == modal4) {
         modal4.style.display = "none";
+        modal10.style.display = "block";
     }
     if (event.target == modal5) {
         modal5.style.display = "none";
@@ -150,16 +161,15 @@ window.onclick = function(event) {
     if (event.target == modal8) {
         modal8.style.display = "none";
     }
-}
-
-var modal9 = document.getElementById("myModal9");
-var btn7 = document.getElementById("openSecurity");
-if(btn7) {
-    btn7.onclick = function() {
-        modal9.style.display = "block";
+    if (event.target == modal9) {
+        modal9.style.display = "none";
+    }
+    if (event.target == modal10) {
+        modal10.style.display = "none";
     }
 }
-$("#finishedSignUp").on("click",function(){
+
+document.getElementById("finishedSignUp").onclick = function() {
     $.ajax({
         url: "/signup",
         method: "post",
@@ -168,11 +178,6 @@ $("#finishedSignUp").on("click",function(){
             console.log(r);
         }
     });  
-});
-window.onclick = function(event) {
-  if (event.target == modal9) {
-      modal9.style.display = "none";
-  }
 }
 
 // End of help button modal 
@@ -248,6 +253,18 @@ function toggle() {
             document.getElementById("detailsDivVal").style.backgroundColor = '#63d471';
             document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         }
+        if(document.getElementById("zero")) {
+            document.getElementById("zero").style.border = '2px solid red';
+            document.getElementById("zero").backgroundColor = "red";
+        }
+        if(document.getElementById("zeroFirstSecond")) {
+            document.getElementById("zeroFirstSecond").style.border = '2px solid red';
+            document.getElementById("zeroFirstSecond").backgroundColor = "red";
+        }
+        if(document.getElementById("zeroFirst")) {
+            document.getElementById("zeroFirst").style.border = '2px solid red';
+            document.getElementById("zeroFirst").backgroundColor = "red";
+        }
         document.getElementById("first").style.backgroundColor = '#63d471';
         document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("first").style.borderColor = 'green';
@@ -279,10 +296,15 @@ function toggle() {
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("seventh").style.borderColor = 'green';
         document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamered.png";
+        document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamered.png";
         document.getElementById("modal-content8").style.backgroundColor = '#f2dd6e';
         document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
         document.getElementById("changegameh1").style.color = "black";
         document.getElementById("changegamep").style.color = "black";
+        document.getElementById("changegameh11").style.color = "black";
+        document.getElementById("changegamep1").style.color = "black";
+        document.getElementById("modal-content9").style.backgroundColor = '#f2dd6e';
+        document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
     }
     else if(t.value=="0") {
         t.value="1";
@@ -293,6 +315,8 @@ function toggle() {
         //document.getElementsByClassName("card").style.backgroundImage = 'url("../Images_NotNumbers/backDesign.jpg")';
         document.getElementById("modal-content2").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content2").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("modal-content8").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("modal-content3").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content3").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("headerMain").style.border = '2px dashed black';
@@ -302,6 +326,21 @@ function toggle() {
             document.getElementById("detailsDivVal").style.border = '2px dashed black';
             document.getElementById("detailsDivVal").style.backgroundColor = '#7f5a83';
             document.getElementById("detailsDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zero")) {
+            document.getElementById("zero").style.borderColor = 'black';
+            document.getElementById("zero").style.backgroundColor = '#7f5a83';
+            document.getElementById("zero").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zeroFirstSecond")) {
+            document.getElementById("zeroFirstSecond").style.borderColor = 'black';
+            document.getElementById("zeroFirstSecond").style.backgroundColor = '#7f5a83';
+            document.getElementById("zeroFirstSecond").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zeroFirst")) {
+            document.getElementById("zeroFirst").style.borderColor = 'black';
+            document.getElementById("zeroFirst").style.backgroundColor = '#7f5a83';
+            document.getElementById("zeroFirst").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         }
         document.getElementById("first").style.backgroundColor = '#7f5a83';
         document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
@@ -334,10 +373,15 @@ function toggle() {
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("seventh").style.borderColor = 'black';
         document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamewhite.png";
+        document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamewhite.png";
         document.getElementById("modal-content8").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("changegameh1").style.color = "white";
         document.getElementById("changegamep").style.color = "white";
+        document.getElementById("changegameh11").style.color = "white";
+        document.getElementById("changegamep1").style.color = "white";
+        document.getElementById("modal-content9").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
     }   
 }
 function toggleUser(valueNightOrDay, userId3) {
@@ -378,6 +422,18 @@ function toggleUser(valueNightOrDay, userId3) {
                     document.getElementById("imagesDivVal").style.backgroundColor = '#63d471';
                     document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
                 }
+                if(document.getElementById("zero")) {
+                    document.getElementById("zero").style.border = '2px solid red';
+                    document.getElementById("zero").backgroundColor = "red";
+                }
+                if(document.getElementById("zeroFirstSecond")) {
+                    document.getElementById("zeroFirstSecond").style.border = '2px solid red';
+                    document.getElementById("zeroFirstSecond").backgroundColor = "red";
+                }
+                if(document.getElementById("zeroFirst")) {
+                    document.getElementById("zeroFirst").style.border = '2px solid red';
+                    document.getElementById("zeroFirst").backgroundColor = "red";
+                }
                 document.getElementById("first").style.backgroundColor = '#63d471';
                 document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
                 document.getElementById("first").style.borderColor = 'green';
@@ -408,6 +464,16 @@ function toggleUser(valueNightOrDay, userId3) {
                 document.getElementById("seventh").style.backgroundColor = '#63d471';
                 document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
                 document.getElementById("seventh").style.borderColor = 'green';
+                document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamered.png";
+                document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamered.png";
+                document.getElementById("modal-content8").style.backgroundColor = '#f2dd6e';
+                document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
+                document.getElementById("changegameh1").style.color = "black";
+                document.getElementById("changegamep").style.color = "black";
+                document.getElementById("changegameh11").style.color = "black";
+                document.getElementById("changegamep1").style.color = "black";
+                document.getElementById("modal-content9").style.backgroundColor = '#f2dd6e';
+                document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
             },
             error : function(request, error) {
                 alert("Request: "+JSON.stringify(request));
@@ -449,6 +515,21 @@ function toggleUser(valueNightOrDay, userId3) {
                     document.getElementById("imagesDivVal").style.backgroundColor = '#7f5a83';
                     document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
                 }
+                if(document.getElementById("zero")) {
+                    document.getElementById("zero").style.borderColor = 'black';
+                    document.getElementById("zero").style.backgroundColor = '#7f5a83';
+                    document.getElementById("zero").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                }
+                if(document.getElementById("zeroFirstSecond")) {
+                    document.getElementById("zeroFirstSecond").style.borderColor = 'black';
+                    document.getElementById("zeroFirstSecond").style.backgroundColor = '#7f5a83';
+                    document.getElementById("zeroFirstSecond").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                }
+                if(document.getElementById("zeroFirst")) {
+                    document.getElementById("zeroFirst").style.borderColor = 'black';
+                    document.getElementById("zeroFirst").style.backgroundColor = '#7f5a83';
+                    document.getElementById("zeroFirst").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                }
                 document.getElementById("first").style.backgroundColor = '#7f5a83';
                 document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
                 document.getElementById("first").style.borderColor = 'black';
@@ -479,6 +560,16 @@ function toggleUser(valueNightOrDay, userId3) {
                 document.getElementById("seventh").style.backgroundColor = '#7f5a83';
                 document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
                 document.getElementById("seventh").style.borderColor = 'black';
+                document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamewhite.png";
+                document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamewhite.png";
+                document.getElementById("modal-content8").style.backgroundColor = '#7f5a83';
+                document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                document.getElementById("changegameh1").style.color = "white";
+                document.getElementById("changegamep").style.color = "white";
+                document.getElementById("changegameh11").style.color = "white";
+                document.getElementById("changegamep1").style.color = "white";
+                document.getElementById("modal-content9").style.backgroundColor = '#7f5a83';
+                document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
             },
             error : function(request, error) {
                 alert("Request: "+JSON.stringify(request));
@@ -514,6 +605,18 @@ function firstTime() {
             document.getElementById("imagesDivVal").style.backgroundColor = '#63d471';
             document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         }
+        if(document.getElementById("zero")) {
+            document.getElementById("zero").style.border = '2px solid red';
+            document.getElementById("zero").backgroundColor = "red";
+        }
+        if(document.getElementById("zeroFirstSecond")) {
+            document.getElementById("zeroFirstSecond").style.border = '2px solid red';
+            document.getElementById("zeroFirstSecond").backgroundColor = "red";
+        }
+        if(document.getElementById("zeroFirst")) {
+            document.getElementById("zeroFirst").style.border = '2px solid red';
+            document.getElementById("zeroFirst").backgroundColor = "red";
+        }
         document.getElementById("first").style.backgroundColor = '#63d471';
         document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("first").style.borderColor = 'green';
@@ -544,6 +647,16 @@ function firstTime() {
         document.getElementById("seventh").style.backgroundColor = '#63d471';
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("seventh").style.borderColor = 'green';
+        document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamered.png";
+        document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamered.png";
+        document.getElementById("modal-content8").style.backgroundColor = '#f2dd6e';
+        document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
+        document.getElementById("changegameh1").style.color = "black";
+        document.getElementById("changegamep").style.color = "black";
+        document.getElementById("changegameh11").style.color = "black";
+        document.getElementById("changegamep1").style.color = "black";
+        document.getElementById("modal-content9").style.backgroundColor = '#f2dd6e';
+        document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
     }
     if(valueNightOrDay === false || valueNightOrDay === "false") {
         document.getElementById("ballVal").style.transform = 'translateX(24px)';
@@ -570,6 +683,21 @@ function firstTime() {
             document.getElementById("imagesDivVal").style.border = '2px dashed black';
             document.getElementById("imagesDivVal").style.backgroundColor = '#7f5a83';
             document.getElementById("imagesDivVal").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zero")) {
+            document.getElementById("zero").style.borderColor = 'black';
+            document.getElementById("zero").style.backgroundColor = '#7f5a83';
+            document.getElementById("zero").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zeroFirstSecond")) {
+            document.getElementById("zeroFirstSecond").style.borderColor = 'black';
+            document.getElementById("zeroFirstSecond").style.backgroundColor = '#7f5a83';
+            document.getElementById("zeroFirstSecond").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        }
+        if(document.getElementById("zeroFirst")) {
+            document.getElementById("zeroFirst").style.borderColor = 'black';
+            document.getElementById("zeroFirst").style.backgroundColor = '#7f5a83';
+            document.getElementById("zeroFirst").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         }
         document.getElementById("first").style.backgroundColor = '#7f5a83';
         document.getElementById("first").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
@@ -601,6 +729,16 @@ function firstTime() {
         document.getElementById("seventh").style.backgroundColor = '#7f5a83';
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("seventh").style.borderColor = 'black';
+        document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamewhite.png";
+        document.getElementById("changegamelogo2").src = "../Images_NotNumbers/chooseurgamewhite.png";
+        document.getElementById("modal-content8").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("changegameh1").style.color = "white";
+        document.getElementById("changegamep").style.color = "white";
+        document.getElementById("changegameh11").style.color = "white";
+        document.getElementById("changegamep1").style.color = "white";
+        document.getElementById("modal-content9").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
     }   
 }
 

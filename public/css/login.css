@@ -45,8 +45,8 @@
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%); /* for IE 9 */
         -webkit-transform: translate(-50%, -50%); /* for Safari */
-        width: 500px;
-        height: 390px;
+        width: 600px;
+        height: 500px;
         background-color: #fff;
         padding: 10px;
         border-radius: 3px;
@@ -138,7 +138,8 @@
     }
     .u-form-group input[type="username"],
     .u-form-group input[type="email"],
-    .u-form-group input[type="password"]{
+    .u-form-group input[type="password"],
+    .u-form-group input[type="text"]{
         width: calc(50% - 22px);
         height: 45px;
         outline: none;

@@ -40,6 +40,14 @@ a {
 a:hover {
    color: yellow;
 }
+#loggedin1, #loggedin2 {
+   color: white;
+}
+#loggedin1:hover, #loggedin2:hover {
+   color: yellow;
+   box-shadow: 0px 0px 5px yellow;
+   cursor: pointer;
+}
 #loginNotice, #gameNotice {
    font-family: 'Antic Slab', serif; 
    font-weight: 500;
@@ -83,7 +91,7 @@ a:hover {
     box-shadow: 0px 0px 5px yellow;
     cursor: pointer;
 }
-#vegas, #standard {
+#vegas, #standard, #vegasOpen {
    background-color: red;
    color: white;
    padding: 10px;
@@ -165,11 +173,34 @@ a:hover {
    font-family: 'Antic Slab', serif; 
    height: 310px;
    width: 40%;
-   overflow: hidden;
+   overflow-x: hidden;
+   overflow-y: scroll;
    margin: 22% auto;
    padding: 20px;
    background-color: #63d471;
    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+   color: black;
+}
+.modal-content8 {
+   font-family: 'Antic Slab', serif; 
+   height: 310px;
+   width: 40%;
+   overflow: hidden;
+   margin: 22% auto;
+   padding: 20px;
+   background-color: #f2dd6e;
+   background-image: linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%);
+   color: black;
+}
+.modal-content9 {
+   font-family: 'Antic Slab', serif; 
+   height: 310px;
+   width: 40%;
+   overflow: hidden;
+   margin: 22% auto;
+   padding: 20px;
+   background-color: #f2dd6e;
+   background-image: linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%);
    color: black;
 }
 .modal5 {
@@ -250,18 +281,21 @@ a:hover {
    margin-top: 0px;
    color: black;
 }
+.modal-content7 {
+   color: white;
+}
 .modal-content p, .modal-content2 p, .modal-content5 p {
     color: black;
 }
-.modal-content::-webkit-scrollbar, .modal-content-details::-webkit-scrollbar, .modal-content-images::-webkit-scrollbar, #gamePlay::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .modal-content-details::-webkit-scrollbar, .modal-content-images::-webkit-scrollbar, #gamePlay::-webkit-scrollbar, .modal-content7::-webkit-scrollbar {
     width: 0em;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-track, .modal-content-details::-webkit-scrollbar-track, .modal-content-images::-webkit-scrollbar-track, #gamePlay::-webkit-scrollbar-track {
+.modal-content::-webkit-scrollbar-track, .modal-content-details::-webkit-scrollbar-track, .modal-content-images::-webkit-scrollbar-track, #gamePlay::-webkit-scrollbar-track, .modal-content7::-webkit-scrollbar-track {
     box-shadow: none;
     background-color: transparent;
 }
-.modal-content::-webkit-scrollbar-thumb, .modal-content-details::-webkit-scrollbar-thumb, .modal-content-images::-webkit-scrollbar-thumb, #gamePlay::-webkit-scrollbar-thumb {
+.modal-content::-webkit-scrollbar-thumb, .modal-content-details::-webkit-scrollbar-thumb, .modal-content-images::-webkit-scrollbar-thumb, #gamePlay::-webkit-scrollbar-thumb, .modal-content7::-webkit-scrollbar-thumb {
     background-color: red;
     outline: none;
 }
@@ -295,6 +329,14 @@ body::-webkit-scrollbar-thumb {
 }
 #col4, #col5, #col6, #col7 {
     float: right;
+}
+th {
+   background-color: red;
+   color: white;
+}
+th, tr, td {
+   border: 4px solid black;
+   padding: 8px;
 }
 .dialog-ovelay {
     position: fixed;
@@ -1438,5 +1480,49 @@ body::-webkit-scrollbar-thumb {
       }
       #imgProfileDiv:hover {
          border: 4px solid red;
+      }
+      #fquestion1, #fquestion2, #fquestion3, #changegamep1, #changegamep2, #changegamep3, #changegamep4,
+      #changegamep5, #changegamep6, #fanswer1, #fanswer2, #fanswer3, #changegameh12 {
+         float: left;
+      }
+      .u-form-group input[type="username"],
+      .u-form-group input[type="email"],
+      .u-form-group input[type="password"],
+      .u-form-group input[type="text"]{
+         width: calc(50% - 22px);
+         height: 45px;
+         outline: none;
+         border: 1px solid #ddd;
+         padding: 0 10px;
+         border-radius: 2px;
+         color: #333;
+         font-size: 0.8rem;
+         -webkit-transition: all 0.1s linear;
+         -moz-transition: all 0.1s linear;
+         transition: all 0.1s linear;
+      }
+      .u-form-group input:focus{
+         border-color: #358efb;
+      }
+      .u-form-group #submitVal, .u-form-group #submitVal2, .u-form-group button{
+         width: 50%;
+         border: 2px solid green;
+         background-color: transparent;
+         outline: none;
+         color: green;
+         font-size: 14px;
+         font-weight: normal;
+         padding: 14px 0;
+         border-radius: 2px;
+         text-transform: uppercase;
+         cursor: pointer
+      }
+      #finishedSignUp {
+         color: white;
+         border-color: white;
+      }
+      #finishedSignUp:hover {
+         color: white;
+         background-color: red;
       }
   

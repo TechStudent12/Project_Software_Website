@@ -75,6 +75,7 @@
             </div>
          
          </div>
+
       <% } %>
       <div class="navHamMovie" id="navTabs">
           <div id="tabsForNav">
@@ -185,12 +186,47 @@
 
       </div>
 
+      <% if(!user.finishedQuestions) { %>
+         <div id="myModal10" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content7" id="modal-content10">
+
+               <center><img id="changegamelogo3" src="../Images_NotNumbers/securityNew.png" width="220" height="220" alt="Solitaire Logo" /></center>
+               <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;">Security Questions</h1>
+               <div class="u-form-group">
+                  <input type="text" name="firstQuestion" placeholder="Security Question 1" aria-label="SecurityQuestion"/>
+               </div><br>
+               <div class="u-form-group">
+                  <input type="text" name="firstAnswer" placeholder="Security Answer 1" aria-label="SecurityAnswer"/>
+               </div><br>
+               <div class="u-form-group">
+                  <input type="text" name="firstQuestion" placeholder="Security Question 2" aria-label="SecurityQuestion"/>
+               </div><br>
+               <div class="u-form-group">
+                  <input type="text" name="firstAnswer" placeholder="Security Answer 2" aria-label="SecurityAnswer"/>
+               </div><br>
+               <div class="u-form-group">
+                  <input type="text" name="firstQuestion" placeholder="Security Question 3" aria-label="SecurityQuestion"/>
+               </div><br>
+               <div class="u-form-group">
+                  <input type="text" name="firstAnswer" placeholder="Security Answer 3" aria-label="SecurityAnswer"/>
+               </div><br>
+               <div class="u-form-group">
+                  <button id="finishedSignUp" type="submit">Continue</button>
+               </div>
+      
+            </div>
+      
+         </div>
+      <% } %>
+
       <!-- The help button modal--->
       <div id="myModal" class="modal">
 
          <!-- Modal content -->
          <div class="modal-content">
-            <h1 id="headerMain" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;">How to play: Solitaire<br><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
+            <h1 id="headerMain" style="padding-top: 0px; padding: 10px; margin-top: 0px; color:white; background-color: #42378f;background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); border: none; font-family: 'Kaushan Script', cursive; border: 1px dotted black;">How to play: Solitaire<sup style="font-size: 20px; font-family: 'Antic Slab', serif;">[Standard Edition]</sup><br><p style="font-size: 15px; color: white; font-family: 'Antic Slab', serif; font-weight: normal;">Version &rArr; alpha.1.0.2<br>Date &rArr; March 25, 2022<br>Last Updated &rArr; March 25, 2022<br>Completed &rArr; No &rArr; Under-development<br>Scrollbar &rArr; Not visible &rArr; Use mousewheel to scroll</p></h1>
 
             <p id="first" style="font-size: 20px; color:white; background-color: red; border: 2px solid red; padding: 10px; font-family: 'Kaushan Script', cursive;"><strong>THE PACK</strong></p>
             <p>Virtually all Solitaire games are played with one or more standard 52-card packs. Standard Solitaire uses one 52-card pack. </p>
@@ -300,8 +336,25 @@
          <!-- Modal content -->
          <div class="modal-content6" id="modal-content8">
             <center><img id="changegamelogo" src="../Images_NotNumbers/chooseurgamered.png" width="220" height="220" alt="Solitaire Logo" /></center>
-            <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;"><button id="standard" style="background-color: green; cursor: no-drop;" disabled>&#9745; Standard</button> or <button id="vegas" onclick="location.href = '/solitaire/vegas';">&#9744; Vegas</button></h1>
+            <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;"><button id="standard" style="background-color: green; cursor: no-drop;" disabled>&#9745; Standard</button> or 
+            <% if(user) { %> 
+               <button id="vegas" onclick="location.href = '/solitaire/vegas';">&#9744; Vegas</button></h1>
+            <% } else { %>
+               <button id="vegasOpen">&#9744; Vegas</button></h1>
+            <% } %>
             <p id="changegamep" style="margin-top: 5px;">You can change your game type at anytime</p>
+         </div>
+
+      </div>
+
+
+      <div id="myModal9" class="modal">
+
+         <!-- Modal content -->
+         <div class="modal-content9" id="modal-content9">
+            <center><img id="changegamelogo2" src="../Images_NotNumbers/chooseurgamered.png" width="220" height="220" alt="Solitaire Logo" /></center>
+            <h1 id="changegameh11" style="margin-top: 0px; padding-top: 0px; margin-bottom: 10px;">Not logged in</h1>
+            <p id="changegamep1" style="margin-top: 0px; font-size: 20px;"><a id="loggedin1" href="/login" style="background-color: red; padding: 5px;">Signup</a> or <a id="loggedin2" href="/login" style="background-color: red; padding: 5px;">Signin</a> to start playing Vegas Edition!</p>
          </div>
 
       </div>
