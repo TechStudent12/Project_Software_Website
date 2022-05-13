@@ -474,6 +474,8 @@ function toggleUser(valueNightOrDay, userId3) {
                 document.getElementById("changegamep1").style.color = "black";
                 document.getElementById("modal-content9").style.backgroundColor = '#f2dd6e';
                 document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
+                document.getElementById("modal-content10").style.backgroundColor = '#f2dd6e';
+                document.getElementById("modal-content10").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
             },
             error : function(request, error) {
                 alert("Request: "+JSON.stringify(request));
@@ -570,6 +572,8 @@ function toggleUser(valueNightOrDay, userId3) {
                 document.getElementById("changegamep1").style.color = "white";
                 document.getElementById("modal-content9").style.backgroundColor = '#7f5a83';
                 document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+                document.getElementById("modal-content10").style.backgroundColor = '#7f5a83';
+                document.getElementById("modal-content10").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
             },
             error : function(request, error) {
                 alert("Request: "+JSON.stringify(request));
@@ -657,6 +661,8 @@ function firstTime() {
         document.getElementById("changegamep1").style.color = "black";
         document.getElementById("modal-content9").style.backgroundColor = '#f2dd6e';
         document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
+        document.getElementById("modal-content10").style.backgroundColor = '#f2dd6e';
+        document.getElementById("modal-content10").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
     }
     if(valueNightOrDay === false || valueNightOrDay === "false") {
         document.getElementById("ballVal").style.transform = 'translateX(24px)';
@@ -739,6 +745,8 @@ function firstTime() {
         document.getElementById("changegamep1").style.color = "white";
         document.getElementById("modal-content9").style.backgroundColor = '#7f5a83';
         document.getElementById("modal-content9").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("modal-content10").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content10").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
     }   
 }
 
