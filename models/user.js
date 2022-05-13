@@ -38,7 +38,10 @@ const userSchema = new Schema
     firstName: String,
     lastName: String,
     bestTime: {type: Number, default: 0},
-    bestScore: {type: Number, default: 0}
+    bestScore: {type: Number, default: 0},
+    securityQuestions: { type : Array , "default" : [] },
+    securityAnswers: { type : Array , "default" : [] },
+    finishedQuestions: {type: Boolean, default: false}
 });
 
 userSchema.methods.encryptPassword = (password) => {

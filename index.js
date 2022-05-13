@@ -65,8 +65,12 @@ app.get("/index", isLoggedIn, (req, res, next) => {
 });
  
 //Showing register form
-app.get("/solitaire", (req, res, next) => {
+app.get("/solitaire/standard", (req, res, next) => {
     res.render("solitaire");
+});
+
+app.get("/solitaire/vegas", (req, res, next) => {
+    res.render("solitairevegas");
 });
 
 //Showing logging page

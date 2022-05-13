@@ -73,6 +73,7 @@ var modal4 = document.getElementById("myModal4");
 var modal5 = document.getElementById("myModal5");
 var modal6 = document.getElementById("myModal6");
 var modal7 = document.getElementById("myModal7");
+var modal8 = document.getElementById("myModal8");
 
 
 // Get the button that opens the modal
@@ -81,6 +82,7 @@ var btn2 = document.getElementById("pauseBtn");
 var btn3 = document.getElementById("guestAccount");
 var btn4 = document.getElementById("img444");
 var btn5 = document.getElementById("imgProfile");
+var btn6 = document.getElementById("changeTypeStandard");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -113,6 +115,13 @@ if(btn5) {
     }
 }
 
+if(btn6) {
+    btn6.onclick = function() {
+        modal8.style.display = "block";
+        functionPause();
+    }
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -138,7 +147,34 @@ window.onclick = function(event) {
     if (event.target == modal7) {
         modal7.style.display = "none";
     }
+    if (event.target == modal8) {
+        modal8.style.display = "none";
+    }
 }
+
+var modal9 = document.getElementById("myModal9");
+var btn7 = document.getElementById("openSecurity");
+if(btn7) {
+    btn7.onclick = function() {
+        modal9.style.display = "block";
+    }
+}
+$("#finishedSignUp").on("click",function(){
+    $.ajax({
+        url: "/signup",
+        method: "post",
+        data: $("#login-form").serialize() + "&checkLogin=true",
+        success: function(r){
+            console.log(r);
+        }
+    });  
+});
+window.onclick = function(event) {
+  if (event.target == modal9) {
+      modal9.style.display = "none";
+  }
+}
+
 // End of help button modal 
 
 function Confirm2(title, msg, $true, $false, num) { 
@@ -242,6 +278,11 @@ function toggle() {
         document.getElementById("seventh").style.backgroundColor = '#63d471';
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #63d471 0%, #233329 74%)';
         document.getElementById("seventh").style.borderColor = 'green';
+        document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamered.png";
+        document.getElementById("modal-content8").style.backgroundColor = '#f2dd6e';
+        document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%)';
+        document.getElementById("changegameh1").style.color = "black";
+        document.getElementById("changegamep").style.color = "black";
     }
     else if(t.value=="0") {
         t.value="1";
@@ -292,6 +333,11 @@ function toggle() {
         document.getElementById("seventh").style.backgroundColor = '#7f5a83';
         document.getElementById("seventh").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
         document.getElementById("seventh").style.borderColor = 'black';
+        document.getElementById("changegamelogo").src = "../Images_NotNumbers/chooseurgamewhite.png";
+        document.getElementById("modal-content8").style.backgroundColor = '#7f5a83';
+        document.getElementById("modal-content8").style.backgroundImage = 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)';
+        document.getElementById("changegameh1").style.color = "white";
+        document.getElementById("changegamep").style.color = "white";
     }   
 }
 function toggleUser(valueNightOrDay, userId3) {

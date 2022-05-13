@@ -75,6 +75,33 @@
             </div>
          
          </div>
+
+
+         <% if(!user.finishedQuestions) { %>
+         <div id="myModal9" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content7" id="modal-content9">
+               <center><img id="changegamelogo" src="../Images_NotNumbers/security.webp" width="220" height="220" alt="Solitaire Logo" /></center>
+               <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;">Security Questions</h1>
+               <p id="changegamep" style="margin-top: 5px;">Question 1</p>
+               <input type="text" id="fquestion1" name="fquestion1" aria-label="Question1">
+               <p id="changegamep" style="margin-top: 5px;">Answer 1</p>
+               <input type="text" id="fanswer1" name="fanswer1" aria-label="Answer1">
+               <p id="changegamep" style="margin-top: 5px;">Question 2</p>
+               <input type="text" id="fquestion2" name="fquestion2" aria-label="Question2">
+               <p id="changegamep" style="margin-top: 5px;">Answer 2</p>
+               <input type="text" id="fanswer2" name="fanswer2" aria-label="Answer2">
+               <p id="changegamep" style="margin-top: 5px;">Question 3</p>
+               <input type="text" id="fquestion3" name="fquestion3" aria-label="Question3">
+               <p id="changegamep" style="margin-top: 5px;">Answer 3</p>
+               <input type="text" id="fanswer3" name="fanswer3" aria-label="Answer3">
+               <button id="finishedSignUp" type="submit">Continue</button>
+      
+            </div>
+      
+         </div>
+         <% } %>
       <% } %>
       <div class="navHamMovie" id="navTabs">
           <div id="tabsForNav">
@@ -99,7 +126,7 @@
   </nav>
    <div>
       <center><img src="../logos/logo.png" width="200" height="200" alt="Solitaire Logo" /></center>
-      <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire<sup style="font-size: 16px; background-color: red; padding: 5px; margin-left: 8px; font-family: 'Antic Slab', serif;">[Standard Edition]</sup></h1></center> 
+      <center><h1 style="font-family: 'Kaushan Script', cursive; font-size: 60px; margin-top: -30px;">Solitaire<sup style="font-size: 16px; background-color: red; padding: 5px; margin-left: 8px; font-family: 'Antic Slab', serif;">[Vegas Edition]</sup></h1></center> 
       <% if(!user) { %>
          <center><p id="loginNotice">You are currently using a <mark style="background-color: red; padding: 4px;"><a id="guestAccount">guest account</a></mark>. Please <mark style="background-color: red; padding: 4px;"><a href="/login">login</a></mark>.</p></center>
       <% } %>
@@ -300,7 +327,7 @@
          <!-- Modal content -->
          <div class="modal-content6" id="modal-content8">
             <center><img id="changegamelogo" src="../Images_NotNumbers/chooseurgamered.png" width="220" height="220" alt="Solitaire Logo" /></center>
-            <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;"><button id="standard" style="background-color: green; cursor: no-drop;" disabled>&#9745; Standard</button> or <button id="vegas" onclick="location.href = '/solitaire/vegas';">&#9744; Vegas</button></h1>
+            <h1 id="changegameh1" style="margin-top: 0px; padding-top: 0px;"><button id="standard" onclick="location.href = '/solitaire/standard';">&#9744; Standard</button> or <button id="vegas" style="background-color: green; cursor: no-drop;" disabled>&#9745; Vegas</button></h1>
             <p id="changegamep" style="margin-top: 5px;">You can change your game type at anytime</p>
          </div>
 

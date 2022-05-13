@@ -50,10 +50,10 @@
         <div class="email-login">
           <form action="/signin" method="post">
             <div class="u-form-group">
-              <input type="username" name="username" placeholder="Username" aria-label="username"/>
+              <input type="username" name="username" placeholder="Username" aria-label="username" autocomplete="off"/>
             </div>
             <div class="u-form-group">
-              <input type="password" name="password" placeholder="Password" aria-label="password"/>
+              <input type="password" name="password" placeholder="Password" aria-label="password" autocomplete="off"/>
             </div>
             <div class="u-form-group">
               <button type="submit">Login</button>
@@ -72,13 +72,13 @@
         <div class="email-signup">
           <form action="/signup" method="post">
             <div class="u-form-group">
-              <input type="username" name="username" placeholder="Username" aria-label="username"/>
+              <input type="username" name="username" placeholder="Username" aria-label="username" autocomplete="off"/>
             </div>
             <div class="u-form-group">
-              <input type="email" name="email" placeholder="Email" aria-label="email"/>
+              <input type="email" name="email" placeholder="Email" aria-label="email" autocomplete="off"/>
             </div>
             <div class="u-form-group">
-              <input type="password" name="password" placeholder="Password" aria-label="password"/>
+              <input type="password" name="password" placeholder="Password" aria-label="password" autocomplete="off">
             </div>
             <div class="u-form-group">
               <button type="submit">Sign Up</button>
@@ -104,7 +104,7 @@
             $("#signup-box-link").removeClass("active");
         });
         function redirect() {
-            window.location.assign('/solitaire');
+            window.location.assign('/solitaire/standard');
         }
     </script>
 </body>
