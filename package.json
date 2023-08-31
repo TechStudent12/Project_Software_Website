@@ -10,7 +10,7 @@
     "express": "^4.17.3",
     "express-force-https": "^1.0.0",
     "express-session": "^1.17.2",
-    "mongoose": "^6.3.0",
+    "mongoose": "^6.12.0",
     "nodejs": "^0.0.0",
     "passport": "^0.5.2",
     "passport-github": "^1.1.0",
